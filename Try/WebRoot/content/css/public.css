@@ -1,0 +1,80 @@
+﻿@charset "utf-8";
+/*页面初始化*/
+body {
+	font-family:Microsoft Yahei, \5FAE\8F6F\96C5\9ED1, \5b8b\4f53, Arial, Lucida, Verdana, Helvetica, sans-serif;
+	color:#555;
+
+
+}
+body, button, input, textarea {
+	font-size:14px;
+	/*line-height:1.531;*/
+	outline:none;
+	margin:0;
+	padding:0;
+	border:0;
+}
+p, ul, ol, dl, dt, dd, form, blockquote {
+	margin:0;
+	padding:0;
+}
+ul, ol {
+	list-style:none;
+}
+h1, h2, h3, h4, h5, h6 {
+	
+	margin: 0;
+	padding: 0;
+}
+em, b, i {
+	font-style:normal;
+	font-weight:normal;
+}
+img {
+	border:0;
+}
+a {
+	text-decoration:none;
+	opacity:none;
+  border:0;
+  outline:none;
+}
+a:hover {
+	text-decoration:underline;
+    color:und;
+}
+  .rslides {
+  position: relative;
+  list-style: none;
+  overflow: hidden;
+  width: 1200px;
+  padding: 0;
+  margin: 0;
+  }
+
+.rslides li {
+  -webkit-backface-visibility: hidden;
+  position: absolute;
+  display: none;
+  width: 1200px;
+  left: 0;
+  top: 0;
+  }
+
+.rslides li:first-child {
+  position: relative;
+  display: block;
+  float: left;
+  }
+
+.rslides img {
+  display: block;
+  height: 400px;
+  float: left;
+  width: 1200px;
+  border: 0;
+  }
+*{
+  margin:0;
+  padding:0;
+}
