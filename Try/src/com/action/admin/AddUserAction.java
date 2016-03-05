@@ -1,0 +1,63 @@
+package com.action.admin;
+
+import com.dao.UserDao;
+import com.entity.User;
+import com.opensymphony.xwork2.ActionSupport;
+
+public class AddUserAction extends ActionSupport {
+
+	private static final long serialVersionUID = 1L;
+
+	private String username;
+	private String realname;
+	private String password;
+	private String rpassword;
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getRealname() {
+		return realname;
+	}
+
+	public void setRealname(String realname) {
+		this.realname = realname;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getRpassword() {
+		return rpassword;
+	}
+
+	public void setRpassword(String rpassword) {
+		this.rpassword = rpassword;
+	}
+
+	public String execute() {
+		if (rpassword.equals(password)) {
+			User user = new User();
+			user.setUserName(username);
+			user.setUserPassword(rpassword);
+			user.setRealName(realname);
+			user.setLoginCount(0);
+			user.setPermissionSign(false);
+			UserDao userDao = new UserDao();
+			if (userDao.saveUser(user)) {
+				return SUCCESS;
+			}
+		}
+		return INPUT;
+	}
+}

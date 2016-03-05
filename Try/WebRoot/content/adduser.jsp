@@ -1,7 +1,9 @@
-<!doctype html>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>用户管理</title>
 <link rel="stylesheet" href="css/admin.css">
 <link rel="stylesheet" href="css/public.css">
@@ -148,22 +150,22 @@
 								<p class="warning">会计法！</p>
 							</div>
 							<div class="table-content">
-								<form action="" method="" name="adduser">
+								<form action="addUser" method="post" name="adduser">
 									<p class="tablecon">用户名:</p>
 									<p class="tablecon">
-										<input class="te" type="text" placeholder=>
+										<input class="te" type="text" placeholder="请输入用户名!" name="username">
 									</p>
 									<p class="tablecon">用户真实姓名:</p>
 									<p class="tablecon">
-										<input class="te" type="text" placeholder=>
+										<input class="te" type="text" placeholder="请输入真实姓名!" name="realname">
 									</p>
 									<p class="tablecon">用户密码:</p>
 									<p class="tablecon">
-										<input class="te" type="text">
+										<input class="te" type="password" name="password">
 									</p>
 									<p class="tablecon">确认密码:</p>
 									<p class="tablecon">
-										<input class="te" type="text">
+										<input class="te" type="password" name="rpassword">
 									</p>
 									<div class="buttons-adduser">
 										<input type="submit" class="button-adduser" value="提交">

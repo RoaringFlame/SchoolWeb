@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+
+	<package name="User" extends="struts-default">
+		<action name="login" class="com.action.user.LoginAction">
+			<result name="success">/content\admin.jsp</result>
+			<result name="input">/content\login.jsp</result>
+			<result name="quit">/content\index.jsp</result>
+		</action>
+		<action name="changePassword"
+			class="com.action.user.ChangePasswordAction">
+			<result name="success">/content\login.jsp</result>
+			<result name="input">/content\resetpwd.jsp</result>
+		</action>
+	</package></struts>    
