@@ -24,8 +24,8 @@
 						<input type="password" class="password" name= "password" placeholder="请输入密码">
 					</div>
 					<div class="line-idcode">
-						<input type="text" class="idcode" placeholder="验证码"> <img
-							src="" alt=""><a href="" class="other">换一张</a>
+						<input type="text" class="idcode" placeholder="验证码" maxlength="6"> <img
+							src="<%=request.getContextPath()%>/auth.jpg" alt=""><a href="" class="other">换一张</a>
 					</div>
 					<div class="buttons">
 						<input class="button-left" type="submit" value="登录"> <input
