@@ -21,7 +21,7 @@
 			uploadJson : '../editor/jsp/upload_json.jsp',
 			fileManagerJson : '../editor/jsp/file_manager_json.jsp',
 			allowFileManager : true,
-			resizeType : 1,
+			resizeType : 0,
 			afterCreate : function() {
 				var self = this;
 				K.ctrl(document, 13, function() {
