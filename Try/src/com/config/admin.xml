@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
 <struts>
-
 	<package name="Admin" extends="struts-default">
 		<action name="addUser" class="com.action.admin.AddUserAction">
 			<result name="success">/content\admin.jsp</result>
 			<result name="input">/content\adduser.jsp</result>
-		</action></package></struts>    
+		</action>
+
+		<action name="upload" class="com.action.admin.UploadAction">
+			<result name="success">/content\admin.jsp</result>
+			<result name="error">/content\uptext.jsp</result>
+		</action>
+	</package>
+</struts>    

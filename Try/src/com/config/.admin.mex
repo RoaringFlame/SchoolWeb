@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Struts2Diagram version="2.0">
-  <package name="Admin" location="304,75" size="407,350">
-    <action name="addUser" location="55,51" size="125,62">
+  <package name="Admin" location="311,73" size="413,350">
+    <action name="addUser" location="56,52" size="125,62">
       <result name="success">
         <resourceEdge source="success" routing="0" target="admin.jsp" />
       </result>
@@ -9,8 +9,17 @@
         <resourceEdge source="input" routing="0" target="adduser.jsp" />
       </result>
     </action>
+    <action name="upload" location="55,159" size="127,62">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="admin.jsp" />
+      </result>
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="uptext.jsp" />
+      </result>
+    </action>
   </package>
-  <webResource name="admin.jsp" path="/content\admin.jsp" location="101,102" size="150,55" />
-  <webResource name="adduser.jsp" path="/content\adduser.jsp" location="105,199" size="150,55" />
+  <webResource name="admin.jsp" path="/content\admin.jsp" location="110,102" size="150,55" />
+  <webResource name="adduser.jsp" path="/content\adduser.jsp" location="107,205" size="150,55" />
+  <webResource name="uptext.jsp" path="/content\uptext.jsp" location="111,311" size="150,55" />
 </Struts2Diagram>
 

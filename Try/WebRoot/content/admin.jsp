@@ -144,22 +144,24 @@
 					</h2>
 				</div>
 				<div class="buttons">
-					<div class="button" href="publish.html">
-						<span> <a href="publish.html"><img src="img/pencil.png"
-								alt=""></a> <a class="title" href="publish.html">发布管理</a>
+					<div class="button" href="publish.jsp">
+						<span> <a href="publish.jsp"><img src="img/pencil.png"
+								alt=""></a> <a class="title" href="publish.jsp">发布管理</a>
 						</span>
 					</div>
-					<div class="button" href="adduser.html">
-						<a href="adduser.html"><img src="img/user-admin.png" alt=""></a>
-						<a class="title" href="adduser.html">用户管理</a>
+					<s:if test="#session.user.permissionSign">
+						<div class="button" href="adduser.jsp">
+							<a href="adduser.jsp"><img src="img/user-admin.png" alt=""></a>
+							<a class="title" href="adduser.jsp">用户管理</a>
+						</div>
+					</s:if>
+					<div class="button" href="resetpwd.jsp">
+						<a href="resetpwd.jsp"><img src="img/resetpwd.png" alt=""></a>
+						<a class="title" href="resetpwd.jsp">修改密码</a>
 					</div>
-					<div class="button" href="resetpwd.html">
-						<a href="resetpwd.html"><img src="img/resetpwd.png" alt=""></a>
-						<a class="title" href="resetpwd.html">修改密码</a>
-					</div>
-					<div class="button" href="login.html">
-						<a href="login.html"><img src="img/exit.png" alt=""></a> <a
-							class="title" href="login.html">退出</a>
+					<div class="button" href="login.jsp">
+						<a href="login.jsp"><img src="img/exit.png" alt=""></a> <a
+							class="title" href="login.jsp">退出</a>
 					</div>
 				</div>
 				<div class="admin-main">
