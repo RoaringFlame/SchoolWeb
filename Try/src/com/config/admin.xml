@@ -4,12 +4,26 @@
 	<package name="Admin" extends="struts-default">
 		<action name="addUser" class="com.action.admin.AddUserAction">
 			<result name="success">/content\admin.jsp</result>
-			<result name="input">/content\adduser.jsp</result>
+			<result name="input" type="redirectAction">
+				<param name="actionName">showUser</param>
+			</result>
 		</action>
 
 		<action name="upload" class="com.action.admin.UploadAction">
 			<result name="success">/content\admin.jsp</result>
 			<result name="error">/content\uptext.jsp</result>
+		</action>
+
+		<action name="deleteUser" class="com.action.admin.DeleteUserAction">
+			<result name="success" type="redirectAction">
+				<param name="actionName">showUser</param>
+			</result>
+			<result name="error">/content\admin.jsp</result>
+		</action>
+
+		<action name="showUser" class="com.action.admin.ShowUserAction">
+			<result name="success">/content\adduser.jsp</result>
+			<result name="error">/content\admin.jsp</result>
 		</action>
 	</package>
 </struts>    

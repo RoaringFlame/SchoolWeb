@@ -28,6 +28,7 @@ CREATE TABLE `conuter` (
   `yesterday_count` int(11) DEFAULT NULL,
   `all_count` int(11) DEFAULT NULL,
   `cilck_count` int(11) DEFAULT NULL,
+  `day_count` int(11) DEFAULT NULL,
   PRIMARY KEY (`count_id`),
   UNIQUE KEY `count_id_UNIQUE` (`count_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
@@ -39,7 +40,7 @@ CREATE TABLE `conuter` (
 
 LOCK TABLES `conuter` WRITE;
 /*!40000 ALTER TABLE `conuter` DISABLE KEYS */;
-INSERT INTO `conuter` VALUES (1,0,0,0,0);
+INSERT INTO `conuter` VALUES (1,0,0,0,0,NULL);
 /*!40000 ALTER TABLE `conuter` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -52,13 +53,12 @@ DROP TABLE IF EXISTS `news`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `news` (
   `news_id` int(11) NOT NULL AUTO_INCREMENT,
-  `news_title` varchar(50) NOT NULL,
   `news_column` int(11) NOT NULL COMMENT '栏目类别用数字标记',
-  `last_operation` int(11) DEFAULT NULL,
-  `news_uploader` varchar(50) DEFAULT NULL,
+  `news_title` varchar(50) NOT NULL,
+  `news_uploader` varchar(50) NOT NULL,
+  `last_operation` varchar(50) DEFAULT NULL,
   `upload_date` datetime DEFAULT NULL,
   `read_count` int(11) DEFAULT NULL,
-  `news_location` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`news_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='文章信息';
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -70,6 +70,30 @@ CREATE TABLE `news` (
 LOCK TABLES `news` WRITE;
 /*!40000 ALTER TABLE `news` DISABLE KEYS */;
 /*!40000 ALTER TABLE `news` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `news_detail`
+--
+
+DROP TABLE IF EXISTS `news_detail`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `news_detail` (
+  `news_id` int(11) NOT NULL,
+  `news_column` int(11) NOT NULL,
+  `news_contents` longtext,
+  PRIMARY KEY (`news_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `news_detail`
+--
+
+LOCK TABLES `news_detail` WRITE;
+/*!40000 ALTER TABLE `news_detail` DISABLE KEYS */;
+/*!40000 ALTER TABLE `news_detail` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -111,4 +135,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-03-05 19:52:18
+-- Dump completed on 2016-03-07 18:10:32

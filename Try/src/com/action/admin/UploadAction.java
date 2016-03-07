@@ -44,7 +44,8 @@ public class UploadAction extends ActionSupport {
 	}
 
 	public String execute() {
-		System.out.println(column+"+"+title+"+"+uploader+"\n"+content);
-		return ERROR;
+		//实例化news再根据id得到news_detail并同时插入数据库（可加入newsDao中写成一个事务处理方法）
+		//判断返回状态，决定去向
+		return SUCCESS;
 	}
 }

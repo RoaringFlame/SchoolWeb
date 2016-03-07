@@ -54,6 +54,7 @@ public class LoginAction extends ActionSupport {
 		UserDao userDao = new UserDao();
 		User user = userDao.UserLogin(use);
 		if (user != null) {
+			// 更新登录时间、登录次数(可放入查询中)
 			// 显示application中访问记录、用户记录
 			user.setUserPassword(null);
 			session.setAttribute("user", user);
@@ -64,8 +65,7 @@ public class LoginAction extends ActionSupport {
 
 	public String quit() {
 		if (ActionContext.getContext().getSession() != null)
-			ActionContext.getContext().getSession().clear();
-		// 更新登录时间、登录次数(可放入查询中)
+			ActionContext.getContext().getSession().clear();		
 		return "quit";
 	}
 }
