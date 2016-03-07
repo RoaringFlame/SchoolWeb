@@ -2,7 +2,7 @@ package com.action.visitor;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-public class NewsListAction extends ActionSupport {
+public class ShowListAction extends ActionSupport {
 
 	/**
 	 * @return

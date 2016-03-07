@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Struts2Diagram version="2.0">
   <package name="User" location="215,43" size="453,478">
-    <action name="login" location="59,64" size="116,83">
+    <action name="login" location="71,76" size="117,83">
       <result name="success">
         <resourceEdge source="success" routing="0" target="admin.jsp" />
       </result>
@@ -12,13 +12,21 @@
         <resourceEdge source="quit" routing="0" target="index.jsp" />
       </result>
     </action>
-    <action name="changePassword" location="263,67" size="128,62">
+    <action name="changePassword" location="275,87" size="128,62">
       <result name="success">
         <resourceEdge source="success" routing="0" target="login.jsp" />
       </result>
       <result name="input">
         <resourceEdge source="input" routing="0" target="resetpwd.jsp" />
       </result>
+    </action>
+    <action name="deleteNews" location="69,256" size="119,62">
+      <result name="success" />
+      <result name="error" />
+    </action>
+    <action name="updateNews" location="287,244" size="120,62">
+      <result name="success" />
+      <result name="error" />
     </action>
   </package>
   <webResource name="login.jsp" path="/content\login.jsp" location="31,130" size="150,55" />

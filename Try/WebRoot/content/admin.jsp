@@ -152,7 +152,7 @@
 					<s:if test="#session.user.permissionSign">
 						<div class="button" href="adduser.jsp">
 							<a href="adduser.jsp"><img src="img/user-admin.png" alt=""></a>
-							<a class="title" href="showUser">用户管理</a>
+							<a class="title" href="showUserList">用户管理</a>
 						</div>
 					</s:if>
 					<div class="button" href="resetpwd.jsp">

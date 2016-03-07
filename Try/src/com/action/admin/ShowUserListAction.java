@@ -1,8 +1,8 @@
-package com.action.visitor;
+package com.action.admin;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-public class InitIndexPageAction extends ActionSupport {
+public class ShowUserListAction extends ActionSupport {
 
 	/**
 	 * @return

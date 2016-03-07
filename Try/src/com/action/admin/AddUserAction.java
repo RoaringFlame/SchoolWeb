@@ -54,7 +54,7 @@ public class AddUserAction extends ActionSupport {
 			user.setLoginCount(0);
 			user.setPermissionSign(false);
 			UserDao userDao = new UserDao();
-			if (userDao.saveUser(user)) {
+			if (userDao.addUser(user)) {
 				return SUCCESS;
 			}
 		}

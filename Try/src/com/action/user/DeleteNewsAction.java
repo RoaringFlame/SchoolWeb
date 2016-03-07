@@ -1,8 +1,8 @@
-package com.action.admin;
+package com.action.user;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-public class ShowUserAction extends ActionSupport {
+public class DeleteNewsAction extends ActionSupport {
 
 	/**
 	 * @return

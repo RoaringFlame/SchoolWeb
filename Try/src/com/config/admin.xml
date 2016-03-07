@@ -21,7 +21,7 @@
 			<result name="error">/content\admin.jsp</result>
 		</action>
 
-		<action name="showUser" class="com.action.admin.ShowUserAction">
+		<action name="showUserList" class="com.action.admin.ShowUserListAction">
 			<result name="success">/content\adduser.jsp</result>
 			<result name="error">/content\admin.jsp</result>
 		</action>

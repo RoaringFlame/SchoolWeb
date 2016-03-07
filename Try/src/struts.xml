@@ -4,12 +4,12 @@
 	<include file="com/config/user.xml" />
 	<include file="com/config/admin.xml" />
 	<package name="visior" extends="struts-default">
-		<action name="newsDetail" class="com.action.visitor.NewsDetailAction">
+		<action name="newsDetail" class="com.action.visitor.ShowDetailAction">
 			<result name="success"></result>
 			<result name="Userview"></result>
 			<result name="error">/content\error.jsp</result>
 		</action>
-		<action name="newsList" class="com.action.visitor.NewsListAction">
+		<action name="newsList" class="com.action.visitor.ShowListAction">
 			<result name="success"></result>
 			<result name="UserView">/content\text-list.jsp</result>
 			<result name="error">/content\error.jsp</result>

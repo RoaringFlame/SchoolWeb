@@ -1,5 +1,8 @@
 package com.dao;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -62,7 +65,7 @@ public class UserDao {
 		}
 	}
 
-	public boolean saveUser(User user) {
+	public boolean addUser(User user) {
 		try{
 			session = HibernateSessionFactory.getSession();
 			transaction = session.beginTransaction();
@@ -77,4 +80,20 @@ public class UserDao {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
+	public List<User> getUerList(){
+		List<User> list = new ArrayList<User>();
+		try {
+			session = HibernateSessionFactory.getSession();
+			String hql = "from Course";
+			query = session.createQuery(hql);
+			list = query.list();
+			return list;
+		} catch (HibernateException e) {
+			e.printStackTrace();
+			return null;
+		} finally {
+			session.close();
+		}
+	}
 }

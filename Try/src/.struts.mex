@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Struts2Diagram version="2.0">
   <package name="visior" location="283,128" size="480,413">
-    <action name="newsDetail" location="71,189" size="136,83">
+    <action name="newsDetail" location="75,193" size="136,83">
       <result name="success" />
       <result name="Userview" />
       <result name="error">
         <resourceEdge source="error" routing="0" target="error.jsp" />
       </result>
     </action>
-    <action name="newsList" location="69,63" size="137,83">
+    <action name="newsList" location="73,67" size="137,83">
       <result name="success" />
       <result name="UserView">
         <resourceEdge source="UserView" routing="0" target="text-list.jsp" />

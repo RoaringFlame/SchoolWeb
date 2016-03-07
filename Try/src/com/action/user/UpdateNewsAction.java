@@ -1,8 +1,8 @@
-package com.action.visitor;
+package com.action.user;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-public class NewsDetailAction extends ActionSupport {
+public class UpdateNewsAction extends ActionSupport {
 
 	/**
 	 * @return

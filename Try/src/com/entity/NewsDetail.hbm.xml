@@ -8,7 +8,7 @@
     <class name="com.entity.NewsDetail" table="news_detail" catalog="db_schoolweb">
         <id name="newsId" type="java.lang.Integer">
             <column name="news_id" />
-            <generator class="native" />
+            <generator class="assigned" />
         </id>
         <property name="newsColumn" type="java.lang.Integer">
             <column name="news_column" not-null="true" />

@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Struts2Diagram version="2.0">
-  <package name="Admin" location="311,73" size="413,487">
-    <action name="addUser" location="61,57" size="125,62">
+  <package name="Admin" location="266,46" size="413,359">
+    <action name="addUser" location="43,53" size="125,62">
       <result name="success">
         <resourceEdge source="success" routing="0" target="admin.jsp" />
       </result>
       <result name="input">
-        <resourceEdge source="input" routing="0" target="showUser" namespace="" />
+        <resourceEdge source="input" routing="0" target="showUserList" namespace="" />
       </result>
     </action>
-    <action name="upload" location="60,164" size="127,62">
+    <action name="upload" location="247,61" size="127,62">
       <result name="success">
         <resourceEdge source="success" routing="0" target="admin.jsp" />
       </result>
@@ -17,15 +17,15 @@
         <resourceEdge source="error" routing="0" target="uptext.jsp" />
       </result>
     </action>
-    <action name="deleteUser" location="60,271" size="126,62">
+    <action name="deleteUser" location="36,187" size="126,62">
       <result name="success">
-        <resourceEdge source="success" routing="0" target="showUser" namespace="" />
+        <resourceEdge source="success" routing="0" target="showUserList" namespace="" />
       </result>
       <result name="error">
         <resourceEdge source="error" routing="0" target="admin.jsp" />
       </result>
     </action>
-    <action name="showUser" location="66,370" size="127,63">
+    <action name="showUserList" location="251,241" size="127,62">
       <result name="success">
         <resourceEdge source="success" routing="0" target="adduser.jsp" />
       </result>
@@ -34,8 +34,8 @@
       </result>
     </action>
   </package>
-  <webResource name="admin.jsp" path="/content\admin.jsp" location="110,102" size="150,55" />
-  <webResource name="adduser.jsp" path="/content\adduser.jsp" location="104,362" size="150,55" />
-  <webResource name="uptext.jsp" path="/content\uptext.jsp" location="110,198" size="150,55" />
+  <webResource name="admin.jsp" path="/content\admin.jsp" location="79,74" size="150,55" />
+  <webResource name="adduser.jsp" path="/content\adduser.jsp" location="720,203" size="150,55" />
+  <webResource name="uptext.jsp" path="/content\uptext.jsp" location="719,84" size="150,55" />
 </Struts2Diagram>
 
