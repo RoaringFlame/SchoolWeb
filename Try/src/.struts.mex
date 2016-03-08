@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Struts2Diagram version="2.0">
-  <package name="visior" location="283,128" size="480,413">
-    <action name="newsDetail" location="75,193" size="136,83">
+  <package name="visior" location="235,126" size="480,413">
+    <action name="newsDetail" location="62,174" size="136,83">
       <result name="success" />
       <result name="Userview" />
       <result name="error">
         <resourceEdge source="error" routing="0" target="error.jsp" />
       </result>
     </action>
-    <action name="newsList" location="73,67" size="137,83">
+    <action name="newsList" location="64,46" size="137,83">
       <result name="success" />
       <result name="UserView">
         <resourceEdge source="UserView" routing="0" target="text-list.jsp" />
@@ -18,8 +18,8 @@
       </result>
     </action>
   </package>
-  <webResource name="error.jsp" path="/content\error.jsp" location="68,270" size="150,55" />
-  <webResource name="text-list.jsp" path="/content\text-list.jsp" location="63,174" size="150,55" />
+  <webResource name="error.jsp" path="/content\error.jsp" location="46,319" size="150,55" />
+  <webResource name="text-list.jsp" path="/content\text-list.jsp" location="46,129" size="150,55" />
   <include file="user.xml" location="287,35" size="150,30" />
   <include file="admin.xml" location="75,35" size="150,30" />
 </Struts2Diagram>

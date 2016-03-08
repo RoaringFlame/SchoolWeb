@@ -37,56 +37,75 @@ public class UserDao {
 		return null;
 	}
 
-	public User findUserById(User user){
-		try{
+	public User findUserById(User user) {
+		try {
 			session = HibernateSessionFactory.getSession();
-			User use =(User)session.get(User.class, user.getUserId());
+			User use = (User) session.get(User.class, user.getUserId());
 			return use;
-		}catch(HibernateException e){
+		} catch (HibernateException e) {
 			e.printStackTrace();
 			return null;
-		}finally{
+		} finally {
 			session.close();
 		}
 	}
-	
-	public boolean updateUser(User user){
-		try{
+
+	public boolean updateUser(User user) {
+		try {
 			session = HibernateSessionFactory.getSession();
 			transaction = session.beginTransaction();
 			session.update(user);
 			transaction.commit();
 			return true;
-		}catch(HibernateException e){
+		} catch (HibernateException e) {
 			e.printStackTrace();
 			return false;
-		}finally{
+		} finally {
 			session.close();
 		}
 	}
 
 	public boolean addUser(User user) {
-		try{
+		try {
 			session = HibernateSessionFactory.getSession();
 			transaction = session.beginTransaction();
 			session.save(user);
 			transaction.commit();
 			return true;
-		}catch(HibernateException e){
+		} catch (HibernateException e) {
 			e.printStackTrace();
 			return false;
-		}finally{
+		} finally {
+			session.close();
+		}
+	}
+
+	public boolean deleteUser(Integer userId) {
+		try {
+			session = HibernateSessionFactory.getSession();
+			transaction = session.beginTransaction();
+			User user = (User) session.get(User.class, userId);
+			if (user != null) {
+				session.delete(user);
+				transaction.commit();
+			}
+			return true;
+		} catch (HibernateException e) {
+			e.printStackTrace();
+			return false;
+		} finally {
 			session.close();
 		}
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<User> getUerList(){
+	public List<User> getUerList() {
 		List<User> list = new ArrayList<User>();
 		try {
 			session = HibernateSessionFactory.getSession();
-			String hql = "from Course";
+			String hql = "from User as u where u.permissionSign = :permissionSign";
 			query = session.createQuery(hql);
+			query.setParameter("permissionSign", false);
 			list = query.list();
 			return list;
 		} catch (HibernateException e) {

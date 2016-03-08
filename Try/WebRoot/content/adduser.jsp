@@ -1,5 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="en">
 <head>
@@ -153,11 +153,13 @@
 								<form action="addUser" method="post" name="adduser">
 									<p class="tablecon">用户名:</p>
 									<p class="tablecon">
-										<input class="te" type="text" placeholder="请输入用户名!" name="username">
+										<input class="te" type="text" placeholder="请输入用户名!"
+											name="username">
 									</p>
 									<p class="tablecon">用户真实姓名:</p>
 									<p class="tablecon">
-										<input class="te" type="text" placeholder="请输入真实姓名!" name="realname">
+										<input class="te" type="text" placeholder="请输入真实姓名!"
+											name="realname">
 									</p>
 									<p class="tablecon">用户密码:</p>
 									<p class="tablecon">
@@ -178,26 +180,33 @@
 						<div class="table-right">
 							<div class="right-show">
 								<div class="show-title">
-									<h3>当前用户&nbsp;:&nbsp;8人</h3>
-									<a href="adduser.html" title="添加用户"><img
-										src="img/add-user.png" alt="" width="40" height="40"></a>
+									<h3>
+										当前用户&nbsp;:&nbsp;
+										<s:property value="usercount" />
+										人
+									</h3>
+									<!-- 									<a href="adduser.html" title="添加用户"><img -->
+									<!-- 										src="img/add-user.png" alt="" width="40" height="40"></a> -->
 								</div>
 								<ul>
 									<li>用户名</li>
 									<li>真实姓名</li>
-									<li>delete</li>
+									<li>删除</li>
 								</ul>
-								<ul>
-									<li></li>
-									<li></li>
-									<li><a href="" title="删除用户"><img src="img/delete.png"
-											alt="" width="20" height="20"></a></li>
-								</ul>
-								<ul>
-									<li></li>
-									<li></li>
-									<li></li>
-								</ul>
+								<s:iterator value="userlist">
+									<ul>
+										<li><s:property value="userName" /></li>
+										<li><s:property value="realName" /></li>
+										<s:url id="delete" action="deleteUser">
+											<s:param name="userId">
+												<s:property value="userId" />
+											</s:param>
+										</s:url>
+										<li><s:a href="%{delete}" title="删除用户"> 
+										<img src="img/delete.png" alt="删除" width="20" height="20">删除
+										</s:a></li>
+									</ul>
+								</s:iterator>
 							</div>
 						</div>
 					</div>

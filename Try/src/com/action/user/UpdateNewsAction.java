@@ -4,9 +4,46 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class UpdateNewsAction extends ActionSupport {
 
-	/**
-	 * @return
-	 */
+	private static final long serialVersionUID = 1L;
+
+	private String newsId;
+	private String title;
+	private String uploader;
+	private String content;
+
+	
+	public String getNewsId() {
+		return newsId;
+	}
+
+	public void setNewsId(String newsId) {
+		this.newsId = newsId;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getUploader() {
+		return uploader;
+	}
+
+	public void setUploader(String uploader) {
+		this.uploader = uploader;
+	}
+
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
+	}
+
 	public String execute() {
 		// TODO Auto-generated method stub
 		return SUCCESS;

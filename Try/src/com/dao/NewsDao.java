@@ -17,7 +17,7 @@ public class NewsDao {
 		try {
 			session = HibernateSessionFactory.getSession();
 			transaction = session.beginTransaction();
-			session.save(news);
+			session.saveOrUpdate(news);
 			transaction.commit();
 			return true;
 		} catch (HibernateException e) {
@@ -30,7 +30,6 @@ public class NewsDao {
 
 	public News findNews(Integer column, String title) {
 		try {
-			session = HibernateSessionFactory.getSession();
 			session = HibernateSessionFactory.getSession();
 			String hql = "from News as n where n.newsColumn=:newsColumn and n.newsTitle=:newsTitle";
 			query = session.createQuery(hql);
@@ -48,4 +47,21 @@ public class NewsDao {
 		return null;
 	}
 
+	public boolean deleteNewsById(Integer newsId) {
+		try {
+			session = HibernateSessionFactory.getSession();
+			transaction = session.beginTransaction();
+			News news = (News) session.get(News.class, newsId);
+			if (news != null) {
+				session.delete(news);
+				transaction.commit();
+			}
+			return true;
+		} catch (HibernateException e) {
+			e.printStackTrace();
+			return false;
+		} finally {
+			session.close();
+		}
+	}
 }

@@ -24,7 +24,7 @@
       <result name="success" />
       <result name="error" />
     </action>
-    <action name="updateNews" location="287,244" size="120,62">
+    <action name="updateNews" location="287,211" size="120,62">
       <result name="success" />
       <result name="error" />
     </action>
