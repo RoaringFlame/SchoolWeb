@@ -7,7 +7,8 @@ package com.entity;
 public class NewsDetail implements java.io.Serializable {
 
 	// Fields
-
+	private static final long serialVersionUID = 1L;
+	
 	private Integer newsId;
 	private Integer newsColumn;
 	private String newsContents;

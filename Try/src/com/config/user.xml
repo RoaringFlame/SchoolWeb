@@ -1,25 +1,54 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
 <struts>
-
 	<package name="User" extends="struts-default">
 		<action name="login" class="com.action.user.LoginAction">
 			<result name="success">/content\admin.jsp</result>
 			<result name="input">/content\login.jsp</result>
 			<result name="quit">/content\index.jsp</result>
 		</action>
-		<action name="changePassword"
-			class="com.action.user.ChangePasswordAction">
+
+		<action name="changePassword" class="com.action.user.ChangePasswordAction">
 			<result name="success">/content\login.jsp</result>
 			<result name="input">/content\resetpwd.jsp</result>
 		</action>
-		<action name="deleteNews"
-			class="com.action.user.DeleteNewsAction">
-			<result name="success"></result>
-			<result name="error"></result>
+
+		<action name="deleteNews" class="com.action.user.DeleteNewsAction">
+			<result name="success" type="redirectAction">
+				<param name="actionName">upageAction</param>
+				<param name="pageNumber">${pageNumber}</param>
+				<param name="column">${column}</param>
+			</result>
+			<result name="error">/content\error.jsp</result>
 		</action>
-		<action name="updateNews"
-			class="com.action.user.UpdateNewsAction">
-			<result name="success"></result>
-			<result name="error"></result>
-		</action></package></struts>    
+
+		<action name="updateNews" class="com.action.user.UpdateNewsAction">
+			<result name="success" type="redirectAction">
+				<param name="actionName">upageAction</param>
+				<param name="pageNumber">${pageNumber}</param>
+				<param name="column">${column}</param>
+			</result>
+			<result name="error">/content\error.jsp</result>
+		</action>
+
+		<action name="uGetList" class="com.action.visitor.ShowListAction">
+			<result name="success">/content\text-list.jsp</result>
+		</action>
+
+		<action name="uGetDetail" class="com.action.visitor.ShowDetailAction">
+			<result name="success">/content\uptext.jsp</result>
+			<result name="error">/content\error.jsp</result>
+		</action>
+
+		<action name="upageAction" class="com.action.user.PageAction"
+			method="userAllNews">
+			<result name="upallnews" type="redirectAction">
+				<param name="actionName">uGetList</param>
+				<param name="pageNumber">${pageNumber}</param>
+				<param name="totalPage">${totalPage}</param>
+				<param name="column">${column}</param>
+				<param name="maxNumber">${U_MAX_NUMBER}</param>
+			</result>
+		</action>
+	</package>
+</struts>    

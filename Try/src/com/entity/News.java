@@ -9,7 +9,8 @@ import java.sql.Timestamp;
 public class News implements java.io.Serializable {
 
 	// Fields
-
+	private static final long serialVersionUID = 1L;
+	
 	private Integer newsId;
 	private Integer newsColumn;
 	private String newsTitle;

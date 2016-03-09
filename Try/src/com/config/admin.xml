@@ -19,7 +19,6 @@
 			<result name="success" type="redirectAction">
 				<param name="actionName">showUserList</param>
 			</result>
-			<result name="error">/content\error.jsp</result>
 		</action>
 
 		<action name="showUserList" class="com.action.admin.ShowUserListAction">

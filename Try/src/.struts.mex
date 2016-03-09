@@ -1,26 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Struts2Diagram version="2.0">
-  <package name="visior" location="235,126" size="480,413">
-    <action name="newsDetail" location="62,174" size="136,83">
-      <result name="success" />
-      <result name="Userview" />
+  <package name="visior" location="203,100" size="295,332">
+    <action name="newsDetail" location="34,237" size="136,62">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="search.jsp" />
+      </result>
       <result name="error">
         <resourceEdge source="error" routing="0" target="error.jsp" />
       </result>
     </action>
-    <action name="newsList" location="64,46" size="137,83">
-      <result name="success" />
-      <result name="UserView">
-        <resourceEdge source="UserView" routing="0" target="text-list.jsp" />
+    <action name="newsList" location="35,139" size="137,62">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="searchlist.jsp" />
       </result>
       <result name="error">
         <resourceEdge source="error" routing="0" target="error.jsp" />
+      </result>
+    </action>
+    <action name="vpageAction" location="134,53" size="121,45">
+      <result name="vpallnews">
+        <resourceEdge source="vpallnews" routing="0" target="newsList" namespace="" />
       </result>
     </action>
   </package>
-  <webResource name="error.jsp" path="/content\error.jsp" location="46,319" size="150,55" />
-  <webResource name="text-list.jsp" path="/content\text-list.jsp" location="46,129" size="150,55" />
+  <webResource name="error.jsp" path="/content\error.jsp" location="526,273" size="150,55" />
   <include file="user.xml" location="287,35" size="150,30" />
   <include file="admin.xml" location="75,35" size="150,30" />
+  <webResource name="searchlist.jsp" path="/content\searchlist.jsp" location="24,240" size="150,55" />
+  <webResource name="search.jsp" path="/content\search.jsp" location="28,348" size="150,55" />
 </Struts2Diagram>
 

@@ -7,7 +7,8 @@ package com.entity;
 public class Conuter implements java.io.Serializable {
 
 	// Fields
-
+	private static final long serialVersionUID = 1L;
+	
 	private Integer countId;
 	private Integer todayCount;
 	private Integer yesterdayCount;

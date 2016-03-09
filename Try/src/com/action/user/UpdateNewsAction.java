@@ -45,7 +45,7 @@ public class UpdateNewsAction extends ActionSupport {
 	}
 
 	public String execute() {
-		// TODO Auto-generated method stub
+		//请求上传，日期，操作改变
 		return SUCCESS;
 	}
 }

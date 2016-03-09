@@ -1,7 +1,6 @@
 package com.dao;
 
 import org.hibernate.HibernateException;
-import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -13,7 +12,7 @@ public class NewsDetailDao {
 
 	private Session session;
 	private Transaction transaction;
-	private Query query;
+	
 
 	public boolean AddNewsDetail(News news, String content) {
 		NewsDetail newsdetail = new NewsDetail();
@@ -53,6 +52,19 @@ public class NewsDetailDao {
 		} catch (HibernateException e) {
 			e.printStackTrace();
 			return false;
+		} finally {
+			session.close();
+		}
+	}
+	
+	public NewsDetail getNewsDetial(Integer newsId){
+		try {
+			session = HibernateSessionFactory.getSession();
+			NewsDetail nD = (NewsDetail) session.get(NewsDetail.class, newsId);
+			return nD;
+		} catch (HibernateException e) {
+			e.printStackTrace();
+			return null;
 		} finally {
 			session.close();
 		}

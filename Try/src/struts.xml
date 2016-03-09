@@ -1,18 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
 <struts>
+	<!-- <constant name="struts.multipart.saveDir" value="/tmp" /> -->
 	<include file="com/config/user.xml" />
 	<include file="com/config/admin.xml" />
 	<package name="visior" extends="struts-default">
 		<action name="newsDetail" class="com.action.visitor.ShowDetailAction">
-			<result name="success"></result>
-			<result name="Userview"></result>
+			<result name="success">/content\search.jsp</result>
 			<result name="error">/content\error.jsp</result>
 		</action>
+
 		<action name="newsList" class="com.action.visitor.ShowListAction">
-			<result name="success"></result>
-			<result name="UserView">/content\text-list.jsp</result>
+			<result name="success">/content\searchlist.jsp</result>
 			<result name="error">/content\error.jsp</result>
+		</action>
+
+		<action name="vpageAction" class="com.action.user.PageAction">
+			<result name="vpallnews" type="redirectAction">
+				<param name="actionName">newsList</param>
+				<param name="pageNumber">${pageNumber}</param>
+				<param name="totalPage">${totalPage}</param>
+				<param name="column">${column}</param>
+				<param name="maxNumber">${V_MAX_NUMBER}</param>
+			</result>
 		</action>
 	</package>
 </struts>    
