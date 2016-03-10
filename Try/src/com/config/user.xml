@@ -47,8 +47,17 @@
 				<param name="pageNumber">${pageNumber}</param>
 				<param name="totalPage">${totalPage}</param>
 				<param name="column">${column}</param>
-				<param name="maxNumber">${U_MAX_NUMBER}</param>
+				<param name="maxNumber">${maxNumber}</param>
+				<param name="view">${view}</param>
 			</result>
+		</action>
+
+		<action name="columnList" class="com.action.user.GetColumnAction">
+			<result name="success">/content\publish.jsp</result>
+		</action>
+
+		<action name="showInEditor" class="com.action.uer.ShowInEditorAction">
+			<result name="success">/content\uptext.jsp</result>
 		</action>
 	</package>
 </struts>    

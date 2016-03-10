@@ -7,13 +7,15 @@ public class PageAction extends ActionSupport {
 
 	private static final long serialVersionUID = 1L;
 
-	private static int V_MAX_NUMBER = 12;
-	private static int U_MAX_NUMBER = 7;
+	private static final int V_MAX_NUMBER = 12;
+	private static final int U_MAX_NUMBER = 7;
 	private NewsDao nDao = new NewsDao();
 
 	private String column;
+	private String view;
 	private int pageNumber;
 	private int totalPage;
+	private int maxNumber;
 
 	public String getColumn() {
 		return column;
@@ -21,6 +23,14 @@ public class PageAction extends ActionSupport {
 
 	public void setColumn(String column) {
 		this.column = column;
+	}
+
+	public String getView() {
+		return view;
+	}
+
+	public void setView(String view) {
+		this.view = view;
 	}
 
 	public int getPageNumber() {
@@ -39,15 +49,26 @@ public class PageAction extends ActionSupport {
 		this.totalPage = totalPage;
 	}
 
+	public int getMaxNumber() {
+		return maxNumber;
+	}
+
+	public void setMaxNumber(int maxNumber) {
+		this.maxNumber = maxNumber;
+	}
+
 	public String execute() {
 		int Amount = nDao.getNewsAmount(Integer.parseInt(column));
 		this.countPage(Amount, V_MAX_NUMBER);
+		this.setMaxNumber(V_MAX_NUMBER);
 		return "vpallnews";
 	}
 
 	public String userAllNews() {
 		int Amount = nDao.getNewsAmount(Integer.parseInt(column));
 		this.countPage(Amount, U_MAX_NUMBER);
+		this.setMaxNumber(U_MAX_NUMBER);
+		System.out.println("-----------------"+this.view);
 		return "upallnews";
 	}
 

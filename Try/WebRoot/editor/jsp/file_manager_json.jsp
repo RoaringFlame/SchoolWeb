@@ -13,7 +13,7 @@
  */
 
 //根目录路径，可以指定绝对路径，比如 /var/www/attached/
-String rootPath = pageContext.getServletContext().getRealPath("/") + "editor\\attached/";
+String rootPath = pageContext.getServletContext().getRealPath("/") + "editor/attached/";
 //根目录URL，可以指定绝对路径，比如 http://www.yoursite.com/attached/
 String rootUrl  = request.getContextPath() + "/editor/attached/";
 //图片扩展名

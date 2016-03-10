@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Struts2Diagram version="2.0">
-  <package name="User" location="213,42" size="462,469">
-    <action name="login" location="97,100" size="117,83">
+  <package name="User" location="213,42" size="462,519">
+    <action name="login" location="84,79" size="117,83">
       <result name="success">
         <resourceEdge source="success" routing="0" target="admin.jsp" />
       </result>
@@ -12,7 +12,7 @@
         <resourceEdge source="quit" routing="0" target="index.jsp" />
       </result>
     </action>
-    <action name="changePassword" location="316,42" size="128,62">
+    <action name="changePassword" location="297,74" size="128,62">
       <result name="success">
         <resourceEdge source="success" routing="0" target="login.jsp" />
       </result>
@@ -20,7 +20,7 @@
         <resourceEdge source="input" routing="0" target="resetpwd.jsp" />
       </result>
     </action>
-    <action name="deleteNews" location="300,288" size="119,62">
+    <action name="deleteNews" location="333,321" size="119,62">
       <result name="success">
         <resourceEdge source="success" routing="0" target="upageAction" namespace="" />
       </result>
@@ -28,7 +28,7 @@
         <resourceEdge source="error" routing="0" target="error.jsp" />
       </result>
     </action>
-    <action name="updateNews" location="299,180" size="120,62">
+    <action name="updateNews" location="332,213" size="120,62">
       <result name="success">
         <resourceEdge source="success" routing="0" target="upageAction" namespace="" />
       </result>
@@ -36,12 +36,12 @@
         <resourceEdge source="error" routing="0" target="error.jsp" />
       </result>
     </action>
-    <action name="uGetList" location="55,373" size="116,41">
+    <action name="uGetList" location="79,290" size="116,41">
       <result name="success">
         <resourceEdge source="success" routing="0" target="text-list.jsp" />
       </result>
     </action>
-    <action name="uGetDetail" location="302,383" size="118,62">
+    <action name="uGetDetail" location="330,411" size="118,62">
       <result name="success">
         <resourceEdge source="success" routing="0" target="uptext.jsp" />
       </result>
@@ -49,9 +49,19 @@
         <resourceEdge source="error" routing="0" target="error.jsp" />
       </result>
     </action>
-    <action name="upageAction" location="81,287" size="118,41">
+    <action name="upageAction" location="81,205" size="118,41">
       <result name="upallnews">
         <resourceEdge source="upallnews" routing="0" target="uGetList" namespace="" />
+      </result>
+    </action>
+    <action name="columnList" location="82,371" size="115,41">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="publish.jsp" />
+      </result>
+    </action>
+    <action name="showInEditor" location="79,456" size="114,41">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="uptext.jsp" />
       </result>
     </action>
   </package>
@@ -59,8 +69,9 @@
   <webResource name="index.jsp" path="/content\index.jsp" location="30,207" size="150,55" />
   <webResource name="admin.jsp" path="/content\admin.jsp" location="30,50" size="150,55" />
   <webResource name="resetpwd.jsp" path="/content\resetpwd.jsp" location="705,88" size="150,55" />
-  <webResource name="text-list.jsp" path="/content\text-list.jsp" location="27,412" size="150,55" />
-  <webResource name="error.jsp" path="/content\error.jsp" location="707,306" size="150,55" />
-  <webResource name="uptext.jsp" path="/content\uptext.jsp" location="712,424" size="150,55" />
+  <webResource name="text-list.jsp" path="/content\text-list.jsp" location="30,304" size="150,55" />
+  <webResource name="error.jsp" path="/content\error.jsp" location="752,266" size="150,55" />
+  <webResource name="uptext.jsp" path="/content\uptext.jsp" location="701,505" size="150,55" />
+  <webResource name="publish.jsp" path="/content\publish.jsp" location="28,393" size="150,55" />
 </Struts2Diagram>
 

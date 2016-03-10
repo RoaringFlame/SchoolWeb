@@ -154,40 +154,39 @@
 
 						<!-- 						这里可以考虑用容器遍历同时方便传递参数加权限过滤 -->
 						<div class="publish-content">
-							<ul>
-								<li class="li-left"><a href="text-list.html">图片新闻</a></li>
-								<li class="li-right"><a class="left"
-									href="uptext.jsp?column=1">发布</a> <a class="right"
-									href="text-list.jsp?column=1">查看</a></li>
-							</ul>
-							<ul>
-								<li class="li-left"><a href="text-list.html">通知公告</a></li>
-								<li class="li-right"><a class="left" href="uptext.html">发布</a><a
-									class="right" href="text-list.html">查看</a></li>
-							</ul>
-							<ul>
-								<li class="li-left"><a href="text-list.html">机构设置</a></li>
-								<li class="li-right"><a class="left" href="uptext.html">发布</a><a
-									class="right" href="text-list.html">查看</a></li>
-							</ul>
-
-							<ul>
-								<li class="li-left"><a href="text-list.html">培养方案</a></li>
-								<li class="li-right"><a class="left" href="uptext.html">发布</a><a
-									class="right" href="text-list.html">查看</a></li>
-							</ul>
-							<ul>
-								<li class="li-left"><a href="text-list.html">招生就业</a></li>
-								<li class="li-right"><a class="left" href="uptext.html">发布</a><a
-									class="right" href="text-list.html">查看</a></li>
-							</ul>
-							<ul>
-								<li class="li-left"><a href="text-list.html">管理制度</a></li>
-								<li class="li-right"><a class="left" href="uptext.html">发布</a><a
-									class="right" href="text-list.html">查看</a></li>
-							</ul>
+							<s:iterator value="lcolumn">
+								<ul>
+									<s:url id="showlist" action="upageAction">
+										<s:param name="column">
+											<s:property value="key" />
+										</s:param>
+										<s:param name="view">
+											<s:property value="value" />
+										</s:param>
+									</s:url>
+									<s:url id="showInEditor" action="showInEditor">
+										<s:param name="column">
+											<s:property value="key" />
+										</s:param>
+										<s:param name="view">
+											<s:property value="value" />
+										</s:param>
+									</s:url>
+									<li class="li-left"><s:a href="%{showlist}">
+											<s:property value="value" />
+										</s:a></li>
+									<li class="li-right"><s:if
+											test="#session.user.permissionSign">
+											<s:a class="left" href="%{showInEditor}">发布</s:a>
+											<s:a class="right" href="%{showlist}">查看</s:a>
+										</s:if> <s:else>
+											<s:a class="centent" href="%{showlist}">查看</s:a>
+										</s:else></li>
+								</ul>
+							</s:iterator>
 						</div>
 					</div>
+
 					<div class="newsright">
 						<div class="publish-title">
 							<ul>
@@ -197,39 +196,37 @@
 						</div>
 
 						<div class="publish-content">
-							<ul>
-								<li class="li-left"><a href="text-list.html">学生工作</a></li>
-								<li class="li-right"><a class="left" href="uptext.html">发布</a>
-									<a class="right" href="text-list.html">查看</a></li>
-							</ul>
-							<ul>
-								<li class="li-left"><a href="text-list.html">工作动态</a></li>
-								<li class="li-right"><a class="left" href="uptext.html">发布</a><a
-									class="right" href="text-list.html">查看</a></li>
-							</ul>
-							<ul>
-								<li class="li-left"><a href="text-list.html">学习交流</a></li>
-								<li class="li-right"><a class="left" href="uptext.html">发布</a><a
-									class="right" href="text-list.html">查看</a></li>
-							</ul>
-
-							<ul>
-								<li class="li-left"><a href="text-list.html">他山之石</a></li>
-								<li class="li-right"><a class="left" href="uptext.html">发布</a><a
-									class="right" href="text-list.html">查看</a></li>
-							</ul>
-							<ul>
-								<li class="li-left"><a href="text-list.html">导师队伍</a></li>
-								<li class="li-right"><a class="left" href="uptext.html">发布</a><a
-									class="right" href="text-list.html">查看</a></li>
-							</ul>
-							<ul>
-								<li class="li-left"><a href="text-list.html">下载专区</a></li>
-								<li class="li-right"><a class="left" href="uptext.html">发布</a><a
-									class="right" href="text-list.html">查看</a></li>
-							</ul>
+							<s:iterator value="rcolumn">
+								<ul>
+									<s:url id="showlist" action="upageAction">
+										<s:param name="column">
+											<s:property value="key" />
+										</s:param>
+										<s:param name="view">
+											<s:property value="value" />
+										</s:param>
+									</s:url>
+									<s:url id="showInEditor" action="showInEditor">
+										<s:param name="column">
+											<s:property value="key" />
+										</s:param>
+										<s:param name="view">
+											<s:property value="value" />
+										</s:param>
+									</s:url>
+									<li class="li-left"><s:a href="%{showlist}">
+											<s:property value="value" />
+										</s:a></li>
+									<li class="li-right"><s:if
+											test="#session.user.permissionSign">
+											<s:a class="left" href="%{showInEditor}">发布</s:a>
+											<s:a class="right" href="%{showlist}">查看</s:a>
+										</s:if> <s:else>
+											<s:a class="centent" href="%{showlist}">查看</s:a>
+										</s:else></li>
+								</ul>
+							</s:iterator>
 						</div>
-
 					</div>
 				</div>
 			</div>

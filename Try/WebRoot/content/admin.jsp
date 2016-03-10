@@ -144,9 +144,9 @@
 					</h2>
 				</div>
 				<div class="buttons">
-					<div class="button" href="publish.jsp">
-						<span> <a href="publish.jsp"><img src="img/pencil.png"
-								alt=""></a> <a class="title" href="publish.jsp">发布管理</a>
+					<div class="button" href="columnList">
+						<span> <a href="columnList"><img src="img/pencil.png"
+								alt=""></a> <a class="title" href="columnList">发布管理</a>
 						</span>
 					</div>
 					<s:if test="#session.user.permissionSign">

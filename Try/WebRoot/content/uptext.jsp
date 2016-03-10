@@ -171,11 +171,11 @@
 				</div>
 
 				<div class="newsbox-2">
-					<div class="page-title">当前所在：发布机构设置</div>
+					<div class="page-title">当前所在：<s:property value="view"/></div>
 					<div class="upload-main">
 						<div class="upload-title">
 							<form id="form1" action="upload" method="post">
-								<s:hidden name="column" value="%{#parameters.column}" />
+								<s:hidden name="column" value="column" />
 								<p>
 									文章标题：<input type="text" class="article" name="title">
 								</p>

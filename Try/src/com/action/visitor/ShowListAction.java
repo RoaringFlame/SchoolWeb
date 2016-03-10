@@ -11,8 +11,9 @@ public class ShowListAction extends ActionSupport {
 	private static final long serialVersionUID = 1L;
 
 	private String column;
+	private String view;
 	private int pageNumber;
-	private int maxNumber;
+	private String maxNumber;
 	private List<News> newsList;
 
 	private NewsDao nd = new NewsDao();
@@ -25,6 +26,14 @@ public class ShowListAction extends ActionSupport {
 		this.column = column;
 	}
 
+	public String getView() {
+		return view;
+	}
+
+	public void setView(String view) {
+		this.view = view;
+	}
+
 	public int getPageNumber() {
 		return pageNumber;
 	}
@@ -33,11 +42,11 @@ public class ShowListAction extends ActionSupport {
 		this.pageNumber = pageNumber;
 	}
 
-	public int getMaxNumber() {
+	public String getMaxNumber() {
 		return maxNumber;
 	}
 
-	public void setMaxNumber(int maxNumber) {
+	public void setMaxNumber(String maxNumber) {
 		this.maxNumber = maxNumber;
 	}
 
@@ -50,8 +59,9 @@ public class ShowListAction extends ActionSupport {
 	}
 
 	public String execute() {
-		newsList = nd.getColumnList(Integer.parseInt(column), pageNumber,
-				maxNumber);
+		int column = Integer.parseInt(this.column);
+		int maxNumber = Integer.parseInt(this.maxNumber);
+		newsList = nd.getColumnList(column, pageNumber, maxNumber);
 		return SUCCESS;
 	}
 }
