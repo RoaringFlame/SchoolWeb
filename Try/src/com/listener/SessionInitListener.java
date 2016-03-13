@@ -11,6 +11,7 @@ public class SessionInitListener implements HttpSessionListener {
 
 	//当用户与服务器连接时触发
 	public void sessionCreated(HttpSessionEvent se){
+		System.out.println("---sessionLister初始化");
 		HttpSession session = se.getSession();
 		ServletContext application = session.getServletContext();
 		//操纵数据库让用户数增1
