@@ -1,4 +1,4 @@
-package com.action.uer;
+package com.action.user;
 
 import com.opensymphony.xwork2.ActionSupport;
 

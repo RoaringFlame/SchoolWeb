@@ -6,6 +6,19 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="css/public.css">
 <link rel="stylesheet" href="css/login.css">
+
+<script type="text/javascript">
+	function changeValidateCode(obj) {
+		/*** 
+		 *   获取当前的时间作为参数，无具体意义    
+		 *   每次请求需要一个不同的参数，否则可能会返回同样的验证码     
+		 *   这和浏览器的缓存机制有关系，也可以把页面设置为不缓存，这样就不用这个参数了。   
+		 */
+		var timenow = new Date().getTime();
+
+		obj.src = "randImage?id=" + timenow;
+	}
+</script>
 </head>
 
 <body>
@@ -24,8 +37,8 @@
 						<input type="password" class="password" name= "password" placeholder="请输入密码">
 					</div>
 					<div class="line-idcode">
-						<input type="text" class="idcode" placeholder="验证码" maxlength="6"> <img
-							src="<%=request.getContextPath()%>/auth.jpg" alt=""><a href="" class="other">换一张</a>
+						<input type="text" class="idcode" placeholder="验证码" maxlength="4"> <img
+							src="randImage" alt="" onclick="changeValidateCode(this)">
 					</div>
 					<div class="buttons">
 						<input class="button-left" type="submit" value="登录"> <input
