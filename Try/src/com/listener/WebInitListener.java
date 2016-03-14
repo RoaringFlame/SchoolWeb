@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebListener;
 public class WebInitListener implements ServletContextListener {
 	
 	public void contextInitialized(ServletContextEvent sce) {
+		System.out.println("---应用初始化事件WebInitListener");
 		try {
 			ServletContext applicatioin = sce.getServletContext();
 			// 注意后期改成取数据库数据，并添加更多内容
