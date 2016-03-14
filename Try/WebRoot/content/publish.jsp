@@ -160,16 +160,10 @@
 										<s:param name="column">
 											<s:property value="key" />
 										</s:param>
-										<s:param name="view">
-											<s:property value="value" />
-										</s:param>
 									</s:url>
 									<s:url id="showInEditor" action="showInEditor">
 										<s:param name="column">
 											<s:property value="key" />
-										</s:param>
-										<s:param name="view">
-											<s:property value="value" />
 										</s:param>
 									</s:url>
 									<li class="li-left"><s:a href="%{showlist}">
@@ -202,16 +196,10 @@
 										<s:param name="column">
 											<s:property value="key" />
 										</s:param>
-										<s:param name="view">
-											<s:property value="value" />
-										</s:param>
 									</s:url>
 									<s:url id="showInEditor" action="showInEditor">
 										<s:param name="column">
 											<s:property value="key" />
-										</s:param>
-										<s:param name="view">
-											<s:property value="value" />
 										</s:param>
 									</s:url>
 									<li class="li-left"><s:a href="%{showlist}">

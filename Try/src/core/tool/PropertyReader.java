@@ -47,8 +47,7 @@ public class PropertyReader {
 	/**
 	 * 用list<Map<String,String>>中键数的大小进行升序，即比较第一个String转换成数字比较，小值的Map在前
 	 * */
-	public List<Map.Entry<String, String>> getSortedList() {
-		Map<String, String> map = this.getHasMap();
+	public List<Map.Entry<String, String>> getSortedList(Map<String, String> map) {
 		List<Map.Entry<String, String>> list = new ArrayList<Map.Entry<String, String>>(
 				map.entrySet());
 		Collections.sort(list, new Comparator<Map.Entry<String, String>>() {

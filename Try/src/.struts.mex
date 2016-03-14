@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Struts2Diagram version="2.0">
-  <package name="visior" location="203,100" size="261,512">
-    <action name="login" location="51,333" size="150,83">
+  <package name="visior" location="203,100" size="261,502">
+    <action name="login" location="69,302" size="137,83">
       <result name="success">
         <resourceEdge source="success" routing="0" target="admin.jsp" />
       </result>
@@ -12,10 +12,10 @@
         <resourceEdge source="quit" routing="0" target="index.jsp" />
       </result>
     </action>
-    <action name="randImage" location="49,458" size="150,41">
+    <action name="randImage" location="71,427" size="137,41">
       <result name="success" />
     </action>
-    <action name="newsDetail" location="57,228" size="136,62">
+    <action name="newsDetail" location="65,199" size="136,62">
       <result name="success">
         <resourceEdge source="success" routing="0" target="search.jsp" />
       </result>
@@ -23,7 +23,7 @@
         <resourceEdge source="error" routing="0" target="error.jsp" />
       </result>
     </action>
-    <action name="newsList" location="60,125" size="137,62">
+    <action name="newsList" location="61,107" size="137,62">
       <result name="success">
         <resourceEdge source="success" routing="0" target="searchlist.jsp" />
       </result>
@@ -31,16 +31,16 @@
         <resourceEdge source="error" routing="0" target="error.jsp" />
       </result>
     </action>
-    <action name="vpageAction" location="131,50" size="121,41">
+    <action name="vpageAction" location="129,34" size="121,41">
       <result name="vpallnews">
         <resourceEdge source="vpallnews" routing="0" target="newsList" namespace="" />
       </result>
     </action>
   </package>
-  <webResource name="error.jsp" path="/content\error.jsp" location="526,273" size="150,55" />
+  <webResource name="error.jsp" path="/content\error.jsp" location="510,227" size="150,55" />
   <webResource name="searchlist.jsp" path="/content\searchlist.jsp" location="24,240" size="150,55" />
   <webResource name="search.jsp" path="/content\search.jsp" location="28,348" size="150,55" />
-  <webResource name="admin.jsp" path="/content\admin.jsp" location="50,500" size="150,55" />
+  <webResource name="admin.jsp" path="/content\admin.jsp" location="32,493" size="150,55" />
   <webResource name="login.jsp" path="/content\login.jsp" location="500,350" size="150,55" />
   <webResource name="index.jsp" path="/content\index.jsp" location="500,500" size="150,55" />
   <include file="user.xml" location="287,35" size="150,30" />

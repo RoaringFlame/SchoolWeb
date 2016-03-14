@@ -144,9 +144,11 @@
 				<div class="newsbox-2">
 					<div class="page-title">
 						当前所在：
-						<s:property value="view" />
-						<a href="uptext.html" class="button-right"><span><s:property
-									value="view" /></span></a>
+						<s:property value="#application.map[column]" />
+						<s:if test="#session.user.permissionSign">
+							<a href="uptext.html" class="button-right"><span>上传<s:property
+										value="#application.map[column]" /></span></a>
+						</s:if>
 					</div>
 					<div class="text-list">
 						<div class="newsbox-list">

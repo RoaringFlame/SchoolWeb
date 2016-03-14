@@ -64,7 +64,6 @@
 				<param name="totalPage">${totalPage}</param>
 				<param name="column">${column}</param>
 				<param name="maxNumber">${maxNumber}</param>
-				<param name="view">${view}</param>
 			</result>
 		</action>
 
