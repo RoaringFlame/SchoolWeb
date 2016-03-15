@@ -150,163 +150,182 @@
 										value="#application.map[column]" /></span></a>
 						</s:if>
 					</div>
-					<div class="text-list">
-						<div class="newsbox-list">
-							<ul class="first">
-								<li class="id">编号</li>
-								<li class="article-title">文章标题</li>
-								<li class="user">用户</li>
-								<li class="click">点击数</li>
-								<li class="upload-time">上传时间</li>
-								<li class="operate">操作</li>
-							</ul>
-							<ul class="next">
-								<li class="id"></li>
-								<li class="article-title"></li>
-								<li class="user"></li>
-								<li class="click"></li>
-								<li class="upload-time"></li>
-								<li class="operate"><a class="change" href="uptext.html">修改</a><a
-									class="view" href="uptext.html">查看</a> <a class="remove"
-									href="uptext.html">删除</a></li>
-							</ul>
-							<ul>
-								<li class="id"></li>
-								<li class="article-title"></li>
-								<li class="user"></li>
-								<li class="click"></li>
-								<li class="upload-time"></li>
-								<li class="operate"><a class="change" href="uptext.html">修改</a><a
-									class="view" href="uptext.html">查看</a> <a class="remove"
-									href="uptext.html">删除</a></li>
-							</ul>
-							<ul>
-								<li class="id"></li>
-								<li class="article-title"></li>
-								<li class="user"></li>
-								<li class="click"></li>
-								<li class="upload-time"></li>
-								<li class="operate"><a class="change" href="uptext.html">修改</a><a
-									class="view" href="uptext.html">查看</a> <a class="remove"
-									href="uptext.html">删除</a></li>
+					<table class="text-list">
+						<tr class="newsbox-list">
+						<tr class="first">
+							<td class="id">编号</td>
+							<td class="article-title">文章标题</td>
+							<td class="user">用户</td>
+							<td class="click">点击数</td>
+							<td class="upload-time">上传时间</td>
+							<td class="operate">操作</td>
+						</tr>
+						<tr class="next">
+							<s:iterator value="newsList" status="st">
+								<td class="id"><s:property
+										value="#st.getIndex()+1+(pageNumber-1)*10" /></td>
+								<td class="article-title"><s:property value="newsTitle" /></td>
+								<td class="user"><s:property value="newsUploader" /></td>
+								<td class="click"><s:property value="readCount" /></td>
+								<td class="upload-time"><s:date name="uploadDate"
+										format="yyyy-MM-dd HH:mm:ss" /></td>
+								<td><s:url id="update" action="getAction!course">
+										<s:param name="cid">
+											<s:property value="cid" />
+										</s:param>
+										<s:param name="pageNumber">
+											<s:property value="pageNumber" />
+										</s:param>
+									</s:url> <s:a class="change" href="%{update}">修改</s:a> <s:url
+										id="delete" action="delCourse">
+										<s:param name="cid">
+											<s:property value="cid" />
+										</s:param>
+										<s:param name="pageNumber">
+											<s:property value="pageNumber" />
+										</s:param>
+									</s:url> <s:a href="%{delete}">删除</s:a></td>
+							</s:iterator>
 							</ul>
 
-							<ul>
-								<li class="id"></li>
-								<li class="article-title"></li>
-								<li class="user"></li>
-								<li class="click"></li>
-								<li class="upload-time"></li>
-								<li class="operate"><a class="change" href="uptext.html">修改</a><a
-									class="view" href="uptext.html">查看</a> <a class="remove"
-									href="uptext.html">删除</a></li>
-							</ul>
-							<ul>
-								<li class="id"></li>
-								<li class="article-title"></li>
-								<li class="user"></li>
-								<li class="click"></li>
-								<li class="upload-time"></li>
-								<li class="operate"><a class="change" href="uptext.html">修改</a><a
-									class="view" href="uptext.html">查看</a> <a class="remove"
-									href="uptext.html">删除</a></li>
-							</ul>
-							<ul>
-								<li class="id"></li>
-								<li class="article-title"></li>
-								<li class="user"></li>
-								<li class="click"></li>
-								<li class="upload-time"></li>
-								<li class="operate"><a class="change" href="uptext.html">修改</a><a
-									class="view" href="uptext.html">查看</a> <a class="remove"
-									href="uptext.html">删除</a></li>
-							</ul>
-							<ul>
-								<li class="id"></li>
-								<li class="article-title"></li>
-								<li class="user"></li>
-								<li class="click"></li>
-								<li class="upload-time"></li>
-								<li class="operate"><a class="change" href="uptext.html">修改</a><a
-									class="view" href="uptext.html">查看</a> <a class="remove"
-									href="uptext.html">删除</a></li>
-							</ul>
-						</div>
-						<div class="pagedown">
-							<a href="text-list.html">首页</a><a href="text-list.html">上一页</a> <a
-								href="text-list.html">1</a> <a href="text-list.html">下一页</a><a
-								href="text-list.html">末页</a>
+							<!-- 							<ul class="next"> -->
+							<!-- 								<li class="id"></li> -->
+							<!-- 								<li class="article-title"></li> -->
+							<!-- 								<li class="user"></li> -->
+							<!-- 								<li class="click"></li> -->
+							<!-- 								<li class="upload-time"></li> -->
+							<!-- 								<li class="operate"><a class="change" href="uptext.html">修改</a><a -->
+							<!-- 									class="view" href="uptext.html">查看</a> <a class="remove" -->
+							<!-- 									href="uptext.html">删除</a></li> -->
+							<!-- 							</ul> -->
+							<!-- 							<ul> -->
+							<!-- 								<li class="id"></li> -->
+							<!-- 								<li class="article-title"></li> -->
+							<!-- 								<li class="user"></li> -->
+							<!-- 								<li class="click"></li> -->
+							<!-- 								<li class="upload-time"></li> -->
+							<!-- 								<li class="operate"><a class="change" href="uptext.html">修改</a><a -->
+							<!-- 									class="view" href="uptext.html">查看</a> <a class="remove" -->
+							<!-- 									href="uptext.html">删除</a></li> -->
+							<!-- 							</ul> -->
+							<!-- 							<ul> -->
+							<!-- 								<li class="id"></li> -->
+							<!-- 								<li class="article-title"></li> -->
+							<!-- 								<li class="user"></li> -->
+							<!-- 								<li class="click"></li> -->
+							<!-- 								<li class="upload-time"></li> -->
+							<!-- 								<li class="operate"><a class="change" href="uptext.html">修改</a><a -->
+							<!-- 									class="view" href="uptext.html">查看</a> <a class="remove" -->
+							<!-- 									href="uptext.html">删除</a></li> -->
+							<!-- 							</ul> -->
+
+							<!-- 							<ul> -->
+							<!-- 								<li class="id"></li> -->
+							<!-- 								<li class="article-title"></li> -->
+							<!-- 								<li class="user"></li> -->
+							<!-- 								<li class="click"></li> -->
+							<!-- 								<li class="upload-time"></li> -->
+							<!-- 								<li class="operate"><a class="change" href="uptext.html">修改</a><a -->
+							<!-- 									class="view" href="uptext.html">查看</a> <a class="remove" -->
+							<!-- 									href="uptext.html">删除</a></li> -->
+							<!-- 							</ul> -->
+							<!-- 							<ul> -->
+							<!-- 								<li class="id"></li> -->
+							<!-- 								<li class="article-title"></li> -->
+							<!-- 								<li class="user"></li> -->
+							<!-- 								<li class="click"></li> -->
+							<!-- 								<li class="upload-time"></li> -->
+							<!-- 								<li class="operate"><a class="change" href="uptext.html">修改</a><a -->
+							<!-- 									class="view" href="uptext.html">查看</a> <a class="remove" -->
+							<!-- 									href="uptext.html">删除</a></li> -->
+							<!-- 							</ul> -->
+							<!-- 							<ul> -->
+							<!-- 								<li class="id"></li> -->
+							<!-- 								<li class="article-title"></li> -->
+							<!-- 								<li class="user"></li> -->
+							<!-- 								<li class="click"></li> -->
+							<!-- 								<li class="upload-time"></li> -->
+							<!-- 								<li class="operate"><a class="change" href="uptext.html">修改</a><a -->
+							<!-- 									class="view" href="uptext.html">查看</a> <a class="remove" -->
+							<!-- 									href="uptext.html">删除</a></li> -->
+							<!-- 							</ul> -->
+							<!-- 							<ul> -->
+							<!-- 								<li class="id"></li> -->
+							<!-- 								<li class="article-title"></li> -->
+							<!-- 								<li class="user"></li> -->
+							<!-- 								<li class="click"></li> -->
+							<!-- 								<li class="upload-time"></li> -->
+							<!-- 								<li class="operate"><a class="change" href="uptext.html">修改</a><a -->
+							<!-- 									class="view" href="uptext.html">查看</a> <a class="remove" -->
+							<!-- 									href="uptext.html">删除</a></li> -->
+							<!-- 							</ul> -->
+						</tr>
+					</table>
+					<div class="pagedown">
+						<a href="text-list.html">首页</a><a href="text-list.html">上一页</a> <a
+							href="text-list.html">1</a> <a href="text-list.html">下一页</a><a
+							href="text-list.html">末页</a>
 
 
-						</div>
 					</div>
-
 				</div>
+
 			</div>
-
-
-
-
 		</div>
-		<script type="text/javascript">
-			$(document).ready(
-					function() {
 
-						$("ul.subnav").parent().append("<span></span>"); //Only shows drop down trigger when js is enabled - Adds empty span tag after ul.subnav
 
-						$(".admin li span").click(
-								function() { //When trigger is clicked...
 
-									//Following events are applied to the subnav itself (moving subnav up and down)
-									$(this).parent().find("ul.subnav")
-											.slideDown('fast').show(); //Drop down the subnav on click
 
-									$(this).parent().hover(
-											function() {
-											},
-											function() {
-												$(this).parent().find(
-														"ul.subnav").slideUp(
-														'slow'); //When the mouse hovers out of the subnav, move it back up
-											});
+	</div>
+	<script type="text/javascript">
+		$(document).ready(function() {
 
-									//Following events are applied to the trigger (Hover events for the trigger)
-								}).hover(function() {
-							$(this).addClass("subhover"); //On hover over, add class "subhover"
-						}, function() { //On Hover Out
-							$(this).removeClass("subhover"); //On hover out, remove class "subhover"
-						});
+			$("ul.subnav").parent().append("<span></span>"); //Only shows drop down trigger when js is enabled - Adds empty span tag after ul.subnav
 
-					});
-		</script>
-		<script type="text/javascript">
-			$(".leftsidebar_box dt").css({
-				"background-color" : "#4C2C4C"
+			$(".admin li span").click(function() { //When trigger is clicked...
+
+				//Following events are applied to the subnav itself (moving subnav up and down)
+				$(this).parent().find("ul.subnav").slideDown('fast').show(); //Drop down the subnav on click
+
+				$(this).parent().hover(function() {
+				}, function() {
+					$(this).parent().find("ul.subnav").slideUp('slow'); //When the mouse hovers out of the subnav, move it back up
+				});
+
+				//Following events are applied to the trigger (Hover events for the trigger)
+			}).hover(function() {
+				$(this).addClass("subhover"); //On hover over, add class "subhover"
+			}, function() { //On Hover Out
+				$(this).removeClass("subhover"); //On hover out, remove class "subhover"
 			});
-			$(".leftsidebar_box dt img").attr("src", "img/select_xl01.png");
-			$(function() {
-				$(".leftsidebar_box dd").hide();
-				$(".leftsidebar_box dt")
-						.click(
-								function() {
-									$(".leftsidebar_box dt").css({
-										"background-color" : "#4C2C4C"
-									})
-									$(this).css({
-										"background-color" : "#000"
-									});
-									$(this).parent().find('dd').removeClass(
-											"menu_chioce");
-									$(".leftsidebar_box dt img").attr("src",
-											"img/select_xl01.png");
-									$(this).parent().find('img').attr("src",
-											"img/select_xl.png");
-									$(".menu_chioce").slideUp();
-									$(this).parent().find('dd').slideToggle();
-									$(this).parent().find('dd').addClass(
-											"menu_chioce");
-								});
-			})
-		</script>
+
+		});
+	</script>
+	<script type="text/javascript">
+		$(".leftsidebar_box dt").css({
+			"background-color" : "#4C2C4C"
+		});
+		$(".leftsidebar_box dt img").attr("src", "img/select_xl01.png");
+		$(function() {
+			$(".leftsidebar_box dd").hide();
+			$(".leftsidebar_box dt").click(
+					function() {
+						$(".leftsidebar_box dt").css({
+							"background-color" : "#4C2C4C"
+						})
+						$(this).css({
+							"background-color" : "#000"
+						});
+						$(this).parent().find('dd').removeClass("menu_chioce");
+						$(".leftsidebar_box dt img").attr("src",
+								"img/select_xl01.png");
+						$(this).parent().find('img').attr("src",
+								"img/select_xl.png");
+						$(".menu_chioce").slideUp();
+						$(this).parent().find('dd').slideToggle();
+						$(this).parent().find('dd').addClass("menu_chioce");
+					});
+		})
+	</script>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Struts2Diagram version="2.0">
   <package name="User" location="217,32" size="494,422">
-    <action name="changePassword" location="344,36" size="128,62">
+    <action name="changePassword" location="358,50" size="128,62">
       <result name="success">
         <resourceEdge source="success" routing="0" target="login.jsp" />
       </result>
@@ -9,7 +9,7 @@
         <resourceEdge source="input" routing="0" target="resetpwd.jsp" />
       </result>
     </action>
-    <action name="deleteNews" location="346,222" size="119,62">
+    <action name="deleteNews" location="360,236" size="119,62">
       <result name="success">
         <resourceEdge source="success" routing="0" target="upageAction" namespace="" />
       </result>
@@ -17,7 +17,7 @@
         <resourceEdge source="error" routing="0" target="error.jsp" />
       </result>
     </action>
-    <action name="updateNews" location="344,136" size="120,62">
+    <action name="updateNews" location="358,150" size="120,62">
       <result name="success">
         <resourceEdge source="success" routing="0" target="upageAction" namespace="" />
       </result>
@@ -25,12 +25,12 @@
         <resourceEdge source="error" routing="0" target="error.jsp" />
       </result>
     </action>
-    <action name="uGetList" location="72,113" size="116,41">
+    <action name="uGetList" location="86,127" size="116,41">
       <result name="success">
         <resourceEdge source="success" routing="0" target="text-list.jsp" />
       </result>
     </action>
-    <action name="uGetDetail" location="338,333" size="118,62">
+    <action name="uGetDetail" location="359,346" size="118,62">
       <result name="success">
         <resourceEdge source="success" routing="0" target="uptext.jsp" />
       </result>
@@ -38,17 +38,17 @@
         <resourceEdge source="error" routing="0" target="error.jsp" />
       </result>
     </action>
-    <action name="upageAction" location="70,34" size="118,41">
+    <action name="upageAction" location="84,48" size="118,41">
       <result name="upallnews">
         <resourceEdge source="upallnews" routing="0" target="uGetList" namespace="" />
       </result>
     </action>
-    <action name="columnList" location="73,200" size="115,41">
+    <action name="columnList" location="87,214" size="115,41">
       <result name="success">
         <resourceEdge source="success" routing="0" target="publish.jsp" />
       </result>
     </action>
-    <action name="showInEditor" location="69,289" size="114,41">
+    <action name="showInEditor" location="83,303" size="114,41">
       <result name="success">
         <resourceEdge source="success" routing="0" target="uptext.jsp" />
       </result>

@@ -171,11 +171,15 @@
 				</div>
 
 				<div class="newsbox-2">
-					<div class="page-title">当前所在：<s:property value="view"/></div>
+					<div class="page-title">
+						当前所在：
+						<s:property value="#application.map[column]" />
+					</div>
 					<div class="upload-main">
 						<div class="upload-title">
 							<form id="form1" action="upload" method="post">
-								<s:hidden name="column" value="column" />
+							<s:set name="column" value="column"></s:set>
+								<s:hidden name="column" value="%{column}" />
 								<p>
 									文章标题：<input type="text" class="article" name="title">
 								</p>
@@ -191,9 +195,8 @@
 									</div>
 								</div>
 								<div class="page">
-									&nbsp;&nbsp;&nbsp; <input type="submit" value="提交"
-										class="up"> <input type="reset" value="取消"
-										class="give-up">
+									&nbsp;&nbsp;&nbsp; <input type="submit" value="提交" class="up">
+									<input type="reset" value="取消" class="give-up">
 								</div>
 							</form>
 						</div>

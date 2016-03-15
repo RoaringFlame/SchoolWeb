@@ -73,6 +73,7 @@
 
 		<action name="showInEditor" class="com.action.user.ShowInEditorAction">
 			<result name="success">/content\uptext.jsp</result>
+			<param name="column">${column}</param>
 		</action>
 		
 	</package>
