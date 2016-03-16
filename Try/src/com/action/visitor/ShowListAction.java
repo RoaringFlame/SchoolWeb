@@ -12,6 +12,7 @@ public class ShowListAction extends ActionSupport {
 
 	private String column;
 	private int pageNumber;
+	private int totalPage;
 	private String maxNumber;
 	private List<News> newsList;
 
@@ -31,6 +32,14 @@ public class ShowListAction extends ActionSupport {
 
 	public void setPageNumber(int pageNumber) {
 		this.pageNumber = pageNumber;
+	}
+
+	public int getTotalPage() {
+		return totalPage;
+	}
+
+	public void setTotalPage(int totalPage) {
+		this.totalPage = totalPage;
 	}
 
 	public String getMaxNumber() {

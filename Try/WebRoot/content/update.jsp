@@ -8,6 +8,35 @@
 <link rel="stylesheet" href="css/admin.css">
 <link rel="stylesheet" href="css/public.css">
 <script type="text/javascript" src="js/jquery.js"></script>
+<!-- 编辑器脚本 -->
+<link rel="stylesheet" href="../editor/themes/default/default.css" />
+<link rel="stylesheet" href="../editor/plugins/code/prettify.css" />
+<script charset="utf-8" src="../editor/kindeditor.js"></script>
+<script charset="utf-8" src="../editor/lang/zh_CN.js"></script>
+<script charset="utf-8" src="../editor/plugins/code/prettify.js"></script>
+<script>
+	KindEditor.ready(function(K) {
+		var editor1 = K.create('textarea[name="content"]', {
+			cssPath : '../editor/plugins/code/prettify.css',
+			uploadJson : '../editor/jsp/upload_json.jsp',
+			fileManagerJson : '../editor/jsp/file_manager_json.jsp',
+			allowFileManager : true,
+			resizeType : 0,
+			afterCreate : function() {
+				var self = this;
+				K.ctrl(document, 13, function() {
+					self.sync();
+					document.forms['example'].submit();
+				});
+				K.ctrl(self.edit.doc, 13, function() {
+					self.sync();
+					document.forms['example'].submit();
+				});
+			}
+		});
+		prettyPrint();
+	});
+</script>
 </head>
 <body>
 	<div class="container">
@@ -145,97 +174,34 @@
 					<div class="page-title">
 						当前所在：
 						<s:property value="#application.map[column]" />
-						<s:if test="#session.user.permissionSign">
-							<a href="uptext.html" class="button-right"><span>上传<s:property
-										value="#application.map[column]" /></span></a>
-						</s:if>
 					</div>
-					<table class="text-list">
-						<tr class="newsbox-list">
-						<tr align="center" class="first">
-							<td class="id">编号</td>
-							<td class="article-title">文章标题</td>
-							<td class="user">用户</td>
-							<td class="click">点击数</td>
-							<td class="upload-time">上传时间</td>
-							<td class="operate">操作</td>
-						</tr>
-						<tr class="next">
-							<s:iterator value="newsList" status="st">
-								<tr align="center">
-									<td class="id"><s:property
-											value="#st.getIndex()+1+(pageNumber-1)*10" /></td>
-									<td align="left" class="article-title"><s:property
-											value="newsTitle" /></td>
-									<td class="user"><s:property value="newsUploader" /></td>
-									<td class="click"><s:property value="readCount" /></td>
-									<td class="upload-time"><s:date name="uploadDate"
-											format="yyyy-MM-dd HH:mm:ss" /></td>
-									<td><s:url id="update" action="updateNews">
-											<s:param name="newsId">
-												<s:property value="newsId" />
-											</s:param>
-											<s:param name="pageNumber">
-												<s:property value="pageNumber" />
-											</s:param>
-										</s:url> <s:a cssClass="change" href="%{update}">修改</s:a> <s:a
-											cssClass="view" href="uptext.html">查看</s:a> <s:url
-											id="delete" action="deleteNews">
-											<s:param name="newsId">
-												<s:property value="newsId" />
-											</s:param>
-											<s:param name="pageNumber">
-												<s:property value="pageNumber" />
-											</s:param>
-											<s:param name="column">
-												<s:property value="column" />
-											</s:param>
-										</s:url> <s:a cssClass="remove" href="%{delete}">删除</s:a></td>
-								</tr>
-							</s:iterator>
-						</tr>
-					</table>
-					<div class="pagedown">
-						<s:url id="firstPage" action="upageAction">
-							<s:param name="pageNumber">1</s:param>
-							<s:param name="column">
-								<s:property value="column" />
-							</s:param>
-						</s:url>
-						<s:a href="%{firstPage}">首页</s:a>
+					<div class="upload-main">
+						<div class="upload-title">
+							<form id="form1" action="upload" method="post">
+							<s:set name="column" value="column"></s:set>
+								<s:hidden name="column" value="%{column}" />
+								<p>
+									文章标题：<input type="text" class="article" name="title">
+								</p>
+								<p>
+									上传人姓名：<input type="text" class="name" name="uploader">
+								</p>
 
-						<s:url id="prePage" action="upageAction">
-							<s:param name="pageNumber">
-								<s:property value='pageNumber-1' />
-							</s:param>
-							<s:param name="column">
-								<s:property value="column" />
-							</s:param>
-						</s:url>
-						<s:a href="%{prePage}">上一页</s:a>
-
-						<a><s:property value="pageNumber+'/'" /> <s:property
-								value="totalPage" /></a>
-
-						<s:url id="nextPage" action="upageAction">
-							<s:param name="pageNumber">
-								<s:property value='pageNumber+1' />
-							</s:param>
-							<s:param name="column">
-								<s:property value="column" />
-							</s:param>
-						</s:url>
-						<s:a href="%{nextPage}">下一页</s:a>
-
-						<s:url id="lastPage" action="upageAction">
-							<s:param name="pageNumber">
-								<s:property value="totalPage" />
-							</s:param>
-							<s:param name="column">
-								<s:property value="column" />
-							</s:param>
-						</s:url>
-						<s:a href="%{lastPage}">末页</s:a>
+								<div class="article-area">
+									<div class="text-area">
+										<!--放编辑框-->
+										<textarea name="content" cols="100" rows="8"
+											style="width:830px;height:480px;visibility:hidden;">
+											<s:property value="content"/>
+											</textarea>
+									</div>
+								</div>
+								<div class="page">
+									&nbsp;&nbsp;&nbsp; <input type="submit" value="提交" class="up">
+									<input type="reset" value="取消" class="give-up">
+								</div>
+							</form>
+						</div>
 					</div>
 				</div>
 
@@ -277,7 +243,7 @@
 		$(".leftsidebar_box dt img").attr("src", "img/select_xl01.png");
 		$(function() {
 			$(".leftsidebar_box dd").hide();
-			$(".leftsidebar_box dt").click(
+			$(".leftsidebar_box dt").hover(
 					function() {
 						$(".leftsidebar_box dt").css({
 							"background-color" : "#4C2C4C"
