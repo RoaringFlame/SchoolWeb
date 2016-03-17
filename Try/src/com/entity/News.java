@@ -8,13 +8,13 @@ import java.sql.Timestamp;
 
 public class News implements java.io.Serializable {
 
-	// Fields
 	private static final long serialVersionUID = 1L;
 	
 	private Integer newsId;
 	private Integer newsColumn;
 	private String newsTitle;
 	private String newsUploader;
+	private String operator;
 	private String lastOperation;
 	private Timestamp uploadDate;
 	private Integer readCount;
@@ -26,18 +26,22 @@ public class News implements java.io.Serializable {
 	}
 
 	/** minimal constructor */
-	public News(Integer newsColumn, String newsTitle, String newsUploader) {
+	public News(Integer newsColumn, String newsTitle, String newsUploader,
+			String operator) {
 		this.newsColumn = newsColumn;
 		this.newsTitle = newsTitle;
 		this.newsUploader = newsUploader;
+		this.operator = operator;
 	}
 
 	/** full constructor */
 	public News(Integer newsColumn, String newsTitle, String newsUploader,
-			String lastOperation, Timestamp uploadDate, Integer readCount) {
+			String operator, String lastOperation, Timestamp uploadDate,
+			Integer readCount) {
 		this.newsColumn = newsColumn;
 		this.newsTitle = newsTitle;
 		this.newsUploader = newsUploader;
+		this.operator = operator;
 		this.lastOperation = lastOperation;
 		this.uploadDate = uploadDate;
 		this.readCount = readCount;
@@ -75,6 +79,14 @@ public class News implements java.io.Serializable {
 
 	public void setNewsUploader(String newsUploader) {
 		this.newsUploader = newsUploader;
+	}
+
+	public String getOperator() {
+		return this.operator;
+	}
+
+	public void setOperator(String operator) {
+		this.operator = operator;
 	}
 
 	public String getLastOperation() {

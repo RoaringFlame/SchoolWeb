@@ -11,8 +11,8 @@ public class ShowListAction extends ActionSupport {
 	private static final long serialVersionUID = 1L;
 
 	private String column;
-	private String view;
 	private int pageNumber;
+	private int totalPage;
 	private String maxNumber;
 	private List<News> newsList;
 
@@ -26,20 +26,20 @@ public class ShowListAction extends ActionSupport {
 		this.column = column;
 	}
 
-	public String getView() {
-		return view;
-	}
-
-	public void setView(String view) {
-		this.view = view;
-	}
-
 	public int getPageNumber() {
 		return pageNumber;
 	}
 
 	public void setPageNumber(int pageNumber) {
 		this.pageNumber = pageNumber;
+	}
+
+	public int getTotalPage() {
+		return totalPage;
+	}
+
+	public void setTotalPage(int totalPage) {
+		this.totalPage = totalPage;
 	}
 
 	public String getMaxNumber() {

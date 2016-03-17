@@ -21,6 +21,9 @@
         <property name="newsUploader" type="java.lang.String">
             <column name="news_uploader" length="50" not-null="true" />
         </property>
+        <property name="operator" type="java.lang.String">
+            <column name="operator" length="50" not-null="true" />
+        </property>
         <property name="lastOperation" type="java.lang.String">
             <column name="last_operation" length="50" />
         </property>

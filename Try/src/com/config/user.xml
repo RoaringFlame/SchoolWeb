@@ -38,7 +38,7 @@
 			<result name="error">/content\error.jsp</result>
 		</action>
 
-		<action name="updateNews" class="com.action.user.UpdateNewsAction">
+		<action name="updateNews" class="com.action.admin.UploadAction">
 			<result name="success" type="redirectAction">
 				<param name="actionName">upageAction</param>
 				<param name="pageNumber">${pageNumber}</param>
@@ -64,7 +64,6 @@
 				<param name="totalPage">${totalPage}</param>
 				<param name="column">${column}</param>
 				<param name="maxNumber">${maxNumber}</param>
-				<param name="view">${view}</param>
 			</result>
 		</action>
 
@@ -74,6 +73,7 @@
 
 		<action name="showInEditor" class="com.action.user.ShowInEditorAction">
 			<result name="success">/content\uptext.jsp</result>
+			<param name="column">${column}</param>
 		</action>
 		
 	</package>

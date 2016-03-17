@@ -160,16 +160,10 @@
 										<s:param name="column">
 											<s:property value="key" />
 										</s:param>
-										<s:param name="view">
-											<s:property value="value" />
-										</s:param>
 									</s:url>
 									<s:url id="showInEditor" action="showInEditor">
 										<s:param name="column">
 											<s:property value="key" />
-										</s:param>
-										<s:param name="view">
-											<s:property value="value" />
 										</s:param>
 									</s:url>
 									<li class="li-left"><s:a href="%{showlist}">
@@ -177,10 +171,10 @@
 										</s:a></li>
 									<li class="li-right"><s:if
 											test="#session.user.permissionSign">
-											<s:a class="left" href="%{showInEditor}">发布</s:a>
-											<s:a class="right" href="%{showlist}">查看</s:a>
+											<s:a cssClass="left" href="%{showInEditor}">发布</s:a>
+											<s:a cssClass="right" href="%{showlist}">查看</s:a>
 										</s:if> <s:else>
-											<s:a class="centent" href="%{showlist}">查看</s:a>
+											<s:a cssClass="centent" href="%{showlist}">查看</s:a>
 										</s:else></li>
 								</ul>
 							</s:iterator>
@@ -202,16 +196,10 @@
 										<s:param name="column">
 											<s:property value="key" />
 										</s:param>
-										<s:param name="view">
-											<s:property value="value" />
-										</s:param>
 									</s:url>
 									<s:url id="showInEditor" action="showInEditor">
 										<s:param name="column">
 											<s:property value="key" />
-										</s:param>
-										<s:param name="view">
-											<s:property value="value" />
 										</s:param>
 									</s:url>
 									<li class="li-left"><s:a href="%{showlist}">
@@ -219,10 +207,10 @@
 										</s:a></li>
 									<li class="li-right"><s:if
 											test="#session.user.permissionSign">
-											<s:a class="left" href="%{showInEditor}">发布</s:a>
-											<s:a class="right" href="%{showlist}">查看</s:a>
+											<s:a cssClass="left" href="%{showInEditor}">发布</s:a>
+											<s:a cssClass="right" href="%{showlist}">查看</s:a>
 										</s:if> <s:else>
-											<s:a class="centent" href="%{showlist}">查看</s:a>
+											<s:a cssClass="centent" href="%{showlist}">查看</s:a>
 										</s:else></li>
 								</ul>
 							</s:iterator>

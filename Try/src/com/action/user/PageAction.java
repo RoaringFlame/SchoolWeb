@@ -12,7 +12,6 @@ public class PageAction extends ActionSupport {
 	private NewsDao nDao = new NewsDao();
 
 	private String column;
-	private String view;
 	private int pageNumber;
 	private int totalPage;
 	private int maxNumber;
@@ -23,14 +22,6 @@ public class PageAction extends ActionSupport {
 
 	public void setColumn(String column) {
 		this.column = column;
-	}
-
-	public String getView() {
-		return view;
-	}
-
-	public void setView(String view) {
-		this.view = view;
 	}
 
 	public int getPageNumber() {
@@ -68,7 +59,6 @@ public class PageAction extends ActionSupport {
 		int Amount = nDao.getNewsAmount(Integer.parseInt(column));
 		this.countPage(Amount, U_MAX_NUMBER);
 		this.setMaxNumber(U_MAX_NUMBER);
-		System.out.println("-----------------"+this.view);
 		return "upallnews";
 	}
 

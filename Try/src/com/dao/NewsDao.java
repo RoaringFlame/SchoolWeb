@@ -20,7 +20,7 @@ public class NewsDao {
 		try {
 			session = HibernateSessionFactory.getSession();
 			transaction = session.beginTransaction();
-			session.saveOrUpdate(news);
+			session.save(news);
 			transaction.commit();
 			return true;
 		} catch (HibernateException e) {

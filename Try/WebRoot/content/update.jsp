@@ -191,7 +191,9 @@
 									<div class="text-area">
 										<!--放编辑框-->
 										<textarea name="content" cols="100" rows="8"
-											style="width:830px;height:480px;visibility:hidden;"></textarea>
+											style="width:830px;height:480px;visibility:hidden;">
+											<s:property value="content"/>
+											</textarea>
 									</div>
 								</div>
 								<div class="page">
