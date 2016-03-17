@@ -161,7 +161,7 @@
 											<s:property value="key" />
 										</s:param>
 									</s:url>
-									<s:url id="showInEditor" action="showInEditor">
+									<s:url id="showEditor" action="showEditor">
 										<s:param name="column">
 											<s:property value="key" />
 										</s:param>
@@ -171,7 +171,7 @@
 										</s:a></li>
 									<li class="li-right"><s:if
 											test="#session.user.permissionSign">
-											<s:a cssClass="left" href="%{showInEditor}">发布</s:a>
+											<s:a cssClass="left" href="%{showEditor}">发布</s:a>
 											<s:a cssClass="right" href="%{showlist}">查看</s:a>
 										</s:if> <s:else>
 											<s:a cssClass="centent" href="%{showlist}">查看</s:a>
@@ -197,7 +197,7 @@
 											<s:property value="key" />
 										</s:param>
 									</s:url>
-									<s:url id="showInEditor" action="showInEditor">
+									<s:url id="showEditor" action="showEditor">
 										<s:param name="column">
 											<s:property value="key" />
 										</s:param>
@@ -207,7 +207,7 @@
 										</s:a></li>
 									<li class="li-right"><s:if
 											test="#session.user.permissionSign">
-											<s:a cssClass="left" href="%{showInEditor}">发布</s:a>
+											<s:a cssClass="left" href="%{showEditor}">发布</s:a>
 											<s:a cssClass="right" href="%{showlist}">查看</s:a>
 										</s:if> <s:else>
 											<s:a cssClass="centent" href="%{showlist}">查看</s:a>

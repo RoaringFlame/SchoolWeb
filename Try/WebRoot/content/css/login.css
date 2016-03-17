@@ -3,7 +3,9 @@ body{
    
 	background:#4C2C4C;
 }
-
+.main-body{
+	padding:0 49px;
+}
 .login-main{
 	width:400px;
 	height:380px;
@@ -40,36 +42,34 @@ body{
 
 .warning{
 	text-align: center;
+	color:red;
 }
 
 .line{
 	width:302px;
-	margin-left:50px !important;
 	height:40px;
 	margin-top:25px;
+	border:1px solid #ccc;
+    border-radius: 20px;
 }
 .username{
 	width:300px;
-    border:1px solid #ccc;
-    border-radius: 20px;
-    height:36px;
-    text-indent: 40px;
-    line-height: 36px;
+     height:36px;
+     line-height: 36px;
     background:url(../img/user.png) no-repeat 4% 50%;
+    padding-left: 40px;
 }
 .password{
 	width:300px;
-    border:1px solid #ccc;
-    border-radius: 20px;
+      padding-left: 40px;
     height:36px;
-    text-indent: 40px;
-     line-height: 36px;
+    line-height: 36px;
     background:url(../img/pwd.png) no-repeat 4% 50%;
 }
 
 .line-idcode{
 	width:300px;
-	margin-left:50px;
+	
 	height:40px;
 	margin-top:25px;
 }
@@ -103,7 +103,7 @@ body{
 .buttons{
 	margin-top:25px;
 	width:300px;
-	margin-left:50px;
+	
    
 }
 .button-left{

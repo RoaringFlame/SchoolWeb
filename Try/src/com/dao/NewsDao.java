@@ -50,6 +50,19 @@ public class NewsDao {
 		return null;
 	}
 
+	public News getNewsById(Integer newsId) {
+		try {
+			session = HibernateSessionFactory.getSession();
+			News news = (News) session.get(News.class, newsId);
+			return news;
+		} catch (HibernateException e) {
+			e.printStackTrace();
+			return null;
+		} finally {
+			session.close();
+		}
+	}
+
 	public boolean deleteNewsById(Integer newsId) {
 		try {
 			session = HibernateSessionFactory.getSession();

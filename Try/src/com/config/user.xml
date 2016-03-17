@@ -6,18 +6,17 @@
 				<!-- 配置系统的拦截器 -->
 		<interceptors>
 			<!-- 定义系统的登录控制的拦截器 -->
-			<interceptor name="online" 
-				class="com.action.interceptor.OnlineInterceptor"/>
+			<interceptor name="online" class="com.action.interceptor.OnlineInterceptor" />
 			<!-- 定义系统auctionStack拦截器栈 -->
 			<interceptor-stack name="onlineStack">
 				<!-- 引用系统的默认拦截器栈 -->
-				<interceptor-ref name="defaultStack"/>
+				<interceptor-ref name="defaultStack" />
 				<!-- 引用登录控制拦截器 -->
-				<interceptor-ref name="online"/>
+				<interceptor-ref name="online" />
 			</interceptor-stack>
 		</interceptors>
 		<!-- 将自定义的拦截器栈定义成默认拦截器栈(仅包内有效) -->
-		<default-interceptor-ref name="onlineStack"/>
+		<default-interceptor-ref name="onlineStack" />
 
 		<global-results>
 			<!-- 下面定义的结果对所有的Action都有效 -->
@@ -52,12 +51,11 @@
 		</action>
 
 		<action name="uGetDetail" class="com.action.visitor.ShowDetailAction">
-			<result name="success">/content\uptext.jsp</result>
+			<result name="success">/content\text-img.jsp</result>
 			<result name="error">/content\error.jsp</result>
 		</action>
 
-		<action name="upageAction" class="com.action.user.PageAction"
-			method="userAllNews">
+		<action name="upageAction" class="com.action.user.PageAction" method="userAllNews">
 			<result name="upallnews" type="redirectAction">
 				<param name="actionName">uGetList</param>
 				<param name="pageNumber">${pageNumber}</param>
@@ -71,10 +69,11 @@
 			<result name="success">/content\publish.jsp</result>
 		</action>
 
-		<action name="showInEditor" class="com.action.user.ShowInEditorAction">
-			<result name="success">/content\uptext.jsp</result>
-			<param name="column">${column}</param>
+		<action name="showInEditor"
+			class="com.action.user.ShowInEditorAction">
+			<result name="success">/content\update.jsp</result>
+			<result name="error">/content\error.jsp</result>
 		</action>
-		
-	</package>
+
+		</package>
 </struts>    
