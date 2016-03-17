@@ -247,9 +247,9 @@
 						</div>
 						<div class="col-main-i">
 							<ul>
-								<li>今日访问量：</li>
-								<li>昨日访问量：</li>
-								<li>累计访问数：</li>
+								<li>今日访问量：<s:property value="#application.counter.todayCount"/></li>
+								<li>昨日访问量：<s:property value="#application.counter.yesterdayCount"/></li>
+								<li>累计访问数：<s:property value="#application.counter.allCount"/></li>
 							</ul>
 						</div>
 					</div>

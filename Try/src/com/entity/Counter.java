@@ -1,12 +1,11 @@
 package com.entity;
 
 /**
- * Conuter entity. @author MyEclipse Persistence Tools
+ * Counter entity. @author MyEclipse Persistence Tools
  */
 
-public class Conuter implements java.io.Serializable {
+public class Counter implements java.io.Serializable {
 
-	// Fields
 	private static final long serialVersionUID = 1L;
 	
 	private Integer countId;
@@ -19,11 +18,11 @@ public class Conuter implements java.io.Serializable {
 	// Constructors
 
 	/** default constructor */
-	public Conuter() {
+	public Counter() {
 	}
 
 	/** full constructor */
-	public Conuter(Integer todayCount, Integer yesterdayCount,
+	public Counter(Integer todayCount, Integer yesterdayCount,
 			Integer allCount, Integer cilckCount, Integer dayCount) {
 		this.todayCount = todayCount;
 		this.yesterdayCount = yesterdayCount;
