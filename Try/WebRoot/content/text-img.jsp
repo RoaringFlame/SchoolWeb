@@ -5,304 +5,238 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>上传</title>
-<link rel="stylesheet" href="css/admin.css">
-<link rel="stylesheet" href="css/public.css">
-<script type="text/javascript" src="js/jquery.js"></script>
+<title>新闻页面</title>
+<link rel="stylesheet" href="css/second.css">
+<link rel="stylesheet" type="text/css" href="css/public.css">
 </head>
 <body>
 	<div class="container">
 		<div class="header">
-			<div class="logo">
-				<div class="logo-main">
-					<img src="img/logo-main.gif" alt="">
+			<div class="header">
+				<div class="nav-top">
+					<div class="logo">
+						<div class="logo-main">
+							<a href="index.html"><img src="img/logo.gif" alt="湖北第二师范学院"></a>
+						</div>
+					</div>
+					<div class="word">
+						<p>登录|注册|旧站入口</p>
+						<br> <span class="search">
+							<form action="" method="get">
+								<input name="" type="text" class="kuan" /> <input value="搜索"
+									type="button" class="an" />
+							</form>
+						</span>
+					</div>
 				</div>
-			</div>
-			<div class="ph">
-				<p>您好！欢迎登录，超级管理员!</p>
-				<div class="admin">
-					<ul class="topnav">
-						<li><a class="ad" href="#"></a>
-							<ul class="subnav">
-								<li><a href="adduser.html">添加用户</a></li>
-								<li><a href="resetpassword.html">修改密码</a></li>
-								<li><a href="login.html">退出</a></li>
-							</ul></li>
+
+				<div class="daohang">
+					<ul class="nav">
+						<li class="current"><a href="index.html"><b>网站首页</b></a></li>
+						<li><a href="newslist.html">校园动态</a> <span>
+								<p>
+									<a href="newslist.html">最新公告</a>
+								</p>
+								<p>
+									<a href="newslist.html">活动通知</a>
+								</p>
+						</span></li>
+
+						<li><a href="newslist.html">校园风采</a> <span>
+								<p>
+									<a href="newslist.html">学校概况</a>
+								</p>
+								<p>
+									<a href="newslist.html">办学特色</a>
+								</p>
+								<p>
+									<a href="newslist.html">办学成果</a>
+								</p>
+								<p>
+									<a href="newslist.html">校报校刊</a>
+								</p>
+								<p>
+									<a href="newslist.html">校园风采</a>
+								</p>
+						</span></li>
+						<li><a href="newslist.html">教师家园</a> <span>
+								<p>
+									<a href="newslist.html">读书交流</a>
+								</p>
+								<p>
+									<a href="newslist.html">教师博客</a>
+								</p>
+								<p>
+									<a href="newslist.html">名师风采</a>
+								</p>
+								<p>
+									<a href="newslist.html">旅游生活</a>
+								</p>
+						</span></li>
+						<li><a href="newslist.html">课程管理</a> <span>
+								<p>
+									<a href="newslist.html">教务管理</a>
+								</p>
+								<p>
+									<a href="newslist.html">学科建设</a>
+								</p>
+								<p>
+									<a href="newslist.html">高校课堂</a>
+								</p>
+								<p>
+									<a href="newslist.html">家长课堂</a>
+								</p>
+						</span></li>
+						<li><a href="newslist.html">学生乐园</a> <span>
+								<p>
+									<a href="newslist.html">读书频道</a>
+								</p>
+								<p>
+									<a href="newslist.html">班级主页</a>
+								</p>
+								<p>
+									<a href="newslist.html">学生活动</a>
+								</p>
+
+						</span></li>
+						<li><a href="newslist.html">教学园地</a> <span>
+								<p>
+									<a href="newslist.html">常规教学</a>
+								</p>
+								<p>
+									<a href="newslist.html">教育科研</a>
+								</p>
+								<p>
+									<a href="newslist.html">教师成长</a>
+								</p>
+								<p>
+									<a href="newslist.html">教师风采</a>
+								</p>
+						</span></li>
+						<li><a href="newslist.html">党旗飘扬</a> <span>
+								<p>
+									<a href="newslist.html">网上党校</a>
+								</p>
+								<p>
+									<a href="newslist.html">队伍建设</a>
+								</p>
+								<p>
+									<a href="newslist.html">党校生活</a>
+								</p>
+						</span></li>
+						<li><a href="newslist.html">专题教育</a> <span>
+								<p>
+									<a href="newslist.html">安全教育</a>
+								</p>
+								<p>
+									<a href="newslist.html">年组活动</a>
+								</p>
+								<p>
+									<a href="newslist.html">备课组建设</a>
+								</p>
+								<p>
+									<a href="newslist.html">艺术节</a>
+								</p>
+								<p>
+									<a href="newslist.html">读书节</a>
+								</p>
+								<p>
+									<a href="newslist.html">科技节</a>
+								</p>
+						</span></li>
 					</ul>
 				</div>
 			</div>
+
+		</div>
+		<div class="pic-dh">
+			<img src="img/1.jpg" alt="">
 		</div>
 		<div class="main">
-			<div class="leftnav">
-				<div class="leftsidebar_box">
-					<div class="nav-header">
-						<div class="nav-admin-png"></div>
+			<div class="left">
+				<div class="left-ipage">
+					<div class="left-ititle">
+						<h2>校园动态</h2>
 					</div>
-					<dl class="system_log">
-						<dt onClick="changeImage()" class="active">
-							网站首页<img src="img/select_xl01.png" alt="">
-						</dt>
-						<dd class="first_dd">
-							<a href="text-list.html">图片新闻</a>
-						</dd>
-
-					</dl>
-
-					<dl class="custom">
-						<dt onClick="changeImage()">
-							<a href="text-list.html">通知公告</a>
-						</dt>
-
-					</dl>
-
-					<dl class="channel">
-						<dt>
-							<a href="text-list.html">机构设置</a>
-						</dt>
-
-
-
-					</dl>
-
-					<dl class="app">
-						<dt onClick="changeImage()">
-							研究生培养<img src="img/select_xl01.png" alt="">
-						</dt>
-						<dd class="first_dd">
-							<a href="text-list.html">培养方案</a>
-						</dd>
-						<dd>
-							<a href="text-list.html">招生就业</a>
-						</dd>
-						<dd>
-							<a href="text-list.html">工作动态</a>
-						</dd>
-						<dd>
-							<a href="text-list.html">学生工作</a>
-						</dd>
-					</dl>
-
-					<dl class="cloud">
-						<dt>
-							学科建设<img src="img/select_xl01.png" alt="">
-						</dt>
-						<dd class="first_dd">
-							<a href="text-list.html">重点学科</a>
-						</dd>
-						<dd class="first_dd">
-							<a href="text-list.html">学科动态</a>
-						</dd>
-						<dd class="first_dd">
-							<a href="text-list.html">学科团队</a>
-						</dd>
-					</dl>
-
-					<dl class="syetem_management">
-						<dt>
-							<a href="">科学研究</a><img src="img/select_xl01.png" alt="">
-						</dt>
-						<dd class="first_dd">
-							<a href="text-list.html">他山之石</a>
-						</dd>
-						<dd>
-							<a href="text-list.html">学习交流</a>
-						</dd>
-
-
-					</dl>
-					<dl class="syetem_management">
-						<dt>
-							<a href="text-list.html">导师队伍</a>
-						</dt>
-
-
-					</dl>
-
-					<dl class="source">
-						<dt>
-							<a href="text-list.html">管理制度</a><img src="img/select_xl01.png"
-								alt="">
-						</dt>
-
-					</dl>
-
-					<dl class="statistics">
-						<dt>
-							<a href="text-list.html">下载专区</a><img src="img/select_xl01.png"
-								alt="">
-						</dt>
-
-					</dl>
+					<div class="left-itemi">
+						<ul>
+							<li><a href="newslist.html">活动通知</a></li>
+							<li><a href="newslist.html">最新通告</a></li>
+							<li><a href="newslist.html">专题教育</a></li>
+							<li><a href="newslist.html">学生天地</a></li>
+							<li><a href="newslist.html">教师风采</a></li>
+						</ul>
+					</div>
 				</div>
+				<div class="left-page">
+					<div class="left-title">
+						<h3>网站统计</h3>
+					</div>
+					<div class="left-item">
+						<ul>
+							<li>总访问量：</li>
+							<li>总浏览量：</li>
+							<li>今日访问：</li>
+							<li>日均访问：</li>
+						</ul>
+					</div>
+				</div>
+
 			</div>
-			<div class="right-main">
+			<div class="right-page">
 				<div class="right-title">
-					<h2>
-						<a href="admin.html">后台管理系统</a>
-					</h2>
+					<p>
+						<a href="index.html">首页</a>:当前页面>><a href="newslist.html">最新公告</a>
+					</p>
 				</div>
+				<div class="right-item">
+					<div class="article-ti">
+						<h2>嘉实喊你来看画展啦</h2>
 
-				<div class="newsbox-2">
-					<div class="page-title">
-						当前所在：机构设置 <a href="uptext.html" class="button-right"><span>发布机构设置</span></a>
+						<h4>——方泽佼同学个人书画展侧记</h4>
+						<p>上传日期：2015-10-10&nbsp作者：王月&nbsp点击数：</p>
 					</div>
-					<div class="text-list">
-						<div class="newsbox-list">
-							<ul class="first">
-								<li class="id">编号</li>
-								<li class="article-title">文章标题</li>
-								<li class="user">用户</li>
-								<li class="click">点击数</li>
-								<li class="upload-time">上传时间</li>
-								<li class="operate">操作</li>
-							</ul>
-							<ul class="next">
-								<li class="id"></li>
-								<li class="article-title"></li>
-								<li class="user"></li>
-								<li class="click"></li>
-								<li class="upload-time"></li>
-								<li class="operate"><a class="change" href="uptext.html">修改</a><a
-									class="view" href="uptext.html">查看</a> <a class="remove"
-									href="uptext.html">删除</a></li>
-							</ul>
-							<ul>
-								<li class="id"></li>
-								<li class="article-title"></li>
-								<li class="user"></li>
-								<li class="click"></li>
-								<li class="upload-time"></li>
-								<li class="operate"><a class="change" href="uptext.html">修改</a><a
-									class="view" href="uptext.html">查看</a> <a class="remove"
-									href="uptext.html">删除</a></li>
-							</ul>
-							<ul>
-								<li class="id"></li>
-								<li class="article-title"></li>
-								<li class="user"></li>
-								<li class="click"></li>
-								<li class="upload-time"></li>
-								<li class="operate"><a class="change" href="uptext.html">修改</a><a
-									class="view" href="uptext.html">查看</a> <a class="remove"
-									href="uptext.html">删除</a></li>
-							</ul>
-
-							<ul>
-								<li class="id"></li>
-								<li class="article-title"></li>
-								<li class="user"></li>
-								<li class="click"></li>
-								<li class="upload-time"></li>
-								<li class="operate"><a class="change" href="uptext.html">修改</a><a
-									class="view" href="uptext.html">查看</a> <a class="remove"
-									href="uptext.html">删除</a></li>
-							</ul>
-							<ul>
-								<li class="id"></li>
-								<li class="article-title"></li>
-								<li class="user"></li>
-								<li class="click"></li>
-								<li class="upload-time"></li>
-								<li class="operate"><a class="change" href="uptext.html">修改</a><a
-									class="view" href="uptext.html">查看</a> <a class="remove"
-									href="uptext.html">删除</a></li>
-							</ul>
-							<ul>
-								<li class="id"></li>
-								<li class="article-title"></li>
-								<li class="user"></li>
-								<li class="click"></li>
-								<li class="upload-time"></li>
-								<li class="operate"><a class="change" href="uptext.html">修改</a><a
-									class="view" href="uptext.html">查看</a> <a class="remove"
-									href="uptext.html">删除</a></li>
-							</ul>
-							<ul>
-								<li class="id"></li>
-								<li class="article-title"></li>
-								<li class="user"></li>
-								<li class="click"></li>
-								<li class="upload-time"></li>
-								<li class="operate"><a class="change" href="uptext.html">修改</a><a
-									class="view" href="uptext.html">查看</a> <a class="remove"
-									href="uptext.html">删除</a></li>
-							</ul>
+					<div class="text-img">
+						<div class="img">
+							<img src="img/ex.jpg" alt="">
 						</div>
-						<div class="pagedown">
-							<a href="text-list.html">首页</a><a href="text-list.html">上一页</a> <a
-								href="text-list.html">1</a> <a href="text-list.html">下一页</a><a
-								href="text-list.html">末页</a>
+					</div>
+					<div class="article">
+						<p>近日来，学校行政楼底楼大厅内时常人头攒动，有校内各年级的同学，有闻讯而来的老师，也有众多的领导来宾。是什么吸引了他们？原来，这里正在举办我校602班方泽佼同学的个人书画展。</p>
+						<p class="divid"></p>
 
-
+						<p>先来认识一下方泽佼同学：“我叫方泽佼，从八岁开始学习国画和软笔书法，这些，都是我成长的点点滴滴。在我的书画生涯中，给我帮助最大的便是我爷爷了，是他给了我前进的动力和勇气。是他鼓励我和我们嘉兴、浙江的名书画家大胆交流，这也给我带来了许多帮助。你们能相信吗？五年的时间中，近四年我是在家自学的，现在的作品虽然称不上好，却也拿得出手。绘画不是枯涩地再现原图，而是经过画者的领悟，进行概括提炼，挪移取舍的精神活动，要加入自己的理解与个人风格。古今中外的画家都十分注重书画对人气质修养的提升作用，我将一幅幅作品呈现给大家。这些晨曦润成的水墨意趣、曝晒调和的热烈色彩、暮色涌动的线条悠扬，洋溢着希望，洋溢着期待……”</p>
+						<p class="divid"></p>
+						<p>从她的前言中，我们读到了一个孩子的成长历程，最让我们感叹的是她坚持不懈的自学毅力，“师傅领进门，修行靠自己”在她身上得到了最好的诠释。虽然目前她的作品还很稚嫩，甚至有些“杂”，但我们相信，以如此持之以恒的毅力，假以时日必有所成。这也正是这位嘉实学姐在本次个人书画展中，传递给学弟学妹们最宝贵的精神财富。
+							展厅虽小，却是最接地气的嘉实学子艺术风采展示平台；展厅虽简，却能让嘉实学子最真实生动地感受艺术熏陶。此后，这一小型的艺术展厅，将持续推出嘉实学子们的书画、摄影等视觉艺术作品，小展厅欢迎大家的莅临鉴赏，也欢迎有才华的同学、老师、校友前来参展。</p>
+						<p class="divid"></p>
+						<div class="text-img">
+							<div class="img">
+								<img src="img/ex.jpg" alt="">
+							</div>
 						</div>
+						<p class="divid"></p>
+
 					</div>
 
 				</div>
 			</div>
-
-
-
-
 		</div>
-		<script type="text/javascript">
-			$(document).ready(
-					function() {
+		<div class="clear"></div>
+		<div class="divider"></div>
+		<div class="footer">
+			<div class="message">
+				<ul>
+					<li class="weixin"><a href="#"><img src="" alt=""></a></li>
+					<li class="weibo"><a href="#"><img src="" alt=""></a></li>
+				</ul>
+			</div>
+			<div class="foot">
+				版权所有 Copyright © 2005-2015 湖北第二师范学院<br> 地址：khsfkljhasjkhflkha<br>
+				联系方式：hgsfgkakajkhkahklh
+			</div>
+		</div>
 
-						$("ul.subnav").parent().append("<span></span>"); //Only shows drop down trigger when js is enabled - Adds empty span tag after ul.subnav
-
-						$(".admin li span").click(
-								function() { //When trigger is clicked...
-
-									//Following events are applied to the subnav itself (moving subnav up and down)
-									$(this).parent().find("ul.subnav")
-											.slideDown('fast').show(); //Drop down the subnav on click
-
-									$(this).parent().hover(
-											function() {
-											},
-											function() {
-												$(this).parent().find(
-														"ul.subnav").slideUp(
-														'slow'); //When the mouse hovers out of the subnav, move it back up
-											});
-
-									//Following events are applied to the trigger (Hover events for the trigger)
-								}).hover(function() {
-							$(this).addClass("subhover"); //On hover over, add class "subhover"
-						}, function() { //On Hover Out
-							$(this).removeClass("subhover"); //On hover out, remove class "subhover"
-						});
-
-					});
-		</script>
-		<script type="text/javascript">
-			$(".leftsidebar_box dt").css({
-				"background-color" : "#4C2C4C"
-			});
-			$(".leftsidebar_box dt img").attr("src", "img/select_xl01.png");
-			$(function() {
-				$(".leftsidebar_box dd").hide();
-				$(".leftsidebar_box dt")
-						.click(
-								function() {
-									$(".leftsidebar_box dt").css({
-										"background-color" : "#4C2C4C"
-									})
-									$(this).css({
-										"background-color" : "#000"
-									});
-									$(this).parent().find('dd').removeClass(
-											"menu_chioce");
-									$(".leftsidebar_box dt img").attr("src",
-											"img/select_xl01.png");
-									$(this).parent().find('img').attr("src",
-											"img/select_xl.png");
-									$(".menu_chioce").slideUp();
-									$(this).parent().find('dd').slideToggle();
-									$(this).parent().find('dd').addClass(
-											"menu_chioce");
-								});
-			})
-		</script>
+	</div>
 </body>
 </html>

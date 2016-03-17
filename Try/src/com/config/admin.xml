@@ -25,5 +25,8 @@
 			<result name="success">/content\adduser.jsp</result>
 			
 		</action>
-	</package>
+		<action name="showEditor"
+			class="com.action.admin.ShowEditorAction">
+			<result name="success">/content\uptext.jsp</result>
+		</action></package>
 </struts>    

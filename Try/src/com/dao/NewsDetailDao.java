@@ -57,7 +57,7 @@ public class NewsDetailDao {
 		}
 	}
 	
-	public NewsDetail getNewsDetial(Integer newsId){
+	public NewsDetail getNewsDetialById(Integer newsId){
 		try {
 			session = HibernateSessionFactory.getSession();
 			NewsDetail nD = (NewsDetail) session.get(NewsDetail.class, newsId);

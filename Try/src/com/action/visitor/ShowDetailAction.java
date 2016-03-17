@@ -29,7 +29,7 @@ public class ShowDetailAction extends ActionSupport {
 
 	public String execute() {
 		NewsDetailDao nDao = new NewsDetailDao();
-		if ((newsDetail = nDao.getNewsDetial(Integer.parseInt(newsId))) != null) {
+		if ((newsDetail = nDao.getNewsDetialById(Integer.parseInt(newsId))) != null) {
 			//请求阅读，点击量自增
 			return SUCCESS;
 		}

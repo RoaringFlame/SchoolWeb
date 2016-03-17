@@ -151,7 +151,7 @@
 							<a href="news.html">读书节</a>
 						</p>
 						<p>
-							<a href="news.html">科技节</a>
+							<a href="news.html">留言板</a>
 						</p>
 				</span></li>
 			</ul>
