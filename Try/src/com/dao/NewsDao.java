@@ -30,6 +30,21 @@ public class NewsDao {
 			session.close();
 		}
 	}
+	
+	public boolean updateNews(News news) {
+		try {
+			session = HibernateSessionFactory.getSession();
+			transaction = session.beginTransaction();
+			session.update(news);
+			transaction.commit();
+			return true;
+		} catch (HibernateException e) {
+			e.printStackTrace();
+			return false;
+		} finally {
+			session.close();
+		}
+	}
 
 	public News findNews(Integer column, String title) {
 		try {

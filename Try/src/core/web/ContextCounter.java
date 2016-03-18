@@ -40,13 +40,14 @@ public class ContextCounter {
 			counter.setTodayCount(++i);
 			counter.setAllCount(++j);
 			application.setAttribute("counter", counter);
+			this.saveCounterInDB();
 		}
 	}
 
 	public void saveCounterInDB() {
 		if (counter != null) {
 			CounterDao cDao = new CounterDao();
-			cDao.saveCounter(counter);
+			cDao.updateCounter(counter);
 		}
 	}
 
@@ -58,6 +59,7 @@ public class ContextCounter {
 			counter.setYesterdayCount(i);
 			counter.setDayCount(++j);
 			application.setAttribute("counter", counter);
+			this.saveCounterInDB();
 		}
 	}
 }

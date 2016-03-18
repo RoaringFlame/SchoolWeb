@@ -2,6 +2,27 @@
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
 <struts>
 	<package name="Admin" extends="struts-default">
+	
+				<!-- 配置系统的拦截器 -->
+		<interceptors>
+			<!-- 定义系统的登录控制的拦截器 -->
+			<interceptor name="online" class="com.action.interceptor.OnlineInterceptor" />
+			<!-- 定义系统auctionStack拦截器栈 -->
+			<interceptor-stack name="onlineStack">
+				<!-- 引用系统的默认拦截器栈 -->
+				<interceptor-ref name="defaultStack" />
+				<!-- 引用登录控制拦截器 -->
+				<interceptor-ref name="online" />
+			</interceptor-stack>
+		</interceptors>
+		<!-- 将自定义的拦截器栈定义成默认拦截器栈(仅包内有效) -->
+		<default-interceptor-ref name="onlineStack" />
+
+		<global-results>
+			<!-- 下面定义的结果对所有的Action都有效 -->
+			<result name="login">/content\login.jsp</result>
+		</global-results>
+	
 		<action name="addUser" class="com.action.admin.AddUserAction">
 			<result name="success">/content\admin.jsp</result>
 			<result name="input" type="dispatcher">

@@ -178,11 +178,12 @@
 					</div>
 					<div class="upload-main">
 						<div class="upload-title">
-							<form id="form1" action="update" method="post">
+							<form id="form1" action="updateNews" method="post">
 								<s:hidden name="newsId" value="%{news.newsId}" />
+								<s:hidden name="pageNumber" value="%{pageNumber}" />
 								<p>
 									文章标题：
-									<s:textfield type="text" cssClass="article" name="title"
+									<s:textfield type="text" cssClass="article" name="newsTitle"
 										value="%{news.newsTitle}" />
 								</p>
 								<p>

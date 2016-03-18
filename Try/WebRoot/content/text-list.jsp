@@ -161,19 +161,24 @@
 									<li class="id"><s:property
 											value="#st.getIndex()+1+(pageNumber-1)*10" /></li>
 									<li class="article-title"><s:property value="newsTitle" /></li>
-									<li class="user"><s:property value="newsUploader" /></li>
+									<li class="user"><s:property value="operator" /></li>
 									<li class="click"><s:property value="readCount" /></li>
 									<li class="upload-time"><s:date name="uploadDate"
 											format="yyyy-MM-dd HH:mm:ss" /></li>
-									<li class="operate"><s:url id="update" action="showInEditor">
+									<li class="operate"><s:url id="update"
+											action="showInEditor">
 											<s:param name="newsId">
 												<s:property value="newsId" />
 											</s:param>
 											<s:param name="pageNumber">
 												<s:property value="pageNumber" />
 											</s:param>
-										</s:url> <s:a cssClass="change" href="%{update}">修改</s:a> <s:a
-											cssClass="view" href="uptext.html">查看</s:a> <s:url
+										</s:url> <s:a cssClass="change" href="%{update}">修改</s:a> <s:url
+											id="scan" action="uGetDetail">
+											<s:param name="newsId">
+												<s:property value="newsId" />
+											</s:param>
+										</s:url> <s:a cssClass="view" href="%{scan}">查看</s:a> <s:url
 											id="delete" action="deleteNews">
 											<s:param name="newsId">
 												<s:property value="newsId" />
@@ -190,45 +195,45 @@
 						</div>
 						<div class="pagedown">
 							<s:url id="firstPage" action="upageAction">
-							<s:param name="pageNumber">1</s:param>
-							<s:param name="column">
-								<s:property value="column" />
-							</s:param>
-						</s:url>
-						<s:a href="%{firstPage}">首页</s:a>
+								<s:param name="pageNumber">1</s:param>
+								<s:param name="column">
+									<s:property value="column" />
+								</s:param>
+							</s:url>
+							<s:a href="%{firstPage}">首页</s:a>
 
-						<s:url id="prePage" action="upageAction">
-							<s:param name="pageNumber">
-								<s:property value='pageNumber-1' />
-							</s:param>
-							<s:param name="column">
-								<s:property value="column" />
-							</s:param>
-						</s:url>
-						<s:a href="%{prePage}">上一页</s:a>
+							<s:url id="prePage" action="upageAction">
+								<s:param name="pageNumber">
+									<s:property value='pageNumber-1' />
+								</s:param>
+								<s:param name="column">
+									<s:property value="column" />
+								</s:param>
+							</s:url>
+							<s:a href="%{prePage}">上一页</s:a>
 
-						<a><s:property value="pageNumber+'/'" /> <s:property
-								value="totalPage" /></a>
+							<a><s:property value="pageNumber+'/'" /> <s:property
+									value="totalPage" /></a>
 
-						<s:url id="nextPage" action="upageAction">
-							<s:param name="pageNumber">
-								<s:property value='pageNumber+1' />
-							</s:param>
-							<s:param name="column">
-								<s:property value="column" />
-							</s:param>
-						</s:url>
-						<s:a href="%{nextPage}">下一页</s:a>
+							<s:url id="nextPage" action="upageAction">
+								<s:param name="pageNumber">
+									<s:property value='pageNumber+1' />
+								</s:param>
+								<s:param name="column">
+									<s:property value="column" />
+								</s:param>
+							</s:url>
+							<s:a href="%{nextPage}">下一页</s:a>
 
-						<s:url id="lastPage" action="upageAction">
-							<s:param name="pageNumber">
-								<s:property value="totalPage" />
-							</s:param>
-							<s:param name="column">
-								<s:property value="column" />
-							</s:param>
-						</s:url>
-						<s:a href="%{lastPage}">末页</s:a>
+							<s:url id="lastPage" action="upageAction">
+								<s:param name="pageNumber">
+									<s:property value="totalPage" />
+								</s:param>
+								<s:param name="column">
+									<s:property value="column" />
+								</s:param>
+							</s:url>
+							<s:a href="%{lastPage}">末页</s:a>
 						</div>
 					</div>
 

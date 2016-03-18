@@ -24,11 +24,11 @@ public class CounterDao {
 		}
 	}
 
-	public void saveCounter(Counter counter) {
+	public void updateCounter(Counter counter) {
 		try {
 			session = HibernateSessionFactory.getSession();
 			transaction = session.beginTransaction();
-			session.save(counter);
+			session.update(counter);
 			transaction.commit();
 		} catch (HibernateException e) {
 			e.printStackTrace();

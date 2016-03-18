@@ -69,4 +69,19 @@ public class NewsDetailDao {
 			session.close();
 		}
 	}
+	
+	public boolean updateNewsDetail(NewsDetail newsDetail) {
+		try {
+			session = HibernateSessionFactory.getSession();
+			transaction = session.beginTransaction();
+			session.update(newsDetail);
+			transaction.commit();
+			return true;
+		} catch (HibernateException e) {
+			e.printStackTrace();
+			return false;
+		} finally {
+			session.close();
+		}
+	}
 }

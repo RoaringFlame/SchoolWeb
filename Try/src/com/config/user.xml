@@ -2,11 +2,12 @@
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
 <struts>
 	<package name="User" extends="struts-default">
-	
-				<!-- 配置系统的拦截器 -->
+
+		<!-- 配置系统的拦截器 -->
 		<interceptors>
 			<!-- 定义系统的登录控制的拦截器 -->
-			<interceptor name="online" class="com.action.interceptor.OnlineInterceptor" />
+			<interceptor name="online"
+				class="com.action.interceptor.OnlineInterceptor" />
 			<!-- 定义系统auctionStack拦截器栈 -->
 			<interceptor-stack name="onlineStack">
 				<!-- 引用系统的默认拦截器栈 -->
@@ -22,7 +23,7 @@
 			<!-- 下面定义的结果对所有的Action都有效 -->
 			<result name="login">/content\login.jsp</result>
 		</global-results>
-	
+
 		<action name="changePassword" class="com.action.user.ChangePasswordAction">
 			<result name="success">/content\login.jsp</result>
 			<result name="input">/content\resetpwd.jsp</result>
@@ -37,7 +38,7 @@
 			<result name="error">/content\error.jsp</result>
 		</action>
 
-		<action name="updateNews" class="com.action.admin.UploadAction">
+		<action name="updateNews" class="com.action.user.UpdateNewsAction">
 			<result name="success" type="redirectAction">
 				<param name="actionName">upageAction</param>
 				<param name="pageNumber">${pageNumber}</param>
@@ -50,12 +51,14 @@
 			<result name="success">/content\text-list.jsp</result>
 		</action>
 
-		<action name="uGetDetail" class="com.action.visitor.ShowDetailAction">
+		<action name="uGetDetail" class="com.action.visitor.ShowDetailAction"
+			method="userScan">
 			<result name="success">/content\text-img.jsp</result>
 			<result name="error">/content\error.jsp</result>
 		</action>
 
-		<action name="upageAction" class="com.action.user.PageAction" method="userAllNews">
+		<action name="upageAction" class="com.action.user.PageAction"
+			method="userAllNews">
 			<result name="upallnews" type="redirectAction">
 				<param name="actionName">uGetList</param>
 				<param name="pageNumber">${pageNumber}</param>
@@ -69,11 +72,10 @@
 			<result name="success">/content\publish.jsp</result>
 		</action>
 
-		<action name="showInEditor"
-			class="com.action.user.ShowInEditorAction">
+		<action name="showInEditor" class="com.action.user.ShowInEditorAction">
 			<result name="success">/content\update.jsp</result>
 			<result name="error">/content\error.jsp</result>
 		</action>
 
-		</package>
+	</package>
 </struts>    
