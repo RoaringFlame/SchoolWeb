@@ -70,7 +70,7 @@ public class UploadAction extends ActionSupport {
 			news.setLastOperation("发布");
 			news.setNewsUploader(uploader);
 			news.setOperator(user.getUserName());
-			Date date = new Date(); 
+			Date date = new Date();
 			Timestamp timestamp = new Timestamp(date.getTime());
 			news.setUploadDate(timestamp);
 			news.setReadCount(0);

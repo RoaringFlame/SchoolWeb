@@ -230,10 +230,12 @@
 							<div class="point-main">
 								<p>您好！欢迎登录后台管理系统！</p>
 								<p>
-									这是您第&nbsp;<b class="warning">1</b>&nbsp;次登录系统！
+									这是您第&nbsp;<b class="warning"><s:property
+											value="#session.user.loginCount" /></b>&nbsp;次登录系统！
 								</p>
 								<p>
-									您上次登录时间为:&nbsp;<b class="warning">2015.10.25</b>
+									您上次登录时间为:&nbsp;<b class="warning"><s:date
+											name="#session.lastLogin" format="yyyy-MM-dd HH:mm:ss" /></b>
 								</p>
 								<p>
 									该系统为超级管理员所有，你可以添加用户，删除用户，修改用户密码，发布相关新闻等操作！管理员能删除文章和记录，请谨慎操作，数据一旦删除，无法复原！
@@ -247,9 +249,11 @@
 						</div>
 						<div class="col-main-i">
 							<ul>
-								<li>今日访问量：</li>
-								<li>昨日访问量：</li>
-								<li>累计访问数：</li>
+								<li>今日访问量：<s:property
+										value="#application.counter.todayCount" /></li>
+								<li>昨日访问量：<s:property
+										value="#application.counter.yesterdayCount" /></li>
+								<li>累计访问数：<s:property value="#application.counter.allCount" /></li>
 							</ul>
 						</div>
 					</div>

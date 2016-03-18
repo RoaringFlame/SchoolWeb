@@ -1,5 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="en">
 <head>
@@ -173,18 +174,21 @@
 				<div class="newsbox-2">
 					<div class="page-title">
 						当前所在：
-						<s:property value="#application.map[column]" />
+						<s:property value="#application.map[news.newsColumn]" />
 					</div>
 					<div class="upload-main">
 						<div class="upload-title">
-							<form id="form1" action="upload" method="post">
-							<s:set name="column" value="column"></s:set>
-								<s:hidden name="column" value="%{column}" />
+							<form id="form1" action="updateNews" method="post">
+								<s:hidden name="newsId" value="%{news.newsId}" />
+								<s:hidden name="pageNumber" value="%{pageNumber}" />
 								<p>
-									文章标题：<input type="text" class="article" name="title">
+									文章标题：
+									<s:textfield type="text" cssClass="article" name="newsTitle"
+										value="%{news.newsTitle}" />
 								</p>
 								<p>
-									上传人姓名：<input type="text" class="name" name="uploader">
+									作者：
+									<s:property value="%{news.newsUploader}" />
 								</p>
 
 								<div class="article-area">
@@ -192,7 +196,7 @@
 										<!--放编辑框-->
 										<textarea name="content" cols="100" rows="8"
 											style="width:830px;height:480px;visibility:hidden;">
-											<s:property value="content"/>
+											<s:property value="newsDetail.newsContents"/>																												
 											</textarea>
 									</div>
 								</div>

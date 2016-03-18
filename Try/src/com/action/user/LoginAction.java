@@ -1,5 +1,8 @@
 package com.action.user;
 
+import java.sql.Timestamp;
+import java.util.Date;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -53,9 +56,16 @@ public class LoginAction extends ActionSupport {
 		use.setUserPassword(password);
 		UserDao userDao = new UserDao();
 		User user = userDao.UserLogin(use);
-		if (user != null) {
-			// 更新登录时间、登录次数(可放入查询中)
-			// 显示application中访问记录、用户记录
+		if (user != null) {			
+			Timestamp time = user.getLoginDate();
+			session.setAttribute("lastLogin", time);
+			Date date = new Date(); 
+			Timestamp timestamp = new Timestamp(date.getTime());
+			user.setLoginDate(timestamp);
+			int count = user.getLoginCount();
+			user.setLoginCount(++count);
+			UserDao uDao = new UserDao();
+			uDao.updateUser(user);
 			user.setUserPassword(null);
 			session.setAttribute("user", user);
 			return SUCCESS;

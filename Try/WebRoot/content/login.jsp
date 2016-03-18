@@ -4,6 +4,7 @@
 <head>
 <title>管理员登录</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <link rel="stylesheet" href="css/public.css">
 <link rel="stylesheet" href="css/login.css">
 
@@ -26,8 +27,9 @@
 		<div class="login-main">
 			<div class="main-title">
 				<h2>网站后台管理系统</h2>
-			</div>
+			</div >
 			<div class="main">
+			<div class="main-body">
 				<form action="login" method="post" name="login">
 <!-- 					<p class="warning">验证码错误!</p> -->
 					<div class="line">
@@ -45,6 +47,7 @@
 							class="button-right" type="reset" value="重置">
 					</div>
 				</form>
+				</div>
 			</div>
 		</div>
 	</div>

@@ -30,6 +30,21 @@ public class NewsDao {
 			session.close();
 		}
 	}
+	
+	public boolean updateNews(News news) {
+		try {
+			session = HibernateSessionFactory.getSession();
+			transaction = session.beginTransaction();
+			session.update(news);
+			transaction.commit();
+			return true;
+		} catch (HibernateException e) {
+			e.printStackTrace();
+			return false;
+		} finally {
+			session.close();
+		}
+	}
 
 	public News findNews(Integer column, String title) {
 		try {
@@ -48,6 +63,19 @@ public class NewsDao {
 			session.close();
 		}
 		return null;
+	}
+
+	public News getNewsById(Integer newsId) {
+		try {
+			session = HibernateSessionFactory.getSession();
+			News news = (News) session.get(News.class, newsId);
+			return news;
+		} catch (HibernateException e) {
+			e.printStackTrace();
+			return null;
+		} finally {
+			session.close();
+		}
 	}
 
 	public boolean deleteNewsById(Integer newsId) {

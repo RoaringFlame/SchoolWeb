@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Struts2Diagram version="2.0">
   <package name="Admin" location="266,46" size="413,300">
-    <action name="addUser" location="62,65" size="125,62">
+    <action name="addUser" location="77,80" size="125,62">
       <result name="success">
         <resourceEdge source="success" routing="0" target="admin.jsp" />
       </result>
@@ -9,7 +9,7 @@
         <resourceEdge source="input" routing="0" target="error.jsp" />
       </result>
     </action>
-    <action name="upload" location="257,68" size="127,62">
+    <action name="upload" location="258,67" size="127,62">
       <result name="success">
         <resourceEdge source="success" routing="0" target="admin.jsp" />
       </result>
@@ -17,19 +17,25 @@
         <resourceEdge source="error" routing="0" target="error.jsp" />
       </result>
     </action>
-    <action name="deleteUser" location="70,221" size="126,41">
+    <action name="deleteUser" location="79,180" size="126,41">
       <result name="success">
         <resourceEdge source="success" routing="0" target="showUserList" namespace="" />
       </result>
     </action>
-    <action name="showUserList" location="270,221" size="127,41">
+    <action name="showUserList" location="271,181" size="127,41">
       <result name="success">
         <resourceEdge source="success" routing="0" target="adduser.jsp" />
       </result>
     </action>
+    <action name="showEditor" location="169,256" size="122,41">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="uptext.jsp" />
+      </result>
+    </action>
   </package>
   <webResource name="admin.jsp" path="/content\admin.jsp" location="81,81" size="150,55" />
-  <webResource name="adduser.jsp" path="/content\adduser.jsp" location="771,270" size="150,55" />
+  <webResource name="adduser.jsp" path="/content\adduser.jsp" location="717,211" size="150,55" />
   <webResource name="error.jsp" path="/content\error.jsp" location="79,200" size="150,55" />
+  <webResource name="uptext.jsp" path="/content\uptext.jsp" location="717,290" size="150,55" />
 </Struts2Diagram>
 

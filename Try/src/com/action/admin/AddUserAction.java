@@ -1,5 +1,8 @@
 package com.action.admin;
 
+import java.sql.Timestamp;
+import java.util.Date;
+
 import com.dao.UserDao;
 import com.entity.User;
 import com.opensymphony.xwork2.ActionSupport;
@@ -51,6 +54,9 @@ public class AddUserAction extends ActionSupport {
 			user.setUserName(username);
 			user.setUserPassword(rpassword);
 			user.setRealName(realname);
+			Date date = new Date();
+			Timestamp timestamp = new Timestamp(date.getTime());
+			user.setLoginDate(timestamp);
 			user.setLoginCount(0);
 			user.setPermissionSign(false);
 			UserDao userDao = new UserDao();

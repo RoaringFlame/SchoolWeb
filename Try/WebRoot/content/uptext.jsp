@@ -184,7 +184,7 @@
 									文章标题：<input type="text" class="article" name="title">
 								</p>
 								<p>
-									上传人姓名：<input type="text" class="name" name="uploader">
+									作者：<input type="text" class="name" name="uploader">
 								</p>
 
 								<div class="article-area">

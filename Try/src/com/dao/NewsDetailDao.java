@@ -57,7 +57,7 @@ public class NewsDetailDao {
 		}
 	}
 	
-	public NewsDetail getNewsDetial(Integer newsId){
+	public NewsDetail getNewsDetialById(Integer newsId){
 		try {
 			session = HibernateSessionFactory.getSession();
 			NewsDetail nD = (NewsDetail) session.get(NewsDetail.class, newsId);
@@ -65,6 +65,21 @@ public class NewsDetailDao {
 		} catch (HibernateException e) {
 			e.printStackTrace();
 			return null;
+		} finally {
+			session.close();
+		}
+	}
+	
+	public boolean updateNewsDetail(NewsDetail newsDetail) {
+		try {
+			session = HibernateSessionFactory.getSession();
+			transaction = session.beginTransaction();
+			session.update(newsDetail);
+			transaction.commit();
+			return true;
+		} catch (HibernateException e) {
+			e.printStackTrace();
+			return false;
 		} finally {
 			session.close();
 		}

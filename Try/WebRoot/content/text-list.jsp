@@ -4,6 +4,7 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <title>上传</title>
 <link rel="stylesheet" href="css/admin.css">
 <link rel="stylesheet" href="css/public.css">
@@ -143,43 +144,41 @@
 
 				<div class="newsbox-2">
 					<div class="page-title">
-						当前所在：
-						<s:property value="#application.map[column]" />
-						<s:if test="#session.user.permissionSign">
-							<a href="uptext.html" class="button-right"><span>上传<s:property
-										value="#application.map[column]" /></span></a>
-						</s:if>
+						<span>当前所在：机构设置</span> <a href="uptext.html" class="button-right"><span>发布机构设置</span></a>
 					</div>
-					<table class="text-list">
-						<tr class="newsbox-list">
-						<tr align="center" class="first">
-							<td class="id">编号</td>
-							<td class="article-title">文章标题</td>
-							<td class="user">用户</td>
-							<td class="click">点击数</td>
-							<td class="upload-time">上传时间</td>
-							<td class="operate">操作</td>
-						</tr>
-						<tr class="next">
+					<div class="text-list">
+						<div class="newsbox-list">
+							<ul class="first">
+								<li class="id">编号</li>
+								<li class="article-title">文章标题</li>
+								<li class="user">用户</li>
+								<li class="click">点击数</li>
+								<li class="upload-time">上传时间</li>
+								<li class="operate">操作</li>
+							</ul>
 							<s:iterator value="newsList" status="st">
-								<tr align="center">
-									<td class="id"><s:property
-											value="#st.getIndex()+1+(pageNumber-1)*10" /></td>
-									<td align="left" class="article-title"><s:property
-											value="newsTitle" /></td>
-									<td class="user"><s:property value="newsUploader" /></td>
-									<td class="click"><s:property value="readCount" /></td>
-									<td class="upload-time"><s:date name="uploadDate"
-											format="yyyy-MM-dd HH:mm:ss" /></td>
-									<td><s:url id="update" action="updateNews">
+								<ul class="next">
+									<li class="id"><s:property
+											value="#st.getIndex()+1+(pageNumber-1)*10" /></li>
+									<li class="article-title"><s:property value="newsTitle" /></li>
+									<li class="user"><s:property value="operator" /></li>
+									<li class="click"><s:property value="readCount" /></li>
+									<li class="upload-time"><s:date name="uploadDate"
+											format="yyyy-MM-dd HH:mm:ss" /></li>
+									<li class="operate"><s:url id="update"
+											action="showInEditor">
 											<s:param name="newsId">
 												<s:property value="newsId" />
 											</s:param>
 											<s:param name="pageNumber">
 												<s:property value="pageNumber" />
 											</s:param>
-										</s:url> <s:a cssClass="change" href="%{update}">修改</s:a> <s:a
-											cssClass="view" href="uptext.html">查看</s:a> <s:url
+										</s:url> <s:a cssClass="change" href="%{update}">修改</s:a> <s:url
+											id="scan" action="uGetDetail">
+											<s:param name="newsId">
+												<s:property value="newsId" />
+											</s:param>
+										</s:url> <s:a cssClass="view" href="%{scan}">查看</s:a> <s:url
 											id="delete" action="deleteNews">
 											<s:param name="newsId">
 												<s:property value="newsId" />
@@ -190,61 +189,57 @@
 											<s:param name="column">
 												<s:property value="column" />
 											</s:param>
-										</s:url> <s:a cssClass="remove" href="%{delete}">删除</s:a></td>
-								</tr>
+										</s:url> <s:a cssClass="remove" href="%{delete}">删除</s:a></li>
+								</ul>
 							</s:iterator>
-						</tr>
-					</table>
-					<div class="pagedown">
-						<s:url id="firstPage" action="upageAction">
-							<s:param name="pageNumber">1</s:param>
-							<s:param name="column">
-								<s:property value="column" />
-							</s:param>
-						</s:url>
-						<s:a href="%{firstPage}">首页</s:a>
+						</div>
+						<div class="pagedown">
+							<s:url id="firstPage" action="upageAction">
+								<s:param name="pageNumber">1</s:param>
+								<s:param name="column">
+									<s:property value="column" />
+								</s:param>
+							</s:url>
+							<s:a href="%{firstPage}">首页</s:a>
 
-						<s:url id="prePage" action="upageAction">
-							<s:param name="pageNumber">
-								<s:property value='pageNumber-1' />
-							</s:param>
-							<s:param name="column">
-								<s:property value="column" />
-							</s:param>
-						</s:url>
-						<s:a href="%{prePage}">上一页</s:a>
+							<s:url id="prePage" action="upageAction">
+								<s:param name="pageNumber">
+									<s:property value='pageNumber-1' />
+								</s:param>
+								<s:param name="column">
+									<s:property value="column" />
+								</s:param>
+							</s:url>
+							<s:a href="%{prePage}">上一页</s:a>
 
-						<a><s:property value="pageNumber+'/'" /> <s:property
-								value="totalPage" /></a>
+							<a><s:property value="pageNumber+'/'" /> <s:property
+									value="totalPage" /></a>
 
-						<s:url id="nextPage" action="upageAction">
-							<s:param name="pageNumber">
-								<s:property value='pageNumber+1' />
-							</s:param>
-							<s:param name="column">
-								<s:property value="column" />
-							</s:param>
-						</s:url>
-						<s:a href="%{nextPage}">下一页</s:a>
+							<s:url id="nextPage" action="upageAction">
+								<s:param name="pageNumber">
+									<s:property value='pageNumber+1' />
+								</s:param>
+								<s:param name="column">
+									<s:property value="column" />
+								</s:param>
+							</s:url>
+							<s:a href="%{nextPage}">下一页</s:a>
 
-						<s:url id="lastPage" action="upageAction">
-							<s:param name="pageNumber">
-								<s:property value="totalPage" />
-							</s:param>
-							<s:param name="column">
-								<s:property value="column" />
-							</s:param>
-						</s:url>
-						<s:a href="%{lastPage}">末页</s:a>
+							<s:url id="lastPage" action="upageAction">
+								<s:param name="pageNumber">
+									<s:property value="totalPage" />
+								</s:param>
+								<s:param name="column">
+									<s:property value="column" />
+								</s:param>
+							</s:url>
+							<s:a href="%{lastPage}">末页</s:a>
+						</div>
 					</div>
-				</div>
 
+				</div>
 			</div>
 		</div>
-
-
-
-
 	</div>
 	<script type="text/javascript">
 		$(document).ready(function() {

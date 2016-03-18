@@ -84,7 +84,8 @@ body{
     margin:10px auto 0;
     color:#fff;
     font-size:16px;
-    background:#A20BDA ;
+    background:#955EBC;
+    border-radius: 10px;
  }
  .nav a:hover{
  	text-decoration: none;
@@ -99,7 +100,7 @@ body{
  	margin-left:10px;
 }
 .daohang ul .current{
-background:#a20bda;
+background:#955EBC;
 
 }
 .daohang ul .current a{
@@ -116,7 +117,7 @@ background:#a20bda;
 	line-height: 32px;	
 	height: 32px; 
 	margin-left: 10px; 
-	background-color: #88CBF5;	
+	background-color:#955EBC;	
 	border-radius: 10px;
 }
 .daohang ul li a{
@@ -126,7 +127,7 @@ background:#a20bda;
 .daohang ul li:hover {
 	cursor: pointer; 
 	z-index: 9999;
-	background:#a20bda;
+	background:#955EBC;
 	color:#fff;
 }
 .nav{
@@ -401,7 +402,7 @@ text-decoration: none;
 	width:340px;
 	height:40px;
 	line-height:40px;
-	border-bottom:2px solid #A20BDA;
+	border-bottom:2px solid #955EBC;
 	color:#000;
 	
 }
@@ -467,9 +468,9 @@ a,img{border:0;}
 	text-align: center;
 }
 .con-tit{
-	height:50px;
-	line-height: 50px;
-	background:#A20BDA;
+	height:40px;
+	line-height: 40px;
+	background:#955EBC;
 	font-size: 16px;
    
 }
@@ -483,7 +484,7 @@ a,img{border:0;}
 .con-tit li.select{
 	width:153px;
 	padding:0;
-	height:40px;
+	height:30px;
 	margin:10px 10px 0;
 	border-top-left-radius:10px;
 	border-top-right-radius:10px;
@@ -517,23 +518,31 @@ a,img{border:0;}
 }
 .pc-title{
 	margin-top:10px;
-	height:50px;
-	line-height: 50px;
-	padding-left:8px;
+	height:40px;
+	line-height: 40px;
 	padding-right:8px;
+	background:#F3EEF5;
+    border-radius: 10px;
+	box-shadow:0 0 1px rgba(0,0,0,0.5);
+	-o-box-shadow:0 0 1px rgba(0,0,0,0.5);
+	-moz-box-shadow:0 0 1px rgba(0,0,0,0.5);
+	-webkit-box-shadow:0 0 1px rgba(0,0,0,0.5);
 }
 .pc-title h3{
 	width:120px;
-	height:50px;
-	background:#A20BDA;
+	height:40px;
+	background:#955EBC;
 	float:left;
 	text-indent:12px;
+	
+	border-top-left-radius: 10px;
+	border-bottom-left-radius:10px;
 }
 .pc-title .a-title{
 	display:block;
 	color:#fff;
 	width:120px;
-	height:50px;
+	height:40px;
 	float:left;
 	
 	
@@ -632,6 +641,10 @@ table{empty-cells:show;border-collapse:collapse;border-spacing:0;}
 .item-i ul li a{
 	color:#000;
 }
+.item-i ul li a:hover{
+	text-decoration: none;
+}
+
 .item-i ul li:hover{
 	background:#DCC0DC;
 }
@@ -643,7 +656,7 @@ table{empty-cells:show;border-collapse:collapse;border-spacing:0;}
 	width:250px;
 	height:35px;
 	line-height:35px;
-	border-bottom:2px solid #a20bda;
+	border-bottom:2px solid #955EBC;
 	
 }
 .i-title h3{
