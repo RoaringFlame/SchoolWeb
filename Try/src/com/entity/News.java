@@ -18,6 +18,7 @@ public class News implements java.io.Serializable {
 	private String lastOperation;
 	private Timestamp uploadDate;
 	private Integer readCount;
+	private String imgLoaction;
 
 	// Constructors
 
@@ -37,7 +38,7 @@ public class News implements java.io.Serializable {
 	/** full constructor */
 	public News(Integer newsColumn, String newsTitle, String newsUploader,
 			String operator, String lastOperation, Timestamp uploadDate,
-			Integer readCount) {
+			Integer readCount, String imgLoaction) {
 		this.newsColumn = newsColumn;
 		this.newsTitle = newsTitle;
 		this.newsUploader = newsUploader;
@@ -45,6 +46,7 @@ public class News implements java.io.Serializable {
 		this.lastOperation = lastOperation;
 		this.uploadDate = uploadDate;
 		this.readCount = readCount;
+		this.imgLoaction = imgLoaction;
 	}
 
 	// Property accessors
@@ -111,6 +113,14 @@ public class News implements java.io.Serializable {
 
 	public void setReadCount(Integer readCount) {
 		this.readCount = readCount;
+	}
+
+	public String getImgLoaction() {
+		return this.imgLoaction;
+	}
+
+	public void setImgLoaction(String imgLoaction) {
+		this.imgLoaction = imgLoaction;
 	}
 
 }

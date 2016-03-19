@@ -12,7 +12,7 @@ public class Counter implements java.io.Serializable {
 	private Integer todayCount;
 	private Integer yesterdayCount;
 	private Integer allCount;
-	private Integer cilckCount;
+	private Integer clickCount;
 	private Integer dayCount;
 
 	// Constructors
@@ -23,11 +23,11 @@ public class Counter implements java.io.Serializable {
 
 	/** full constructor */
 	public Counter(Integer todayCount, Integer yesterdayCount,
-			Integer allCount, Integer cilckCount, Integer dayCount) {
+			Integer allCount, Integer clickCount, Integer dayCount) {
 		this.todayCount = todayCount;
 		this.yesterdayCount = yesterdayCount;
 		this.allCount = allCount;
-		this.cilckCount = cilckCount;
+		this.clickCount = clickCount;
 		this.dayCount = dayCount;
 	}
 
@@ -65,12 +65,12 @@ public class Counter implements java.io.Serializable {
 		this.allCount = allCount;
 	}
 
-	public Integer getCilckCount() {
-		return this.cilckCount;
+	public Integer getClickCount() {
+		return this.clickCount;
 	}
 
-	public void setCilckCount(Integer cilckCount) {
-		this.cilckCount = cilckCount;
+	public void setClickCount(Integer clickCount) {
+		this.clickCount = clickCount;
 	}
 
 	public Integer getDayCount() {

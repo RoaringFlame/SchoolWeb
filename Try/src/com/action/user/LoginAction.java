@@ -2,7 +2,6 @@ package com.action.user;
 
 import java.sql.Timestamp;
 import java.util.Date;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -20,7 +19,7 @@ public class LoginAction extends ActionSupport {
 	private String username;
 	private String password;
 	private String incode;
-
+	
 	HttpServletRequest request = ServletActionContext.getRequest();
 	HttpSession session = request.getSession();
 
@@ -75,7 +74,7 @@ public class LoginAction extends ActionSupport {
 
 	public String quit() {
 		if (ActionContext.getContext().getSession() != null)
-			ActionContext.getContext().getSession().clear();		
+			ActionContext.getContext().getSession().clear();	
 		return "quit";
 	}
 }

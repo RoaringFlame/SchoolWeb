@@ -50,6 +50,7 @@ public class AddUserAction extends ActionSupport {
 
 	public String execute() {
 		if (rpassword.equals(password)) {
+			//实例化User
 			User user = new User();
 			user.setUserName(username);
 			user.setUserPassword(rpassword);
@@ -59,6 +60,7 @@ public class AddUserAction extends ActionSupport {
 			user.setLoginDate(timestamp);
 			user.setLoginCount(0);
 			user.setPermissionSign(false);
+			//载入数据库
 			UserDao userDao = new UserDao();
 			if (userDao.addUser(user)) {
 				return SUCCESS;

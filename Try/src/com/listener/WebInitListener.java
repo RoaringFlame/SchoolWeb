@@ -1,7 +1,6 @@
 package com.listener;
 
 import java.util.HashMap;
-
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
@@ -24,18 +23,26 @@ public class WebInitListener implements ServletContextListener {
 			HashMap<String, String> map = pr.getHasMap();
 			ServletContext application = sce.getServletContext();
 			application.setAttribute("map", map);
-			//读取计数器，存入application
+
+			// 读取计数器，存入application
 			CounterDao cDao = new CounterDao();
 			Counter counter = cDao.getCounterbyId(1);
 			application.setAttribute("counter", counter);
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
 	public void contextDestroyed(ServletContextEvent sce) {
-		System.out.println("---应用结束事件WebInitListener");
 		ContextCounter cc = new ContextCounter();
 		cc.saveCounterInDB();
 	}
 }
+
+// 使用Timer事务更新数据库每日数据失败，改用数据库事件：
+/*
+ * create event dayUpdate on schedule every 1 day starts timestamp '2016-3-18
+ * 01:00:00' do update counter set day_count = (day_count + 1) and
+ * yestarday_count = today_count and today_count = 0 where count_id = 1;
+ */

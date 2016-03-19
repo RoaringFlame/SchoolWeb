@@ -8,7 +8,7 @@
     <class name="com.entity.News" table="news" catalog="db_schoolweb">
         <id name="newsId" type="java.lang.Integer">
             <column name="news_id" />
-            <generator class="native" />
+            <generator class="native"></generator>
         </id>
         <property name="newsColumn" type="java.lang.Integer">
             <column name="news_column" not-null="true">
@@ -32,6 +32,9 @@
         </property>
         <property name="readCount" type="java.lang.Integer">
             <column name="read_count" />
+        </property>
+        <property name="imgLoaction" type="java.lang.String">
+            <column name="img_loaction" length="50" />
         </property>
     </class>
 </hibernate-mapping>

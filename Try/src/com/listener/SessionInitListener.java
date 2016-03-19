@@ -13,6 +13,7 @@ public class SessionInitListener implements HttpSessionListener {
 	public void sessionCreated(HttpSessionEvent se){
 		//操纵数据库让用户数增1
 		ContextCounter cc = new ContextCounter();
+		cc.clickCount();
 		cc.visitCount();
 	}
 

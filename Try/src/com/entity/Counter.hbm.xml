@@ -19,8 +19,8 @@
         <property name="allCount" type="java.lang.Integer">
             <column name="all_count" />
         </property>
-        <property name="cilckCount" type="java.lang.Integer">
-            <column name="cilck_count" />
+        <property name="clickCount" type="java.lang.Integer">
+            <column name="click_count" />
         </property>
         <property name="dayCount" type="java.lang.Integer">
             <column name="day_count" />

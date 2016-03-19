@@ -74,6 +74,7 @@ public class UploadAction extends ActionSupport {
 			Timestamp timestamp = new Timestamp(date.getTime());
 			news.setUploadDate(timestamp);
 			news.setReadCount(0);
+			
 			NewsDao nDao = new NewsDao();
 			NewsDetailDao ndDao = new NewsDetailDao();
 			if (nDao.AddNews(news)) {

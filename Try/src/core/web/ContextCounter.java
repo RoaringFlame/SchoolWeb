@@ -27,8 +27,8 @@ public class ContextCounter {
 
 	public void clickCount() {
 		if (counter != null) {
-			int i = counter.getCilckCount();
-			counter.setCilckCount(++i);
+			int i = counter.getClickCount();
+			counter.setClickCount(++i);
 			application.setAttribute("counter", counter);
 		}
 	}

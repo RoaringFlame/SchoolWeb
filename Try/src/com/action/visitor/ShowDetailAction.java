@@ -1,6 +1,7 @@
 package com.action.visitor;
 
 import javax.servlet.http.HttpServletRequest;
+
 import org.apache.struts2.ServletActionContext;
 
 import com.dao.NewsDao;
@@ -8,6 +9,8 @@ import com.dao.NewsDetailDao;
 import com.entity.News;
 import com.entity.NewsDetail;
 import com.opensymphony.xwork2.ActionSupport;
+
+import core.web.ContextCounter;
 
 public class ShowDetailAction extends ActionSupport {
 
@@ -51,9 +54,13 @@ public class ShowDetailAction extends ActionSupport {
 			if ((newsDetail = ndDao.getNewsDetialById(newsId)) != null) {
 				content = newsDetail.getNewsContents();
 				request.setAttribute("content", content);
+				//文章阅读量+1
 				int i = news.getReadCount();
 				news.setReadCount(++i);
 				nDao.updateNews(news);
+				//网站点击量问量+1
+				ContextCounter cc = new ContextCounter();
+				cc.clickCount();
 				return SUCCESS;
 			}
 		}

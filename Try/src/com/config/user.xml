@@ -73,7 +73,7 @@
 		</action>
 
 		<action name="showInEditor" class="com.action.user.ShowInEditorAction">
-			<result name="success">/content\update.jsp</result>
+			<result name="success">/content\changetext.jsp</result>
 			<result name="error">/content\error.jsp</result>
 		</action>
 

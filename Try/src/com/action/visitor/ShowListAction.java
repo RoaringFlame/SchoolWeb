@@ -2,6 +2,11 @@ package com.action.visitor;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import org.apache.struts2.ServletActionContext;
+
 import com.dao.NewsDao;
 import com.entity.News;
 import com.opensymphony.xwork2.ActionSupport;
@@ -13,7 +18,7 @@ public class ShowListAction extends ActionSupport {
 	private String column;
 	private int pageNumber;
 	private int totalPage;
-	private String maxNumber;
+	private int maxNumber;
 	private List<News> newsList;
 
 	private NewsDao nd = new NewsDao();
@@ -42,11 +47,11 @@ public class ShowListAction extends ActionSupport {
 		this.totalPage = totalPage;
 	}
 
-	public String getMaxNumber() {
+	public int getMaxNumber() {
 		return maxNumber;
 	}
 
-	public void setMaxNumber(String maxNumber) {
+	public void setMaxNumber(int maxNumber) {
 		this.maxNumber = maxNumber;
 	}
 
@@ -60,8 +65,18 @@ public class ShowListAction extends ActionSupport {
 
 	public String execute() {
 		int column = Integer.parseInt(this.column);
-		int maxNumber = Integer.parseInt(this.maxNumber);
 		newsList = nd.getColumnList(column, pageNumber, maxNumber);
 		return SUCCESS;
+	}
+
+	public String searchList() {
+		HttpServletRequest request = ServletActionContext.getRequest();
+		HttpSession session = request.getSession();
+		if ((session.getAttribute("searchStr")) != null) {
+			String str = (String) session.getAttribute("searchStr");
+			newsList = nd.getSearchList(str, pageNumber, maxNumber);
+			return SUCCESS;
+		}
+		return ERROR;
 	}
 }

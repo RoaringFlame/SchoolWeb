@@ -7,7 +7,9 @@
 	<package name="visior" extends="struts-default">
 
 		<action name="login" class="com.action.user.LoginAction">
-			<result name="success">/content\admin.jsp</result>
+			<result name="success" type="redirectAction">
+				<param name="actionName">recentNews</param>
+			</result>
 			<result name="input">/content\login.jsp</result>
 			<result name="quit">/content\index.jsp</result>
 		</action>
@@ -25,7 +27,7 @@
 		</action>
 
 		<action name="newsList" class="com.action.visitor.ShowListAction">
-			<result name="success">/content\searchlist.jsp</result>
+			<result name="success">/content\newslist.jsp</result>
 			<result name="error">/content\error.jsp</result>
 		</action>
 
@@ -35,8 +37,38 @@
 				<param name="pageNumber">${pageNumber}</param>
 				<param name="totalPage">${totalPage}</param>
 				<param name="column">${column}</param>
-				<param name="maxNumber">${V_MAX_NUMBER}</param>
+				<param name="maxNumber">${maxNumber}</param>
 			</result>
 		</action>
-	</package>
+
+		<action name="snewsList" class="com.action.visitor.ShowListAction"
+			method="searchList">
+			<result name="success">/content\searchlist.jsp</result>
+			<result name="error">/content\index.jsp</result>
+		</action>
+
+		<action name="spageAction" class="com.action.user.PageAction"
+			method="searchNews">
+			<result name="spallnews" type="redirectAction">
+				<param name="actionName">snewsList</param>
+				<param name="pageNumber">${pageNumber}</param>
+				<param name="totalPage">${totalPage}</param>
+				<param name="maxNumber">${maxNumber}</param>
+			</result>
+			<result name="input">/content\index.jsp</result>
+		</action>
+		<action name="addMessage" class="com.action.visitor.AddMessageAction">
+			<result name="success">/content\index.jsp</result>
+			<result name="input">/content\message.jsp</result>
+		</action>
+		<action name="recentNews"
+			class="com.action.user.RecentNewsAction">
+			<result name="success">/content\admin.jsp</result>
+			<result name="error">/content\login.jsp</result>
+		</action>
+		<action name="vGetDetial"
+			class="com.action.visitor.ShowDetailAction">
+			<result name="success">/content\news.jsp</result>
+			<result name="error">/content\error.jsp</result>
+		</action></package>
 </struts>    

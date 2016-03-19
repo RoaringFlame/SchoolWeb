@@ -1,5 +1,10 @@
 package com.action.user;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import org.apache.struts2.ServletActionContext;
+
 import com.dao.NewsDao;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -12,6 +17,7 @@ public class PageAction extends ActionSupport {
 	private NewsDao nDao = new NewsDao();
 
 	private String column;
+	private String searchStr;
 	private int pageNumber;
 	private int totalPage;
 	private int maxNumber;
@@ -22,6 +28,14 @@ public class PageAction extends ActionSupport {
 
 	public void setColumn(String column) {
 		this.column = column;
+	}
+
+	public String getSearchStr() {
+		return searchStr;
+	}
+
+	public void setSearchStr(String searchStr) {
+		this.searchStr = searchStr;
 	}
 
 	public int getPageNumber() {
@@ -60,6 +74,26 @@ public class PageAction extends ActionSupport {
 		this.countPage(Amount, U_MAX_NUMBER);
 		this.setMaxNumber(U_MAX_NUMBER);
 		return "upallnews";
+	}
+
+	public String searchNews() {
+		// 放入action中不停转码，出现各种问题，无法解决，索性放入session中
+		HttpServletRequest request = ServletActionContext.getRequest();
+		HttpSession session = request.getSession();
+		if (searchStr == null) {
+			if ((session.getAttribute("searchStr")) != null) {
+				searchStr = (String) session.getAttribute("searchStr");
+			}
+		}
+		if (!searchStr.equals("")) {
+			session.setAttribute("searchStr", searchStr);
+			// 统计查询量用于分页
+			int Amount = nDao.getSearchAmount(searchStr);
+			this.countPage(Amount, U_MAX_NUMBER);
+			this.setMaxNumber(U_MAX_NUMBER);
+			return "spallnews";
+		}
+		return INPUT;
 	}
 
 	private void countPage(int Amount, int Maxnum) {

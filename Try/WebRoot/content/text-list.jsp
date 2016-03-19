@@ -159,7 +159,7 @@
 							<s:iterator value="newsList" status="st">
 								<ul class="next">
 									<li class="id"><s:property
-											value="#st.getIndex()+1+(pageNumber-1)*10" /></li>
+											value="#st.getIndex()+1+(pageNumber-1)*maxNumber" /></li>
 									<li class="article-title"><s:property value="newsTitle" /></li>
 									<li class="user"><s:property value="operator" /></li>
 									<li class="click"><s:property value="readCount" /></li>

@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -31,19 +32,25 @@
 					<a href="login.jsp">登录</a>&nbsp;|&nbsp;<a href="">注册</a>&nbsp;|&nbsp;<a
 						href="">旧站入口</a>
 				</p>
-				<br> <span class="search">
-					<form action="" method="get">
-						<input name="" type="text" class="kuan" /> <input value="搜索"
-							type="button" class="an" />
-					</form>
-				</span>
+				<br>
+
+				<form action="spageAction" method="post">
+					<span class="search"> <s:textfield name="searchStr"
+							cssClass="kuan" /> <input value="搜索" type="submit" class="an" />
+					</span>
+				</form>
+
 			</div>
 		</div>
 
 		<div class="daohang">
 			<ul class="nav">
 				<li class="current"><a href="index.html"><b>网站首页</b></a></li>
-				<li><a href="newslist.html">校园动态</a> <span>
+				<li><s:url id="showlist" action="vpageAction">
+						<s:param name="column">
+							<s:property value="1" />
+						</s:param>
+					</s:url><s:a href="%{showlist}">校园动态</s:a> <span>
 						<p>
 							<a href="news.html">最新公告</a>
 						</p>

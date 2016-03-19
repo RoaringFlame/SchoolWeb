@@ -178,47 +178,18 @@
 								<li class="upload-user">上传用户</li>
 								<li class="update-time">更新时间</li>
 							</ul>
-							<ul class="default">
-								<li class="id">id</li>
-								<li class="newstitle">新闻标题</li>
-								<li class="update-program">更新栏目</li>
-								<li class="funcation">操作</li>
-								<li class="upload-user">上传用户</li>
-								<li class="update-time">更新时间</li>
-
-							</ul>
-							<ul>
-								<li class="id">id</li>
-								<li class="newstitle">新闻标题</li>
-								<li class="update-program">更新栏目</li>
-								<li class="funcation">操作</li>
-								<li class="upload-user">上传用户</li>
-								<li class="update-time">更新时间</li>
-							</ul>
-							<ul class="default">
-								<li class="id">id</li>
-								<li class="newstitle">新闻标题</li>
-								<li class="update-program">更新栏目</li>
-								<li class="funcation">操作</li>
-								<li class="upload-user">上传用户</li>
-								<li class="update-time">更新时间</li>
-							</ul>
-							<ul>
-								<li class="id">id</li>
-								<li class="newstitle">新闻标题</li>
-								<li class="update-program">更新栏目</li>
-								<li class="funcation">操作</li>
-								<li class="upload-user">上传用户</li>
-								<li class="update-time">更新时间</li>
-							</ul>
-							<ul class="default">
-								<li class="id">id</li>
-								<li class="newstitle">新闻标题</li>
-								<li class="update-program">更新栏目</li>
-								<li class="funcation">操作</li>
-								<li class="upload-user">上传用户</li>
-								<li class="update-time">更新时间</li>
-							</ul>
+							<s:iterator value="newsList" status="st">
+								<ul class="default">
+									<li class="id"><s:property value="#st.getIndex()+1" /></li>
+									<li class="newstitle"><s:property value="newsTitle" /></li>
+									<li class="update-program"><s:property
+											value="#application.map[newsColumn]" /></li>
+									<li class="funcation"><s:property value="lastOperation" /></li>
+									<li class="upload-user"><s:property value="operator" /></li>
+									<li class="update-time"><s:date name="uploadDate"
+											format="yyyy-MM-dd HH:mm:ss" /></li>
+								</ul>
+							</s:iterator>
 						</div>
 					</div>
 

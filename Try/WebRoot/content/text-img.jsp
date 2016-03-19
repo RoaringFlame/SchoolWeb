@@ -4,7 +4,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>新闻页面</title>
 <link rel="stylesheet" href="css/second.css">
 <link rel="stylesheet" type="text/css" href="css/public.css">
@@ -174,15 +174,16 @@
 					</div>
 					<div class="left-item">
 						<ul>
-							<li>总访问量：</li>
-							<li>总浏览量：</li>
-							<li>今日访问：</li>
-							<li>日均访问：</li>
+							<li>总访问量：<s:property value="#application.counter.allCount" /></li>
+							<li>总浏览量：<s:property value="#application.counter.clickCount" /></li>
+							<li>今日访问：<s:property value="#application.counter.todayCount" /></li>
+							<li>日均访问：<s:property
+									value="#application.counter.allCount/#application.counter.dayCount" /></li>
 						</ul>
 					</div>
 				</div>
-
 			</div>
+
 			<div class="right-page">
 				<div class="right-title">
 					<p>
@@ -203,24 +204,34 @@
 							<s:property value="%{news.readCount}" />
 						</p>
 					</div>
-					<s:property value="%{content}" />
+					<!-- 					<div class="text-img"> -->
+					<!-- 						<div class="img"> -->
+					<!-- 							<img src="img/ex.jpg" alt=""> -->
+					<!-- 						</div> -->
+					<!-- 					</div> -->
+					<div class="article">
+						<s:property escape="false" value="%{content}" />
+					</div>
 				</div>
-			</div>
-			<div class="clear"></div>
-			<div class="divider"></div>
-			<div class="footer">
-				<div class="message">
-					<ul>
-						<li class="weixin"><a href="#"><img src="" alt=""></a></li>
-						<li class="weibo"><a href="#"><img src="" alt=""></a></li>
-					</ul>
-				</div>
-				<div class="foot">
-					版权所有 Copyright © 2005-2015 湖北第二师范学院<br> 地址：khsfkljhasjkhflkha<br>
-					联系方式：hgsfgkakajkhkahklh
-				</div>
-			</div>
 
+			</div>
 		</div>
+
+		<div class="clear"></div>
+		<div class="divider"></div>
+		<div class="footer">
+			<div class="message">
+				<ul>
+					<li class="weixin"><a href="#"><img src="" alt=""></a></li>
+					<li class="weibo"><a href="#"><img src="" alt=""></a></li>
+				</ul>
+			</div>
+			<div class="foot">
+				版权所有 Copyright © 2005-2015 湖北第二师范学院<br> 地址：khsfkljhasjkhflkha<br>
+				联系方式：hgsfgkakajkhkahklh
+			</div>
+		</div>
+
+	</div>
 </body>
 </html>
