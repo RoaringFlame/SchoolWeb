@@ -2,11 +2,12 @@
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
 <struts>
 	<package name="Admin" extends="struts-default">
-	
-				<!-- 配置系统的拦截器 -->
+
+		<!-- 配置系统的拦截器 -->
 		<interceptors>
 			<!-- 定义系统的登录控制的拦截器 -->
-			<interceptor name="online" class="com.action.interceptor.OnlineInterceptor" />
+			<interceptor name="online"
+				class="com.action.interceptor.OnlineInterceptor" />
 			<!-- 定义系统auctionStack拦截器栈 -->
 			<interceptor-stack name="onlineStack">
 				<!-- 引用系统的默认拦截器栈 -->
@@ -22,18 +23,20 @@
 			<!-- 下面定义的结果对所有的Action都有效 -->
 			<result name="login">/content\login.jsp</result>
 		</global-results>
-	
+
 		<action name="addUser" class="com.action.admin.AddUserAction">
-			<result name="success">/content\admin.jsp</result>
+			<result name="success" type="redirectAction">
+				<param name="actionName">showUserList</param>
+			</result>
 			<result name="input" type="dispatcher">
-				<param name="actionName">showUser</param>
-				<param name="location">/content\error.jsp</param>
+				/content\adduser.jsp
 			</result>
 		</action>
 
 		<action name="upload" class="com.action.admin.UploadAction">
-			<result name="success">/content\admin.jsp</result>
-			<result name="error">/content\error.jsp</result>
+			<result name="success" type="redirectAction">
+				<param name="actionName">aColumnList</param>
+			</result>
 		</action>
 
 		<action name="deleteUser" class="com.action.admin.DeleteUserAction">
@@ -44,10 +47,13 @@
 
 		<action name="showUserList" class="com.action.admin.ShowUserListAction">
 			<result name="success">/content\adduser.jsp</result>
-			
+
 		</action>
-		<action name="showEditor"
-			class="com.action.admin.ShowEditorAction">
+		<action name="showEditor" class="com.action.admin.ShowEditorAction">
 			<result name="success">/content\uptext.jsp</result>
-		</action></package>
+		</action>
+		<action name="aColumnList" class="com.action.user.GetColumnAction">
+			<result name="success">/content\publish.jsp</result>
+		</action>
+	</package>
 </struts>    

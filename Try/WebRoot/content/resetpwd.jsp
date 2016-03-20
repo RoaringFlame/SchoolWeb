@@ -148,7 +148,9 @@
 						<div class="table-main">
 							<div class="table-title">
 								<h3>用户信息</h3>
-								<p class="warning">会计法！</p>
+								<p>
+									<s:actionerror cssClass="warning" />
+								</p>
 							</div>
 							<div class="table-content-2">
 								<form action="changePassword" method="post" name="resetpwd">

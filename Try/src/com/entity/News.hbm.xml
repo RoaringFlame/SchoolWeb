@@ -33,8 +33,8 @@
         <property name="readCount" type="java.lang.Integer">
             <column name="read_count" />
         </property>
-        <property name="imgLoaction" type="java.lang.String">
-            <column name="img_loaction" length="50" />
+        <property name="fileName" type="java.lang.String">
+            <column name="file_name" length="50" />
         </property>
     </class>
 </hibernate-mapping>

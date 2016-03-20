@@ -38,18 +38,31 @@ public class ChangePasswordAction extends ActionSupport {
 	}
 
 	public String execute() {
+		if (fpassword.equals("")) {
+			addActionError("请输入原密码！");
+			return INPUT;
+		}
+		if (npassword.equals("")) {
+			addActionError("请输入新密码！");
+			return INPUT;
+		}
+
 		if (rpassword.equals(npassword)) {
 			User user = (User) ActionContext.getContext().getSession()
 					.get("user");
 			UserDao userDao = new UserDao();
 			User use = userDao.findUserById(user);
-			if(use!=null){
+			if (use != null) {
 				use.setUserPassword(npassword);
-				if(userDao.updateUser(use)){
+				if (userDao.updateUser(use)) {
 					return SUCCESS;
 				}
+			} else {
+				addActionError("密码错误！");
+				return INPUT;
 			}
 		}
+		addActionError("两次密码不一致！");
 		return INPUT;
 	}
 }

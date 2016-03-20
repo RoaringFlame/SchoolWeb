@@ -13,6 +13,7 @@ public class PageAction extends ActionSupport {
 	private static final long serialVersionUID = 1L;
 
 	private static final int V_MAX_NUMBER = 12;
+	private static final int I_MAX_NUMBER = 9;
 	private static final int U_MAX_NUMBER = 7;
 	private NewsDao nDao = new NewsDao();
 
@@ -74,6 +75,13 @@ public class PageAction extends ActionSupport {
 		this.countPage(Amount, U_MAX_NUMBER);
 		this.setMaxNumber(U_MAX_NUMBER);
 		return "upallnews";
+	}
+
+	public String imageNews() {
+		int Amount = nDao.getNewsAmount(Integer.parseInt(column));
+		this.countPage(Amount, I_MAX_NUMBER);
+		this.setMaxNumber(I_MAX_NUMBER);
+		return "ipallnews";
 	}
 
 	public String searchNews() {

@@ -1,4 +1,4 @@
--- MySQL dump 10.13  Distrib 5.7.9, for Win64 (x86_64)
+﻿-- MySQL dump 10.13  Distrib 5.7.9, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: db_schoolweb
 -- ------------------------------------------------------
@@ -89,7 +89,7 @@ CREATE TABLE `news` (
   `last_operation` varchar(50) DEFAULT NULL,
   `upload_date` datetime DEFAULT NULL,
   `read_count` int(11) DEFAULT NULL,
-  `img_loaction` varchar(50) DEFAULT NULL,
+  `img_loaction` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`news_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='文章信息';
 /*!40101 SET character_set_client = @saved_cs_client */;

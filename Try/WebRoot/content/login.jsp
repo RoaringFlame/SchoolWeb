@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="en">
 <head>
@@ -27,26 +28,31 @@
 		<div class="login-main">
 			<div class="main-title">
 				<h2>网站后台管理系统</h2>
-			</div >
+			</div>
 			<div class="main">
-			<div class="main-body">
-				<form action="login" method="post" name="login">
-<!-- 					<p class="warning">验证码错误!</p> -->
-					<div class="line">
-						<input type="text" class="username" name="username" placeholder="请输入用户名">
-					</div>
-					<div class="line">
-						<input type="password" class="password" name= "password" placeholder="请输入密码">
-					</div>
-					<div class="line-idcode">
-						<input type="text" class="idcode" placeholder="验证码" maxlength="4"> <img
-							src="randImage" alt="" onclick="changeValidateCode(this)">
-					</div>
-					<div class="buttons">
-						<input class="button-left" type="submit" value="登录"> <input
-							class="button-right" type="reset" value="重置">
-					</div>
-				</form>
+				<div class="main-body">
+					<form action="login" method="post" name="login">
+						<p>
+							<s:actionerror cssClass="warning" />
+						</p>
+						<div class="line">
+							<input type="text" class="username" name="username"
+								placeholder="请输入用户名">
+						</div>
+						<div class="line">
+							<input type="password" class="password" name="password"
+								placeholder="请输入密码">
+						</div>
+						<div class="line-idcode">
+							<input type="text" class="idcode" placeholder="验证码" maxlength="4"
+								name="incode"> <img src="randImage" alt=""
+								onclick="changeValidateCode(this)">
+						</div>
+						<div class="buttons">
+							<input class="button-left" type="submit" value="登录"> <input
+								class="button-right" type="reset" value="重置">
+						</div>
+					</form>
 				</div>
 			</div>
 		</div>

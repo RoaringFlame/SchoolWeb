@@ -158,7 +158,7 @@ public class NewsDao {
 		List<News> list = new ArrayList<News>();
 		try {
 			session = HibernateSessionFactory.getSession();
-			String hql = "from News as n where n.newsTitle like :searchStr";
+			String hql = "from News as n where n.newsTitle like :searchStr order by n.uploadDate desc";
 			query = session.createQuery(hql);
 			query.setParameter("searchStr", "%" + searchStr + "%");
 			query.setFirstResult((page - 1) * maxnum);

@@ -58,17 +58,30 @@
 			<result name="input">/content\index.jsp</result>
 		</action>
 		<action name="addMessage" class="com.action.visitor.AddMessageAction">
-			<result name="success">/content\index.jsp</result>
+			<result name="success">/content\message.jsp</result>
 			<result name="input">/content\message.jsp</result>
 		</action>
-		<action name="recentNews"
-			class="com.action.user.RecentNewsAction">
+		<action name="recentNews" class="com.action.user.RecentNewsAction">
 			<result name="success">/content\admin.jsp</result>
 			<result name="error">/content\login.jsp</result>
 		</action>
-		<action name="vGetDetial"
-			class="com.action.visitor.ShowDetailAction">
+		<action name="vGetDetial" class="com.action.visitor.ShowDetailAction">
 			<result name="success">/content\news.jsp</result>
 			<result name="error">/content\error.jsp</result>
-		</action></package>
+		</action>
+		<action name="ipageAction" class="com.action.user.PageAction"
+			method="imageNews">
+			<result name="ipallnews" type="redirectAction">
+				<param name="actionName">inewsList</param>
+				<param name="pageNumber">${pageNumber}</param>
+				<param name="totalPage">${totalPage}</param>
+				<param name="column">${column}</param>
+				<param name="maxNumber">${maxNumber}</param>
+			</result>
+		</action>
+		<action name="inewsList" class="com.action.visitor.ShowListAction">
+			<result name="success">/content\showimg.jsp</result>
+			<result name="error">/content\index.jsp</result>
+		</action>
+	</package>
 </struts>    

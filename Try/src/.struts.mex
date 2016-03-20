@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Struts2Diagram version="2.0">
-  <package name="visior" location="208,89" size="406,489">
-    <action name="login" location="267,105" size="137,83">
+  <package name="visior" location="193,88" size="454,629">
+    <action name="login" location="310,146" size="137,83">
       <result name="success">
         <resourceEdge source="success" routing="0" target="recentNews" namespace="" />
       </result>
@@ -12,10 +12,10 @@
         <resourceEdge source="quit" routing="0" target="index.jsp" />
       </result>
     </action>
-    <action name="randImage" location="264,319" size="137,41">
+    <action name="randImage" location="293,371" size="137,41">
       <result name="success" />
     </action>
-    <action name="newsDetail" location="51,227" size="136,62">
+    <action name="newsDetail" location="48,270" size="136,62">
       <result name="success">
         <resourceEdge source="success" routing="0" target="search.jsp" />
       </result>
@@ -23,7 +23,7 @@
         <resourceEdge source="error" routing="0" target="error.jsp" />
       </result>
     </action>
-    <action name="newsList" location="32,52" size="137,62">
+    <action name="newsList" location="41,50" size="137,62">
       <result name="success">
         <resourceEdge source="success" routing="0" target="newslist.jsp" />
       </result>
@@ -31,12 +31,12 @@
         <resourceEdge source="error" routing="0" target="error.jsp" />
       </result>
     </action>
-    <action name="vpageAction" location="221,31" size="121,41">
+    <action name="vpageAction" location="299,55" size="121,41">
       <result name="vpallnews">
         <resourceEdge source="vpallnews" routing="0" target="newsList" namespace="" />
       </result>
     </action>
-    <action name="snewsList" location="26,423" size="130,62">
+    <action name="snewsList" location="32,460" size="130,62">
       <result name="success">
         <resourceEdge source="success" routing="0" target="searchlist.jsp" />
       </result>
@@ -44,7 +44,7 @@
         <resourceEdge source="error" routing="0" target="index.jsp" />
       </result>
     </action>
-    <action name="spageAction" location="76,322" size="123,62">
+    <action name="spageAction" location="75,367" size="123,62">
       <result name="spallnews">
         <resourceEdge source="spallnews" routing="0" target="snewsList" namespace="" />
       </result>
@@ -52,15 +52,15 @@
         <resourceEdge source="input" routing="0" target="index.jsp" />
       </result>
     </action>
-    <action name="addMessage" location="258,414" size="135,62">
+    <action name="addMessage" location="270,457" size="135,62">
       <result name="success">
-        <resourceEdge source="success" routing="0" target="index.jsp" />
+        <resourceEdge source="success" routing="0" target="message.jsp" />
       </result>
       <result name="input">
         <resourceEdge source="input" routing="0" target="message.jsp" />
       </result>
     </action>
-    <action name="recentNews" location="227,207" size="129,62">
+    <action name="recentNews" location="263,250" size="129,62">
       <result name="success">
         <resourceEdge source="success" routing="0" target="admin.jsp" />
       </result>
@@ -68,7 +68,7 @@
         <resourceEdge source="error" routing="0" target="login.jsp" />
       </result>
     </action>
-    <action name="vGetDetial" location="35,134" size="136,62">
+    <action name="vGetDetial" location="47,167" size="136,62">
       <result name="success">
         <resourceEdge source="success" routing="0" target="news.jsp" />
       </result>
@@ -76,17 +76,31 @@
         <resourceEdge source="error" routing="0" target="error.jsp" />
       </result>
     </action>
+    <action name="ipageAction" location="60,583" size="129,41">
+      <result name="ipallnews">
+        <resourceEdge source="ipallnews" routing="0" target="inewsList" namespace="" />
+      </result>
+    </action>
+    <action name="inewsList" location="261,565" size="144,62">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="showimg.jsp" />
+      </result>
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="index.jsp" />
+      </result>
+    </action>
   </package>
   <webResource name="error.jsp" path="/content\error.jsp" location="657,85" size="150,55" />
   <webResource name="searchlist.jsp" path="/content\searchlist.jsp" location="14,513" size="150,55" />
   <webResource name="search.jsp" path="/content\search.jsp" location="21,313" size="150,55" />
-  <webResource name="admin.jsp" path="/content\admin.jsp" location="652,295" size="150,55" />
-  <webResource name="login.jsp" path="/content\login.jsp" location="664,166" size="150,55" />
-  <webResource name="index.jsp" path="/content\index.jsp" location="740,373" size="150,55" />
-  <webResource name="message.jsp" path="/content\message.jsp" location="652,447" size="150,55" />
+  <webResource name="admin.jsp" path="/content\admin.jsp" location="674,295" size="150,55" />
+  <webResource name="login.jsp" path="/content\login.jsp" location="678,166" size="150,55" />
+  <webResource name="index.jsp" path="/content\index.jsp" location="676,403" size="150,55" />
+  <webResource name="message.jsp" path="/content\message.jsp" location="676,488" size="150,55" />
   <webResource name="newslist.jsp" path="/content\newslist.jsp" location="27,124" size="150,55" />
   <webResource name="news.jsp" path="/content\news.jsp" location="25,226" size="150,55" />
-  <include file="user.xml" location="287,35" size="150,30" />
-  <include file="admin.xml" location="75,35" size="150,30" />
+  <webResource name="showimg.jsp" path="/content\showimg.jsp" location="674,625" size="150,55" />
+  <include file="user.xml" location="479,14" size="150,30" />
+  <include file="admin.xml" location="262,12" size="150,30" />
 </Struts2Diagram>
 

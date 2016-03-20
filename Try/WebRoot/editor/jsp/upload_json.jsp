@@ -6,6 +6,9 @@
 <%@ page import="org.apache.commons.fileupload.disk.*"%>
 <%@ page import="org.apache.commons.fileupload.servlet.*"%>
 <%@ page import="com.opensymphony.xwork2.ActionContext"%>
+
+<%@ page import="javax.servlet.http.HttpSession"%>
+
 <%@ page
 	import="org.apache.struts2.dispatcher.multipart.MultiPartRequestWrapper"%>
 <%@ page import="org.json.simple.*"%>
@@ -15,14 +18,14 @@
 	String savePath = pageContext.getServletContext().getRealPath("/")
 			+ "editor/attached/";
 	//文件保存目录URL
-System.out.println("upload:path"+savePath);
+
 	String saveUrl = request.getContextPath() + "/editor/attached/";
-System.out.println("upload:url"+saveUrl);
+
 	//定义允许上传的文件扩展名
 	String[] fileTypes = new String[] { "gif", "jpg", "jpeg", "png",
-			"bmp" };
+			"bmp", "doc", "docx", "xls", "xlsx", "ppt", "pptx" };
 	//最大文件大小
-	long maxSize = 1024000;
+	long maxSize = 2 * 1024 * 1024;
 
 	//Struts2请求包装过滤器
 	MultiPartRequestWrapper wrapper = (MultiPartRequestWrapper) request;
@@ -45,14 +48,14 @@ System.out.println("upload:url"+saveUrl);
 
 	//检查文件大小
 	if (file.length() > maxSize) {
-		out.println(getError("上传文件大小超过限制。"));
+		out.println(getError("上传文件大小超过2M限制。"));
 		return;
 	}
 	if (!ServletFileUpload.isMultipartContent(request)) {
 		out.println(getError("请选择文件。"));
 		return;
 	}
-	
+
 	//检查目录
 	File uploadDir = new File(savePath);
 	if (!uploadDir.isDirectory()) {
@@ -65,36 +68,43 @@ System.out.println("upload:url"+saveUrl);
 		return;
 	}
 
-	//重构上传图片的名称
+	//重构上传文件的名称
 	SimpleDateFormat df = new SimpleDateFormat("yyyyMMddHHmmss");
-	String newImgName = df.format(new Date()) + "_" + new Random().nextInt(1000) + "." + fileExt;
-	//设置 KE 中的图片文件地址
-	//String newFileName = request.getScheme() + "://"+ request.getServerName() + ":" + request.getServerPort()+ saveUrl + newImgName;
-	String newFileName = request.getScheme() + "://"+ request.getServerName() + ":" + request.getServerPort()+ saveUrl + newImgName;
+	String newImgName = df.format(new Date()) + "_"
+			+ new Random().nextInt(1000) + "." + fileExt;
+			
+	//将文件名传至session
+	session.setAttribute("filename", newImgName);
+
+	//设置 KE 中的文件地址
+	String newFileName = request.getScheme() + "://"
+			+ request.getServerName() + ":" + request.getServerPort()
+			+ saveUrl + newImgName;
+
 	byte[] buffer = new byte[1024];
 	//获取文件输出流
 	FileOutputStream fos = new FileOutputStream(savePath + newImgName);
-	
+
 	//获取内存中当前文件输入流
 	InputStream in = new FileInputStream(file);
-	
+
 	try {
-        	int num = 0;
- 		while ((num = in.read(buffer)) > 0) {
- 			fos.write(buffer, 0, num);
-	}
+		int num = 0;
+		while ((num = in.read(buffer)) > 0) {
+			fos.write(buffer, 0, num);
+		}
 	} catch (Exception e) {
- 			e.printStackTrace(System.err);
+		e.printStackTrace(System.err);
 	} finally {
- 			in.close();
-			fos.close();
+		in.close();
+		fos.close();
 	}
-	
+
 	//发送给 KE 
-			JSONObject obj = new JSONObject();
-			obj.put("error", 0);
-			obj.put("url",newFileName);
-			out.println(obj.toJSONString());	
+	JSONObject obj = new JSONObject();
+	obj.put("error", 0);
+	obj.put("url", newFileName);
+	out.println(obj.toJSONString());
 %>
 
 <%!private String getError(String message) {

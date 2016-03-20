@@ -2,6 +2,7 @@ package com.action.user;
 
 import java.sql.Timestamp;
 import java.util.Date;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -19,7 +20,7 @@ public class LoginAction extends ActionSupport {
 	private String username;
 	private String password;
 	private String incode;
-	
+
 	HttpServletRequest request = ServletActionContext.getRequest();
 	HttpSession session = request.getSession();
 
@@ -39,7 +40,6 @@ public class LoginAction extends ActionSupport {
 		this.password = password;
 	}
 
-	// 考虑是否需要验证码传入
 	public String getIncode() {
 		return incode;
 	}
@@ -48,17 +48,33 @@ public class LoginAction extends ActionSupport {
 		this.incode = incode;
 	}
 
-	public String execute() {
-		// 前台用ajax加入验证码验证
+	public String execute() {		
+		if(username.equals("")){
+			addActionError("请输入用户名！");
+			return INPUT;
+		}
+		if(password.equals("")){
+			addActionError("请输入密码！");
+			return INPUT;
+		}
+		if(incode.equals("")){
+			addActionError("请输入验证码！");
+			return INPUT;
+		}
+		String ver2 = (String) session.getAttribute("rand");
+		if (!incode.equals(ver2)) {
+			addActionError("验证码错误！");
+			return INPUT;
+		}
 		User use = new User();
 		use.setUserName(username);
 		use.setUserPassword(password);
 		UserDao userDao = new UserDao();
 		User user = userDao.UserLogin(use);
-		if (user != null) {			
+		if (user != null) {
 			Timestamp time = user.getLoginDate();
 			session.setAttribute("lastLogin", time);
-			Date date = new Date(); 
+			Date date = new Date();
 			Timestamp timestamp = new Timestamp(date.getTime());
 			user.setLoginDate(timestamp);
 			int count = user.getLoginCount();
@@ -68,13 +84,15 @@ public class LoginAction extends ActionSupport {
 			user.setUserPassword(null);
 			session.setAttribute("user", user);
 			return SUCCESS;
-		} else
+		} else {
+			addActionError("用户名或密码错误！");
 			return INPUT;
+		}
 	}
 
 	public String quit() {
 		if (ActionContext.getContext().getSession() != null)
-			ActionContext.getContext().getSession().clear();	
+			ActionContext.getContext().getSession().clear();
 		return "quit";
 	}
 }

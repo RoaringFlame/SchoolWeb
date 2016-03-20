@@ -9,7 +9,7 @@ import java.sql.Timestamp;
 public class News implements java.io.Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	private Integer newsId;
 	private Integer newsColumn;
 	private String newsTitle;
@@ -18,7 +18,7 @@ public class News implements java.io.Serializable {
 	private String lastOperation;
 	private Timestamp uploadDate;
 	private Integer readCount;
-	private String imgLoaction;
+	private String fileName;
 
 	// Constructors
 
@@ -38,7 +38,7 @@ public class News implements java.io.Serializable {
 	/** full constructor */
 	public News(Integer newsColumn, String newsTitle, String newsUploader,
 			String operator, String lastOperation, Timestamp uploadDate,
-			Integer readCount, String imgLoaction) {
+			Integer readCount, String fileName) {
 		this.newsColumn = newsColumn;
 		this.newsTitle = newsTitle;
 		this.newsUploader = newsUploader;
@@ -46,7 +46,7 @@ public class News implements java.io.Serializable {
 		this.lastOperation = lastOperation;
 		this.uploadDate = uploadDate;
 		this.readCount = readCount;
-		this.imgLoaction = imgLoaction;
+		this.fileName = fileName;
 	}
 
 	// Property accessors
@@ -115,12 +115,12 @@ public class News implements java.io.Serializable {
 		this.readCount = readCount;
 	}
 
-	public String getImgLoaction() {
-		return this.imgLoaction;
+	public String getFileName() {
+		return this.fileName;
 	}
 
-	public void setImgLoaction(String imgLoaction) {
-		this.imgLoaction = imgLoaction;
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
 	}
 
 }

@@ -147,7 +147,9 @@
 						<div class="table-left">
 							<div class="table-title">
 								<h3>用户信息</h3>
-								<p class="warning">会计法！</p>
+								<p>
+									<s:actionerror cssClass="warning" />
+								</p>
 							</div>
 							<div class="table-content">
 								<form action="addUser" method="post" name="adduser">
@@ -182,7 +184,7 @@
 								<div class="show-title">
 									<h3>
 										当前用户&nbsp;:&nbsp;
-										<s:property value="usercount" />
+										<s:property value="#session.usercount" />
 										人
 									</h3>
 									<!-- 									<a href="adduser.html" title="添加用户"><img -->
@@ -193,7 +195,7 @@
 									<li>真实姓名</li>
 									<li>删除</li>
 								</ul>
-								<s:iterator value="userlist">
+								<s:iterator value="#session.userlist">
 									<ul>
 										<li><s:property value="userName" /></li>
 										<li><s:property value="realName" /></li>
@@ -202,8 +204,8 @@
 												<s:property value="userId" />
 											</s:param>
 										</s:url>
-										<li><s:a href="%{delete}" title="删除用户"> 
-										<img src="img/delete.png" alt="删除" width="20" height="20">删除
+										<li><s:a href="%{delete}" title="删除用户">
+												<img src="img/delete.png" alt="删除" width="20" height="20">删除
 										</s:a></li>
 									</ul>
 								</s:iterator>

@@ -74,6 +74,12 @@ public class UploadAction extends ActionSupport {
 			Timestamp timestamp = new Timestamp(date.getTime());
 			news.setUploadDate(timestamp);
 			news.setReadCount(0);
+			// 如有文件，得到文件名
+			if (session.getAttribute("filename") != null) {
+				String filename = (String)session.getAttribute("filename");
+				news.setFileName(filename);
+				session.removeAttribute("filename");
+			}
 			
 			NewsDao nDao = new NewsDao();
 			NewsDetailDao ndDao = new NewsDetailDao();

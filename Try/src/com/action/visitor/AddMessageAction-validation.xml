@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.3//EN" 
+    "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+<validators>
+	<field name="title">
+		<field-validator type="requiredstring" short-circuit="true">
+			<message>标题必填！</message>
+		</field-validator>
+	</field>
+
+	<field name="visName">
+		<field-validator type="requiredstring" short-circuit="true">
+			<message>姓名必填!</message>
+		</field-validator>
+	</field>
+
+	<field name="visTel">
+		<field-validator type="requiredstring" short-circuit="true">
+			<message>手机号必填!</message>
+		</field-validator>
+	</field>
+	
+	<field name="visEmail">
+	<field-validator type="email">
+	<message>请输入正确的邮件地址</message>
+	</field-validator>
+	</field>
+	
+	<field name="content">
+		<field-validator type="requiredstring">
+			<message>留言内容必填!</message>
+		</field-validator>
+	</field>
+	
+</validators>

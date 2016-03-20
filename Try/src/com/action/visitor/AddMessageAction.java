@@ -70,8 +70,10 @@ public class AddMessageAction extends ActionSupport {
 
 		MessageDao mDao = new MessageDao();
 		if (mDao.addMessage(mess)) {
+			addActionMessage("留言成功");
 			return SUCCESS;
 		}
+		addActionMessage("留言失败");
 		return INPUT;
 	}
 }

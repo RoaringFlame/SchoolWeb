@@ -68,7 +68,7 @@ public class ShowListAction extends ActionSupport {
 		newsList = nd.getColumnList(column, pageNumber, maxNumber);
 		return SUCCESS;
 	}
-
+	
 	public String searchList() {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		HttpSession session = request.getSession();

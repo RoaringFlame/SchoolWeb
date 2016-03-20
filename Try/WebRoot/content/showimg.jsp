@@ -4,8 +4,8 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>留言板</title>
+<meta charset="UTF-8">
+<title>imglist</title>
 <link rel="stylesheet" type="text/css" href="css/second.css">
 <link rel="stylesheet" type="text/css" href="css/public.css">
 </head>
@@ -137,7 +137,7 @@
 		<div class="left">
 			<div class="left-ipage">
 				<div class="left-ititle">
-					<h3>校园动态</h3>
+					<h2>校园动态</h2>
 				</div>
 				<div class="left-itemi">
 					<ul>
@@ -146,7 +146,7 @@
 						<li><a href="newslist.html">专题教育</a></li>
 						<li><a href="newslist.html">学生天地</a></li>
 						<li><a href="newslist.html">教师风采</a></li>
-						<li></li>
+
 					</ul>
 				</div>
 			</div>
@@ -156,11 +156,10 @@
 				</div>
 				<div class="left-item">
 					<ul>
-						<li>总访问量：<s:property value="#application.counter.allCount" /></li>
-						<li>总浏览量：<s:property value="#application.counter.clickCount" /></li>
-						<li>今日访问：<s:property value="#application.counter.todayCount" /></li>
-						<li>日均访问：<s:property
-								value="#application.counter.allCount/#application.counter.dayCount" /></li>
+						<li>总访问量：</li>
+						<li>总浏览量：</li>
+						<li>今日访问：</li>
+						<li>日均访问：</li>
 					</ul>
 				</div>
 			</div>
@@ -173,52 +172,68 @@
 				</p>
 			</div>
 			<div class="right-item">
-				<div class="messagetext">
-					<div class="message-main">
-						<s:form action="addMessage" method="post" validate="true">
-							<s:actionmessage cssClass="warning" />
-							<div class="messageli">
-								<s:fielderror fieldName="title" cssClass="warning" />
-								<div class="te">标题：</div>
-								<div class="boots">
-									<input class="boot" type="text" name="title" maxlength="50">
-								</div>
+				<div class="imglist">
+					<s:iterator value="newsList">
+						<div class="pic">
+							<div class="photo">
+								<s:url id="scan" action="vGetDetial">
+									<s:param name="newsId">
+										<s:property value="newsId" />
+									</s:param>
+								</s:url>
+								<s:a href="%{scan}">
+									<img
+										src="<%=request.getContextPath()%>/editor/attached/<s:property value="fileName"/>"
+										alt="">
+								</s:a>
 							</div>
-							<div class="messageli">
-								<s:fielderror fieldName="visName" cssClass="warning" />
-								<div class="te">姓名：</div>
-								<div class="boots">
-									<input class="boot" type="text" name="visName" maxlength="">
-								</div>
+							<div class="pictitle">
+								<s:a href="%{scan}">
+									<s:property value="newsTitle" />
+								</s:a>
 							</div>
-							<div class="messageli">
-								<s:fielderror fieldName="visTel" cssClass="warning" />
-								<div class="te">电话：</div>
-								<div class="boots">
-									<input class="boot" type="text" name="visTel">
-								</div>
-							</div>
-							<div class="messageli">
-								<s:fielderror fieldName="visEmail" cssClass="warning" />
-								<div class="te">E-mail：</div>
-								<div class="boots">
-									<input class="boot" type="text" name="visEmail">
-								</div>
-							</div>
-							<div class="messageli">
-								<s:fielderror fieldName="title" cssClass="content" />
-								<div class="ti">留言内容：</div>
-								<div class="bootarea">
-									<textarea name="content" id="content" cols="30" rows="10"></textarea>
-								</div>
-							</div>
-							<div class="messagebutton">
-								<input type="submit" value="确认" class="message-button">
-								<input type="reset" value="重置" class="message-button">
-							</div>
-						</s:form>
-					</div>
+						</div>
+					</s:iterator>
 				</div>
+
+				<div class="pagedown">
+					<ul>
+						<li><s:url id="firstPage" action="ipageAction">
+								<s:param name="pageNumber">1</s:param>
+								<s:param name="column">
+									<s:property value="column" />
+								</s:param>
+							</s:url> <s:a href="%{firstPage}">首页</s:a></li>
+
+						<li><s:url id="prePage" action="ipageAction">
+								<s:param name="pageNumber">
+									<s:property value='pageNumber-1' />
+								</s:param>
+								<s:param name="column">
+									<s:property value="column" />
+								</s:param>
+							</s:url> <s:a href="%{prePage}">上一页</s:a></li>
+
+						<li><s:url id="nextPage" action="ipageAction">
+								<s:param name="pageNumber">
+									<s:property value='pageNumber+1' />
+								</s:param>
+								<s:param name="column">
+									<s:property value="column" />
+								</s:param>
+							</s:url> <s:a href="%{nextPage}">下一页</s:a></li>
+
+						<li><s:url id="lastPage" action="ipageAction">
+								<s:param name="pageNumber">
+									<s:property value="totalPage" />
+								</s:param>
+								<s:param name="column">
+									<s:property value="column" />
+								</s:param>
+							</s:url> <s:a href="%{lastPage}">末页</s:a></li>
+					</ul>
+				</div>
+
 			</div>
 		</div>
 	</div>

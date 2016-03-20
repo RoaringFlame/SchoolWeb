@@ -50,7 +50,8 @@
 						<s:param name="column">
 							<s:property value="1" />
 						</s:param>
-					</s:url><s:a href="%{showlist}">校园动态</s:a> <span>
+					</s:url>
+					<s:a href="%{showlist}">校园动态</s:a> <span>
 						<p>
 							<a href="news.html">最新公告</a>
 						</p>
@@ -234,7 +235,13 @@
 			<div class="left">
 				<div class="dh-title">
 					<h3>图片新闻</h3>
-					<a href="showimg.html">more</a>
+					<s:url id="ishowlist" action="ipageAction">
+						<s:param name="column">
+							<s:property value="1" />
+						</s:param>
+					</s:url>
+					<s:a href="%{ishowlist}">
+					more</s:a>
 				</div>
 				<div class="section-focus-pic" id="section-focus-pic">
 					<div class="pages" data-scro="list">

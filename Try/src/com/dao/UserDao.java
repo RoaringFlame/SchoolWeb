@@ -37,6 +37,24 @@ public class UserDao {
 		return null;
 	}
 
+	public User findUserByName(String userName) {
+		try {
+			session = HibernateSessionFactory.getSession();
+			String hql = "from User as u where u.userName = :userName";
+			query = session.createQuery(hql);
+			query.setParameter("userName", userName);
+			User ur = (User) query.uniqueResult();
+			if (ur != null)
+				return ur;
+		} catch (HibernateException e) {
+			e.printStackTrace();
+			return null;
+		} finally {
+			session.close();
+		}
+		return null;
+	}
+
 	public User findUserById(User user) {
 		try {
 			session = HibernateSessionFactory.getSession();

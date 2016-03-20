@@ -49,8 +49,29 @@ public class AddUserAction extends ActionSupport {
 	}
 
 	public String execute() {
+		
+		if(username.equals("")){
+			addActionError("请输入用户名！");
+			return INPUT;
+		}
+		if(realname.equals("")){
+			addActionError("请输入真实姓名！");
+			return INPUT;
+		}
+		if(password.equals("")){
+			addActionError("请输入密码！");
+			return INPUT;
+		}
+		
+		// 查重
+		UserDao userDao = new UserDao();
+		if(userDao.findUserByName(username) != null){
+			addActionError("用户已存在！");
+			return INPUT;
+		}
+		
 		if (rpassword.equals(password)) {
-			//实例化User
+			// 实例化User
 			User user = new User();
 			user.setUserName(username);
 			user.setUserPassword(rpassword);
@@ -60,12 +81,12 @@ public class AddUserAction extends ActionSupport {
 			user.setLoginDate(timestamp);
 			user.setLoginCount(0);
 			user.setPermissionSign(false);
-			//载入数据库
-			UserDao userDao = new UserDao();
+			// 载入数据库
 			if (userDao.addUser(user)) {
 				return SUCCESS;
 			}
 		}
+		addActionError("两次密码不一致！");
 		return INPUT;
 	}
 }

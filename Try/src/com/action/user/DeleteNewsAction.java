@@ -1,7 +1,12 @@
 package com.action.user;
 
+import java.io.File;
+
+import org.apache.struts2.ServletActionContext;
+
 import com.dao.NewsDao;
 import com.dao.NewsDetailDao;
+import com.entity.News;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class DeleteNewsAction extends ActionSupport {
@@ -42,6 +47,18 @@ public class DeleteNewsAction extends ActionSupport {
 		Integer nId = Integer.parseInt(newsId);
 		NewsDao nDao = new NewsDao();
 		NewsDetailDao ndDao = new NewsDetailDao();
+
+		// 删除文件
+		News news = nDao.getNewsById(nId);
+		String relativePath = "/editor/attached";
+		String absolutePath = ServletActionContext.getServletContext()
+				.getRealPath(relativePath) + "/" + news.getFileName();
+		File file = new File(absolutePath);
+		if (file.exists()) {
+			file.delete();
+		}
+
+		// 删除数据
 		if (nDao.deleteNewsById(nId) && ndDao.deleteNewsDetailById(nId)) {
 			return SUCCESS;
 		}
