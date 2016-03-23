@@ -20,12 +20,12 @@
 					</div>
 					<div class="word">
 						<p>登录|注册|旧站入口</p>
-						<br> <span class="search">
-							<form action="" method="get">
-								<input name="" type="text" class="kuan" /> <input value="搜索"
-									type="button" class="an" />
-							</form>
-						</span>
+						<br>
+						<form action="spageAction" method="post">
+							<span class="search"> <s:textfield name="searchStr"
+									cssClass="kuan" /> <input value="搜索" type="submit" class="an" />
+							</span>
+						</form>
 					</div>
 				</div>
 

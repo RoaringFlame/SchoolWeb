@@ -23,9 +23,10 @@
 
 	//定义允许上传的文件扩展名
 	String[] fileTypes = new String[] { "gif", "jpg", "jpeg", "png",
-			"bmp", "doc", "docx", "xls", "xlsx", "ppt", "pptx" };
+			"bmp", "doc", "docx", "xls", "xlsx", "ppt", "pptx", "rar",
+			"zip", "pdf", "txt" };
 	//最大文件大小
-	long maxSize = 2 * 1024 * 1024;
+	long maxSize = 5 * 1024 * 1024;
 
 	//Struts2请求包装过滤器
 	MultiPartRequestWrapper wrapper = (MultiPartRequestWrapper) request;
@@ -48,7 +49,7 @@
 
 	//检查文件大小
 	if (file.length() > maxSize) {
-		out.println(getError("上传文件大小超过2M限制。"));
+		out.println(getError("上传文件大小超过5M限制。"));
 		return;
 	}
 	if (!ServletFileUpload.isMultipartContent(request)) {
@@ -72,7 +73,7 @@
 	SimpleDateFormat df = new SimpleDateFormat("yyyyMMddHHmmss");
 	String newImgName = df.format(new Date()) + "_"
 			+ new Random().nextInt(1000) + "." + fileExt;
-			
+
 	//将文件名传至session
 	session.setAttribute("filename", newImgName);
 

@@ -2,7 +2,9 @@ package com.action.admin;
 
 import java.sql.Timestamp;
 import java.util.Date;
+import java.util.List;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -13,11 +15,13 @@ import com.dao.NewsDetailDao;
 import com.entity.News;
 import com.entity.User;
 import com.opensymphony.xwork2.ActionSupport;
+
 /**
- *Description:
- *<br/>Copyright(C),2016-2017,Heng.Chen
- *<br/>GitHub:https://github.com/RoaringFlame
- *<br/>Date:2016年3月23日
+ * Description: <br/>
+ * Copyright(C),2016-2017,Heng.Chen <br/>
+ * GitHub:https://github.com/RoaringFlame <br/>
+ * Date:2016年3月23日
+ * 
  * @author Heng.Chen chenheng120@126.com
  * @version 1.0
  */
@@ -83,16 +87,24 @@ public class UploadAction extends ActionSupport {
 			news.setReadCount(0);
 			// 如有文件，得到文件名
 			if (session.getAttribute("filename") != null) {
-				String filename = (String)session.getAttribute("filename");
+				String filename = (String) session.getAttribute("filename");
 				news.setFileName(filename);
 				session.removeAttribute("filename");
 			}
-			
+
 			NewsDao nDao = new NewsDao();
 			NewsDetailDao ndDao = new NewsDetailDao();
 			if (nDao.AddNews(news)) {
 				if ((news = nDao.findNews(newsColumn, title)) != null) {
 					if (ndDao.AddNewsDetail(news, content)) {
+
+						// 刷新application中对应的list
+						ServletContext application = request
+								.getServletContext();
+						String listname = "list" + column;
+						Integer column = Integer.parseInt(this.column);
+						List<News> newslist = nDao.getColumnList(column, 1, 7);
+						application.setAttribute(listname, newslist);
 						return SUCCESS;
 					}
 				}

@@ -160,11 +160,11 @@
 					</div>
 					<div class="left-itemi">
 						<ul>
-							<li><a href="newslist.html">活动通知</a></li>
-							<li><a href="newslist.html">最新通告</a></li>
-							<li><a href="newslist.html">专题教育</a></li>
-							<li><a href="newslist.html">学生天地</a></li>
-							<li><a href="newslist.html">教师风采</a></li>
+							<li><a href="vpageAction?column=2">通知公告</a></li>
+							<li><a href="vpageAction?column=17">新闻动态</a></li>
+							<li><a href="vpageAction?column=18">学校公告</a></li>
+							<li><a href="vpageAction?column=19">学生园地</a></li>
+							<li><a href="vpageAction?column=20">教师风采</a></li>
 						</ul>
 					</div>
 				</div>

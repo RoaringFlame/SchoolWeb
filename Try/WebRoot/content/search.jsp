@@ -26,19 +26,19 @@
 									cssClass="kuan" /> <input value="搜索" type="submit" class="an" />
 							</span>
 						</form>
-						
+
 					</div>
 				</div>
 
 				<div class="daohang">
 					<ul class="nav">
 						<li class="current"><a href="index.jsp"><b>网站首页</b></a></li>
-						<li><a href="newslist.html">校园动态</a> <span>
+						<li><a href="vpageAction?column=17">校园动态</a> <span>
 								<p>
-									<a href="newslist.html">最新公告</a>
+									<a href="vpageAction?column=2">通知公告</a>
 								</p>
 								<p>
-									<a href="newslist.html">活动通知</a>
+									<a href="vpageAction?column=6">工作动态</a>
 								</p>
 						</span></li>
 
@@ -156,7 +156,7 @@
 			<div class="main-page">
 				<div class="main-title">
 					<p>
-						<a href="index.jsp">首页</a>:当前页面>><a href="newslist.html">最新公告</a>
+						<a href="index.jsp">首页</a>:当前页面>>搜索详情
 					</p>
 				</div>
 				<div class="main-item">

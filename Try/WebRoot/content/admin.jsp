@@ -46,57 +46,53 @@
 					</div>
 					<dl class="system_log">
 						<dt onClick="changeImage()" class="active">
-							<a href="admin.html">网站首页</a>
+							<a href="admin.jsp">网站首页</a>
 						</dt>
 						<dd class="first_dd">
-							<a href="text-list.html">图片新闻</a>
+							<a href="upageAction?column=1">图片新闻</a>
 						</dd>
 
 					</dl>
 
 					<dl class="custom">
 						<dt onClick="changeImage()">
-							<a href="text-list.html">通知公告</a>
+							<a href="upageAction?column=2">通知公告</a>
 						</dt>
 
 					</dl>
 
 					<dl class="channel">
 						<dt>
-							<a href="text-list.html">机构设置</a>
+							<a href="upageAction?column=3">机构设置</a>
 						</dt>
 					</dl>
 
 					<dl class="app">
-						<dt onClick="changeImage()">
-							研究生培养
-						</dt>
+						<dt onClick="changeImage()">研究生培养</dt>
 						<dd class="first_dd">
-							<a href="text-list.html">培养方案</a>
+							<a href="upageAction?column=4">培养方案</a>
 						</dd>
 						<dd>
-							<a href="text-list.html">招生就业</a>
+							<a href="upageAction?column=5">招生就业</a>
 						</dd>
 						<dd>
-							<a href="text-list.html">工作动态</a>
+							<a href="upageAction?column=6">工作动态</a>
 						</dd>
 						<dd>
-							<a href="text-list.html">学生工作</a>
+							<a href="upageAction?column=7">学生工作</a>
 						</dd>
 					</dl>
 
 					<dl class="cloud">
-						<dt>
-							学科建设
-						</dt>
+						<dt>学科建设</dt>
 						<dd class="first_dd">
-							<a href="text-list.html">重点学科</a>
+							<a href="upageAction?column=8">重点学科</a>
 						</dd>
 						<dd class="first_dd">
-							<a href="text-list.html">学科动态</a>
+							<a href="upageAction?column=9">学科动态</a>
 						</dd>
 						<dd class="first_dd">
-							<a href="text-list.html">学科团队</a>
+							<a href="upageAction?column=10">学科团队</a>
 						</dd>
 					</dl>
 
@@ -105,17 +101,17 @@
 							<a href="">科学研究</a>
 						</dt>
 						<dd class="first_dd">
-							<a href="text-list.html">他山之石</a>
+							<a href="upageAction?column=11">他山之石</a>
 						</dd>
 						<dd>
-							<a href="text-list.html">学习交流</a>
+							<a href="upageAction?column=12">学习交流</a>
 						</dd>
 
 
 					</dl>
 					<dl class="syetem_management">
 						<dt>
-							<a href="text-list.html">导师队伍</a>
+							<a href="upageAction?column=13">导师队伍</a>
 						</dt>
 
 
@@ -123,14 +119,14 @@
 
 					<dl class="source">
 						<dt>
-							<a href="text-list.html">管理制度</a>
+							<a href="upageAction?column=14">管理制度</a>
 						</dt>
 
 					</dl>
 
 					<dl class="statistics">
 						<dt>
-							<a href="text-list.html">下载专区</a>
+							<a href="upageAction?column=15">下载专区</a>
 						</dt>
 
 					</dl>
@@ -139,7 +135,7 @@
 			<div class="right-main">
 				<div class="right-title">
 					<h2>
-						<a href="admin.html">后台管理系统</a>
+						<a href="admin.jsp">后台管理系统</a>
 					</h2>
 				</div>
 				<div class="buttons">
@@ -177,18 +173,20 @@
 								<li class="upload-user">上传用户</li>
 								<li class="update-time">更新时间</li>
 							</ul>
-							<s:iterator value="newsList" status="st">
-								<ul class="default">
-									<li class="id"><s:property value="#st.getIndex()+1" /></li>
-									<li class="newstitle"><s:property value="newsTitle" /></li>
-									<li class="update-program"><s:property
-											value="#application.map[newsColumn]" /></li>
-									<li class="funcation"><s:property value="lastOperation" /></li>
-									<li class="upload-user"><s:property value="operator" /></li>
-									<li class="update-time"><s:date name="uploadDate"
-											format="yyyy-MM-dd HH:mm:ss" /></li>
-								</ul>
-							</s:iterator>
+							<s:subset source="newsList" start="0" count="6">
+								<s:iterator status="st">
+									<ul class="default">
+										<li class="id"><s:property value="#st.getIndex()+1" /></li>
+										<li class="newstitle"><s:property value="newsTitle" /></li>
+										<li class="update-program"><s:property
+												value="#application.map[newsColumn]" /></li>
+										<li class="funcation"><s:property value="lastOperation" /></li>
+										<li class="upload-user"><s:property value="operator" /></li>
+										<li class="update-time"><s:date name="uploadDate"
+												format="yyyy-MM-dd HH:mm:ss" /></li>
+									</ul>
+								</s:iterator>
+							</s:subset>
 						</div>
 					</div>
 

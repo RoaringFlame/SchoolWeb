@@ -3,6 +3,9 @@ package com.action.user;
 //import java.sql.Timestamp;
 //import java.util.Date;
 
+import java.util.List;
+
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -14,11 +17,13 @@ import com.entity.News;
 import com.entity.NewsDetail;
 import com.entity.User;
 import com.opensymphony.xwork2.ActionSupport;
+
 /**
- *Description:
- *<br/>Copyright(C),2016-2017,Heng.Chen
- *<br/>GitHub:https://github.com/RoaringFlame
- *<br/>Date:2016年3月23日
+ * Description: <br/>
+ * Copyright(C),2016-2017,Heng.Chen <br/>
+ * GitHub:https://github.com/RoaringFlame <br/>
+ * Date:2016年3月23日
+ * 
  * @author Heng.Chen chenheng120@126.com
  * @version 1.0
  */
@@ -95,6 +100,14 @@ public class UpdateNewsAction extends ActionSupport {
 					NewsDetail newsdetail = ndDao.getNewsDetialById(newsId);
 					newsdetail.setNewsContents(content);
 					if (ndDao.updateNewsDetail(newsdetail)) {
+
+						// 刷新application中对应的list
+						ServletContext application = request
+								.getServletContext();
+						String listname = "list" + column;
+						Integer column = Integer.parseInt(this.column);
+						List<News> newslist = nDao.getColumnList(column, 1, 7);
+						application.setAttribute(listname, newslist);
 						return SUCCESS;
 					}
 				}

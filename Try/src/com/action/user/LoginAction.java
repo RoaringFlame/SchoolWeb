@@ -90,6 +90,7 @@ public class LoginAction extends ActionSupport {
 			uDao.updateUser(user);
 			user.setUserPassword(null);
 			session.setAttribute("user", user);
+			session.removeAttribute("rand");
 			return SUCCESS;
 		} else {
 			addActionError("用户名或密码错误！");

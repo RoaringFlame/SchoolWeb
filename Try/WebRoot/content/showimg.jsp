@@ -5,7 +5,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>imglist</title>
+<title>图片新闻列表</title>
 <link rel="stylesheet" type="text/css" href="css/second.css">
 <link rel="stylesheet" type="text/css" href="css/public.css">
 </head>
@@ -14,12 +14,12 @@
 	<div class="daohang">
 		<ul class="nav">
 			<li class="current"><a href="index.jsp"><b>网站首页</b></a></li>
-			<li><a href="newslist.html">校园动态</a> <span>
+			<li><a href="vpageAction?column=17">校园动态</a> <span>
 					<p>
-						<a href="newslist.html">最新公告</a>
+						<a href="vpageAction?column=2">通知公告</a>
 					</p>
 					<p>
-						<a href="newslist.html">活动通知</a>
+						<a href="vpageAction?column=6">工作动态</a>
 					</p>
 			</span></li>
 
@@ -141,12 +141,11 @@
 				</div>
 				<div class="left-itemi">
 					<ul>
-						<li><a href="newslist.html">活动通知</a></li>
-						<li><a href="newslist.html">最新通告</a></li>
-						<li><a href="newslist.html">专题教育</a></li>
-						<li><a href="newslist.html">学生天地</a></li>
-						<li><a href="newslist.html">教师风采</a></li>
-
+						<li><a href="vpageAction?column=2">通知公告</a></li>
+						<li><a href="vpageAction?column=17">新闻动态</a></li>
+						<li><a href="vpageAction?column=18">学校公告</a></li>
+						<li><a href="vpageAction?column=19">学生园地</a></li>
+						<li><a href="vpageAction?column=20">教师风采</a></li>
 					</ul>
 				</div>
 			</div>

@@ -1,21 +1,27 @@
 package com.listener;
 
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
 
 import com.dao.CounterDao;
+import com.dao.NewsDao;
 import com.entity.Counter;
+import com.entity.News;
 
 import core.tool.PropertyReader;
-import core.web.ContextCounter;
+
 /**
- *Description:
- *<br/>Copyright(C),2016-2017,Heng.Chen
- *<br/>GitHub:https://github.com/RoaringFlame
- *<br/>Date:2016年3月23日
+ * Description: <br/>
+ * Copyright(C),2016-2017,Heng.Chen <br/>
+ * GitHub:https://github.com/RoaringFlame <br/>
+ * Date:2016年3月23日
+ * 
  * @author Heng.Chen chenheng120@126.com
  * @version 1.0
  */
@@ -24,7 +30,7 @@ public class WebInitListener implements ServletContextListener {
 
 	public void contextInitialized(ServletContextEvent sce) {
 		try {
-			// 读取配置文件，并存入应用容器
+			// 读取配置文件，存入application
 			PropertyReader pr = new PropertyReader();
 			pr.setFlieName("/column.properties");
 			HashMap<String, String> map = pr.getHasMap();
@@ -36,14 +42,28 @@ public class WebInitListener implements ServletContextListener {
 			Counter counter = cDao.getCounterbyId(1);
 			application.setAttribute("counter", counter);
 
+			// 读取各栏目新闻list，存入application作为首页展现
+			// 这里将list放入application中作为缓存，所以在上传、更新、删除新闻时记得刷新该栏目在application中的list
+			NewsDao nDao = new NewsDao();
+			for (Map.Entry<String, String> entry : map.entrySet()) {
+				String listname = "list" + entry.getKey();
+				Integer column = Integer.parseInt(entry.getKey());
+				List<News> newslist = nDao.getColumnList(column, 1, 7);
+				application.setAttribute(listname, newslist);
+				
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
 	public void contextDestroyed(ServletContextEvent sce) {
-		ContextCounter cc = new ContextCounter();
-		cc.saveCounterInDB();
+		ServletContext application = sce.getServletContext();
+		Counter counter = new Counter();
+		if ((counter = (Counter) application.getAttribute("counter")) != null) {
+			CounterDao cDao = new CounterDao();
+			cDao.updateCounter(counter);
+		}
 	}
 }
 

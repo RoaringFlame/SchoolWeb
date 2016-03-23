@@ -1,6 +1,10 @@
 package com.action.user;
 
 import java.io.File;
+import java.util.List;
+
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts2.ServletActionContext;
 
@@ -8,11 +12,13 @@ import com.dao.NewsDao;
 import com.dao.NewsDetailDao;
 import com.entity.News;
 import com.opensymphony.xwork2.ActionSupport;
+
 /**
- *Description:
- *<br/>Copyright(C),2016-2017,Heng.Chen
- *<br/>GitHub:https://github.com/RoaringFlame
- *<br/>Date:2016年3月23日
+ * Description: <br/>
+ * Copyright(C),2016-2017,Heng.Chen <br/>
+ * GitHub:https://github.com/RoaringFlame <br/>
+ * Date:2016年3月23日
+ * 
  * @author Heng.Chen chenheng120@126.com
  * @version 1.0
  */
@@ -55,18 +61,29 @@ public class DeleteNewsAction extends ActionSupport {
 		NewsDao nDao = new NewsDao();
 		NewsDetailDao ndDao = new NewsDetailDao();
 
-		// 删除文件
+		// 如有对应文件则删除文件
 		News news = nDao.getNewsById(nId);
-		String relativePath = "/editor/attached";
-		String absolutePath = ServletActionContext.getServletContext()
-				.getRealPath(relativePath) + "/" + news.getFileName();
-		File file = new File(absolutePath);
-		if (file.exists()) {
-			file.delete();
+		if (news.getFileName() != null) {
+			String relativePath = "/editor/attached";
+			String absolutePath = ServletActionContext.getServletContext()
+					.getRealPath(relativePath) + "/" + news.getFileName();
+			File file = new File(absolutePath);
+			if (file.exists()) {
+				file.delete();
+			}
 		}
 
 		// 删除数据
 		if (nDao.deleteNewsById(nId) && ndDao.deleteNewsDetailById(nId)) {
+
+			// 刷新application中对应的list
+			HttpServletRequest request = ServletActionContext.getRequest();
+			ServletContext application = request.getServletContext();
+			String listname = "list" + column;
+			Integer column = Integer.parseInt(this.column);
+			List<News> newslist = nDao.getColumnList(column, 1, 7);
+			application.setAttribute(listname, newslist);
+
 			return SUCCESS;
 		}
 		return ERROR;

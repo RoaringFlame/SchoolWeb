@@ -19,7 +19,7 @@ public class PageAction extends ActionSupport {
 
 	private static final long serialVersionUID = 1L;
 
-	private static final int V_MAX_NUMBER = 12;
+	private static final int V_MAX_NUMBER = 10;
 	private static final int I_MAX_NUMBER = 9;
 	private static final int U_MAX_NUMBER = 7;
 	private NewsDao nDao = new NewsDao();

@@ -46,17 +46,12 @@
 		<div class="daohang">
 			<ul class="nav">
 				<li class="current"><a href="index.jsp"><b>网站首页</b></a></li>
-				<li><s:url id="showlist" action="vpageAction">
-						<s:param name="column">
-							<s:property value="1" />
-						</s:param>
-					</s:url>
-					<s:a href="%{showlist}">校园动态</s:a> <span>
+				<li><a href="vpageAction?column=17">新闻动态</a> <span>
 						<p>
-							<a href="news.html">最新公告</a>
+							<a href="vpageAction?column=2">通知公告</a>
 						</p>
 						<p>
-							<a href="news.html">活动通知</a>
+							<a href="vpageAction?column=6">工作动态</a>
 						</p>
 				</span></li>
 
@@ -159,7 +154,7 @@
 							<a href="news.html">读书节</a>
 						</p>
 						<p>
-							<a href="news.html">留言板</a>
+							<a href="message.jsp">留言板</a>
 						</p>
 				</span></li>
 			</ul>
@@ -170,10 +165,13 @@
 		<div class="picture">
 			<div class="callbacks_container">
 				<ul class="rslides" id="slider">
-					<li><a href="text-img.html"><img src="img/1.jpg" alt=""></a></li>
-					<li><a href="text-img.html"><img src="img/2.jpg" alt=""></a></li>
-					<li><a href="text-img.html"><img src="img/3.jpg" alt=""></a></li>
-					<li><a href="text-img.html"><img src="img/4.jpg" alt=""></a></li>
+					<s:subset source="#application.list16" start="0" count="4">
+						<s:iterator>
+							<li><a href="vGetDetial?newsId=<s:property value="newsId"/>"><img
+									src="<%=request.getContextPath()%>/editor/attached/<s:property value="fileName"/>"
+									alt=""></a></li>
+						</s:iterator>
+					</s:subset>
 				</ul>
 			</div>
 		</div>
@@ -183,49 +181,58 @@
 			<div class="col">
 				<div class="title">
 					<h3>
-						<a href="newslist.html">新闻动态</a>
+						<a href="vpageAction?column=17">新闻动态</a>
 					</h3>
-					<a class="ai" href="newslist.html">more</a>
+					<a class="ai" href="vpageAction?column=17">more</a>
 				</div>
 				<div class="cont">
 					<ul>
-						<li><span>2015-10-25</span><a href="news.html">第十一周学校工作安排</a></li>
-						<li><span>2015-10-25</span><a href="news.html">最新告家长书</a></li>
-						<li><span>2015-9-30</span><a href="news.html">关于第十一届秋季运动的...</a></li>
-						<li><span>2015-9-30</span><a href="news.html">最新国家法定节假日的...</a></li>
-						<li><span>2015-9-30</span><a href="news.html">最新国家法定节假日的...</a></li>
+						<s:subset source="#application.list17" start="0" count="5">
+							<s:iterator>
+								<li><span><s:date name="uploadDate"
+											format="yyyy-MM-dd" /></span><a
+									href="vGetDetial?newsId=<s:property value="newsId"/>"><s:property
+											value="newsTitle" /></a></li>
+							</s:iterator>
+						</s:subset>
 					</ul>
 				</div>
 			</div>
 			<div class="col">
 				<div class="title">
 					<h3>
-						<a href="newslist.html">工作通知</a>
+						<a href="vpageAction?column=2">通知公告</a>
 					</h3>
-					<a class="ai" href="newslist.html">more</a>
+					<a class="ai" href="vpageAction?column=2">more</a>
 				</div>
 				<ul>
-					<li><span>2015-9-30</span><a href="news.html">我校开展经典名著诵读活动</a></li>
-					<li><span>2015-10-25</span><a href="news.html">我校开展第十一届秋季运动会</a></li>
-					<li><span>2015-10-25</span><a href="news.html">我校开展徒步拉练活动</a></li>
-					<li><span>2015-10-25</span><a href="news.html">让语文课绽放别样精彩</a></li>
-					<li><span>2015-10-25</span><a href="news.html">让语文课绽放别样精彩</a></li>
+					<s:subset source="#application.list2" start="0" count="5">
+						<s:iterator>
+							<li><span><s:date name="uploadDate"
+										format="yyyy-MM-dd" /></span><a
+								href="vGetDetial?newsId=<s:property value="newsId"/>"><s:property
+										value="newsTitle" /></a></li>
+						</s:iterator>
+					</s:subset>
 				</ul>
 
 			</div>
 			<div class="col">
 				<div class="title">
 					<h3>
-						<a href="newslist.html">学校公告</a>
+						<a href="vpageAction?column=6">工作动态</a>
 					</h3>
-					<a class="ai" href="newslist.html">more</a>
+					<a class="ai" href="vpageAction?column=6">more</a>
 				</div>
 				<ul>
-					<li><span>2015-10-25</span><a href="news.html">全省县域义务教育均</a></li>
-					<li><span>2015-10-25</span><a href="news.html">全省县域义务教育均</a></li>
-					<li><span>2015-10-25</span><a href="news.html">全省县域义务教育均</a></li>
-					<li><span>2015-10-25</span><a href="news.html">致家长的一封公开信</a></li>
-					<li><span>2015-10-25</span><a href="news.html">致家长的一封公开信</a></li>
+					<s:subset source="#application.list6" start="0" count="5">
+						<s:iterator>
+							<li><span><s:date name="uploadDate"
+										format="yyyy-MM-dd" /></span><a
+								href="vGetDetial?newsId=<s:property value="newsId"/>"><s:property
+										value="newsTitle" /></a></li>
+						</s:iterator>
+					</s:subset>
 				</ul>
 			</div>
 		</div>
@@ -246,30 +253,22 @@
 				<div class="section-focus-pic" id="section-focus-pic">
 					<div class="pages" data-scro="list">
 						<ul>
-							<li class="item-i" style="left:0px;"><a href="text-img.html"
-								target="_blank"><img src="img/news1.jpg"></a>
-								<h3>
-									<a href="text-img.html" target="_blank">天安门广场&quot;史上最大花果篮&quot;竣工</a>
-								</h3>
-								<div></div></li>
-							<li class="item-i"><a href="text-img.html" target="_blank"><img
-									src="img/news2.jpg"></a>
-								<h3>
-									<a href="text-img.html" target="_blank">广州:10万元得来一座&quot;圆大厦&quot;</a>
-								</h3>
-								<div></div></li>
-							<li class="item-i"><a href="text-img.html" target="_blank"><img
-									src="img/news3.jpg"></a>
-								<h3>
-									<a href="text-img.html" target="_blank">百度视频移动端亿万用户的背后</a>
-								</h3>
-								<div></div></li>
-							<li class="item-i"><a href="text-img.html" target="_blank"><img
-									src="img/news4.jpg"></a>
-								<h3>
-									<a href="text-img.html" target="_blank">百度视频移动端亿万用户的背后</a>
-								</h3>
-								<div></div></li>
+							<s:iterator value="#application.list1">
+								<li class="item-i" style="left:0px;"><s:url id="scan"
+										action="vGetDetial">
+										<s:param name="newsId">
+											<s:property value="newsId" />
+										</s:param>
+									</s:url> <s:a href="%{scan}" target="_blank">
+										<img
+											src="<%=request.getContextPath()%>/editor/attached/<s:property value="fileName"/>">
+									</s:a>
+									<h3>
+										<s:a href="%{scan}" target="_blank">
+											<s:property value="newsTitle" />
+										</s:a>
+									</h3></li>
+							</s:iterator>
 						</ul>
 					</div>
 					<div class="controler" data-scro="controler">
@@ -282,53 +281,51 @@
 				<div class="content">
 					<div id="con-tit" class="con-tit">
 						<ul>
-							<li class="select"><a href="newslist.html">新闻动态</a></li>
-							<li><a href="newslist.html">工作通知</a></li>
-							<li><a href="newslist.html">学校公告</a></li>
-							<li><a href="newslist.html">学校公告</a></li>
+							<li class="select"><a href="vpageAction?column=17">新闻动态</a></li>
+							<li><a href="vpageAction?column=2">通知公告</a></li>
+							<li><a href="vpageAction?column=6">工作动态</a></li>
+							<li><a href="vpageAction?column=18">学校公告</a></li>
 						</ul>
 					</div>
 					<div class="con" id="con">
 						<div class="tab-content" id="tab-content" style="display:block">
 							<ul>
-								<li><a href="news.html">我校学生参加第三届中小学生器乐节</a><span>2015-10-24</span></li>
-								<li><a href="news.html">我校组织教职工趣味比赛</a><span>2015-10-24</span></li>
-								<li><a href="news.html">大兴区榆垡协作区班主任说班会展示活动暨大兴区骨干…</a><span>2015-10-24</span></li>
-								<li><a href="news.html">我校老师除雪活动剪影</a><span>2015-10-24</span></li>
-								<li><a href="news.html">在实践学习中践行社会主义核心价值观-我校各年级社</a><span>2015-10-24</span></li>
-								<li><a href="news.html">我校成功举办大兴区“十二五”2015教育科研周分会场</a><span>2015-10-24</span></li>
-								<li><a href="news.html">我校成功举办大兴区“十二五”2015教育科研周分会场</a><span>2015-10-24</span></li>
+								<s:iterator value="application.list17">
+									<li><a
+										href="vGetDetial?newsId=<s:property value="newsId"/>"><s:property
+												value="newsTitle" /></a><span><s:date name="uploadDate"
+												format="yyyy-MM-dd" /></span></li>
+								</s:iterator>
 							</ul>
 						</div>
 						<div class="tab-content" id="tab-content" style="display:none">
 							<ul>
-								<li><span>2015-9-30</span><a href="news.html">我校开展经典名著诵读活动</a></li>
-								<li><span>2015-10-25</span><a href="news.html">我校开展第十一届秋季运动会</a></li>
-								<li><span>2015-10-25</span><a href="news.html">我校开展徒步拉练活动</a></li>
-								<li><span>2015-10-25</span><a href="news.html">让语文课绽放别样精彩</a></li>
-								<li><span>2015-10-25</span><a href="news.html">让语文课绽放别样精彩</a></li>
+								<s:iterator value="application.list2">
+									<li><a
+										href="vGetDetial?newsId=<s:property value="newsId"/>"><s:property
+												value="newsTitle" /></a><span><s:date name="uploadDate"
+												format="yyyy-MM-dd" /></span></li>
+								</s:iterator>
 							</ul>
 						</div>
 						<div class="tab-content" id="tab-content" style="display:none">
 							<ul>
-								<li><a href="news.html">我校学生参加第三届中小学生器乐节</a><span>2015-10-24</span></li>
-								<li><a href="news.html">我校组织教职工趣味比赛</a><span>2015-10-24</span></li>
-								<li><a href="news.html">大兴区榆垡协作区班主任说班会展示活动暨大兴区骨干…</a><span>2015-10-24</span></li>
-								<li><a href="news.html">我校老师除雪活动剪影</a><span>2015-10-24</span></li>
-								<li><a href="news.html">在实践学习中践行社会主义核心价值观-我校各年级社</a><span>2015-10-24</span></li>
-								<li><a href="news.html">我校成功举办大兴区“十二五”2015教育科研周分会场</a><span>2015-10-24</span></li>
-								<li><a href="news.html">我校成功举办大兴区“十二五”2015教育科研周分会场</a><span>2015-10-24</span></li>
+								<s:iterator value="application.list6">
+									<li><a
+										href="vGetDetial?newsId=<s:property value="newsId"/>"><s:property
+												value="newsTitle" /></a><span><s:date name="uploadDate"
+												format="yyyy-MM-dd" /></span></li>
+								</s:iterator>
 							</ul>
 						</div>
 						<div class="tab-content" id="tab-content" style="display:none">
 							<ul>
-								<li><a href="news.html">我校学生参加第三届中小学生器乐节</a><span>2015-10-24</span></li>
-								<li><a href="news.html">我校组织教职工趣味比赛</a><span>2015-10-24</span></li>
-								<li><a href="news.html">大兴区榆垡协作区班主任说班会展示活动暨大兴区骨干…</a><span>2015-10-24</span></li>
-								<li><a href="news.html">我校老师除雪活动剪影</a><span>2015-10-24</span></li>
-								<li><a href="news.html">在实践学习中践行社会主义核心价值观-我校各年级社</a><span>2015-10-24</span></li>
-								<li><a href="news.html">我校成功举办大兴区“十二五”2015教育科研周分会场</a><span>2015-10-24</span></li>
-								<li><a href="news.html">我校成功举办大兴区“十二五”2015教育科研周分会场</a><span>2015-10-24</span></li>
+								<s:iterator value="application.list18">
+									<li><a
+										href="vGetDetial?newsId=<s:property value="newsId"/>"><s:property
+												value="newsTitle" /></a><span><s:date name="uploadDate"
+												format="yyyy-MM-dd" /></span></li>
+								</s:iterator>
 							</ul>
 						</div>
 					</div>
@@ -339,8 +336,9 @@
 		<div class="divider"></div>
 		<div class="pictureslist">
 			<div class="pc-title">
-				<a class="a-title" href="showimg.html"><h3>学生作品展示</h3></a><a
-					href="showimg.html">more</a>
+				<a class="a-title" href="vpageAction?column=22">
+					<h3>学生作品展示</h3>
+				</a><a href="vpageAction?column=22">more</a>
 			</div>
 			<div class="pictures" id="scrollbox" onMouseMove="MoveDiv(event);"
 				onMouseOut="MoveOutDiv();">
@@ -351,32 +349,12 @@
 								<td valign="top">
 									<table width="100%">
 										<tr>
-											<td class="main_img"><a href="showimg.html"><img
-													height="160" width="150" alt="" src="images1/1.jpg" /></a></td>
-											<td class="main_img"><a href="showimg.html"><img
-													height="160" width="150" alt="" src="images1/2.jpg" /></a></td>
-											<td class="main_img"><a href="showimg.html"><img
-													height="160" width="150" alt="" src="images1/3.jpg" /></a></td>
-											<td class="main_img"><a href="showimg.html"><img
-													height="160" width="150" alt="" src="images1/6.jpg" /></a></td>
-											<td class="main_img"><a href="showimg.html"><img
-													height="160" width="150" alt="" src="images1/5.jpg" /></a></td>
-											<td class="main_img"><a href="showimg.html"><img
-													height="160" width="150" alt="" src="images1/4.jpg" /></a></td>
-											<td class="main_img"><a href="showimg.html"><img
-													height="160" width="150" alt="" src="images1/7.jpg" /></a></td>
-											<td class="main_img"><a href="showimg.html"><img
-													height="160" width="150" alt="" src="images1/2.jpg" /></a></td>
-											<td class="main_img"><a href="showimg.html"><img
-													height="160" width="150" alt="" src="images1/1.jpg" /></a></td>
-											<td class="main_img"><a href="showimg.html"><img
-													height="160" width="150" alt="" src="images1/3.jpg" /></a></td>
-											<td class="main_img"><a href="showimg.html"><img
-													height="160" width="150" alt="" src="images1/4.jpg" /></a></td>
-											<td class="main_img"><a href="showimg.html"><img
-													height="160" width="150" alt="" src="images1/6.jpg" /></a></td>
-											<td class="main_img"><a href="showimg.html"><img
-													height="160" width="150" alt="" src="images1/4.jpg" /></a></td>
+											<s:iterator value="application.list22">
+												<td class="main_img"><a
+													href="vGetDetial?newsId=<s:property value="newsId"/>"><img
+														height="160" width="150" alt=""
+														src="<%=request.getContextPath()%>/editor/attached/<s:property value="fileName"/>" /></a></td>
+											</s:iterator>
 										</tr>
 									</table>
 								</td>
@@ -393,17 +371,21 @@
 			<div class="yqlj">
 				<div class="i-title">
 					<h3>
-						<a href="newslist.html">学生园地</a>
+						<a href="vpageAction?column=19">学生园地</a>
 					</h3>
-					<a class="ai" href="newslist.html">more</a>
+					<a class="ai" href="vpageAction?column=19">more</a>
 				</div>
 				<div class="item">
 					<ul>
-						<li><a href="news.html">低年级孩子的音乐故事</a><span>(2015.08.12)</span></li>
-						<li><a href="news.html">小小舞蹈家</a><span>(2015.09.16)</span></li>
-						<li><a href="news.html">小小彩纸变化多</a><span>(2015.09.16)</span></li>
-						<li><a href="news.html">学会轮滑真开心</a><span>(2015.09.16)</span></li>
-
+						<s:subset source="#application.list19" start="0" count="4">
+							<s:iterator>
+								<li><a
+									href="vGetDetial?newsId=<s:property value="newsId"/>"><s:property
+											value="newsTitle" /></a><span>(<s:date name="uploadDate"
+											format="yyyy-MM-dd" />)
+								</span></li>
+							</s:iterator>
+						</s:subset>
 					</ul>
 				</div>
 			</div>
@@ -411,25 +393,30 @@
 			<div class="yqlj">
 				<div class="i-title">
 					<h3>
-						<a href="newslist.html">教师风采</a>
+						<a href="vpageAction?column=20">教师风采</a>
 					</h3>
-					<a class="ai" href="newslist.html">more</a>
+					<a class="ai" href="vpageAction?column=20">more</a>
 				</div>
 				<div class="item">
 					<ul>
-						<li><a href="news.html">做一个合格的教师</a><span>(2015.08.12)</span></li>
-						<li><a href="news.html">小学英语教学10条建..</a><span>(2015.09.16)</span></li>
-						<li><a href="news.html">民国哪些教育家</a><span>(2015.09.16)</span></li>
-						<li><a href="news.html">小学生注意力与政策..</a><span>(2015.09.16)</span></li>
+												<s:subset source="#application.list19" start="0" count="4">
+							<s:iterator>
+								<li><a
+									href="vGetDetial?newsId=<s:property value="newsId"/>"><s:property
+											value="newsTitle" /></a><span>(<s:date name="uploadDate"
+											format="yyyy-MM-dd" />)
+								</span></li>
+							</s:iterator>
+						</s:subset>
 					</ul>
 				</div>
 			</div>
 			<div class="yqlj">
 				<div class="i-title">
 					<h3>
-						<a href="showimg.html">校园之星</a>
+						<a href="vpageAction?column=22">校园之星</a>
 					</h3>
-					<a class="ai" href="showimg.html">more</a>
+					<a class="ai" href="vpageAction?column=22">more</a>
 				</div>
 				<div class="item">
 					<div class="item-1">

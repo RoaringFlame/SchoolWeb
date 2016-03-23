@@ -21,7 +21,6 @@ public class OnlineInterceptor extends AbstractInterceptor {
 		Map<String, Object> session = ActionContext.getContext().getSession();
 		Object user = session.get("user");
 		if (user == null) {
-			System.out.println("----未登录状态");
 			return "login";
 		} else {
 			return invocation.invoke();
