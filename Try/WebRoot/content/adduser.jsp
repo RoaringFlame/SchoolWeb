@@ -23,9 +23,9 @@
 					<ul class="topnav">
 						<li><a class="ad" href="#"></a>
 							<ul class="subnav">
-								<li><a href="adduser.html">添加用户</a></li>
-								<li><a href="resetpassword.html">修改密码</a></li>
-								<li><a href="login.html">退出</a></li>
+								<li><a href="adduser.jsp">添加用户</a></li>
+								<li><a href="resetpwd.jsp">修改密码</a></li>
+								<li><a href="login!quit">退出</a></li>
 							</ul></li>
 					</ul>
 				</div>
@@ -58,9 +58,6 @@
 						<dt>
 							<a href="text-list.html">机构设置</a>
 						</dt>
-
-
-
 					</dl>
 
 					<dl class="app">
@@ -98,7 +95,7 @@
 
 					<dl class="syetem_management">
 						<dt>
-							<a href="">科学研究</a><img src="img/select_xl01.png" alt="">
+							<a href="">科学研究</a>
 						</dt>
 						<dd class="first_dd">
 							<a href="text-list.html">他山之石</a>

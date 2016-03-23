@@ -46,8 +46,7 @@
 					</div>
 					<dl class="system_log">
 						<dt onClick="changeImage()" class="active">
-							<a href="admin.html">网站首页</a><img src="img/select_xl01.png"
-								alt="">
+							<a href="admin.html">网站首页</a>
 						</dt>
 						<dd class="first_dd">
 							<a href="text-list.html">图片新闻</a>
@@ -70,7 +69,7 @@
 
 					<dl class="app">
 						<dt onClick="changeImage()">
-							研究生培养<img src="img/select_xl01.png" alt="">
+							研究生培养
 						</dt>
 						<dd class="first_dd">
 							<a href="text-list.html">培养方案</a>
@@ -88,7 +87,7 @@
 
 					<dl class="cloud">
 						<dt>
-							学科建设<img src="img/select_xl01.png" alt="">
+							学科建设
 						</dt>
 						<dd class="first_dd">
 							<a href="text-list.html">重点学科</a>
@@ -103,7 +102,7 @@
 
 					<dl class="syetem_management">
 						<dt>
-							<a href="">科学研究</a><img src="img/select_xl01.png" alt="">
+							<a href="">科学研究</a>
 						</dt>
 						<dd class="first_dd">
 							<a href="text-list.html">他山之石</a>

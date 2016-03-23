@@ -12,7 +12,14 @@ import com.dao.UserDao;
 import com.entity.User;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
-
+/**
+ *Description:
+ *<br/>Copyright(C),2016-2017,Heng.Chen
+ *<br/>GitHub:https://github.com/RoaringFlame
+ *<br/>Date:2016年3月23日
+ * @author Heng.Chen chenheng120@126.com
+ * @version 1.0
+ */
 public class LoginAction extends ActionSupport {
 
 	private static final long serialVersionUID = 1L;

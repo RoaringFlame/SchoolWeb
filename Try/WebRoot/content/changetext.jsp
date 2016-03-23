@@ -53,9 +53,9 @@
 					<ul class="topnav">
 						<li><a class="ad" href="#"></a>
 							<ul class="subnav">
-								<li><a href="adduser.html">添加用户</a></li>
-								<li><a href="resetpassword.html">修改密码</a></li>
-								<li><a href="login.html">退出</a></li>
+								<li><a href="adduser.jsp">添加用户</a></li>
+								<li><a href="resetpwd.jsp">修改密码</a></li>
+								<li><a href="login!quit">退出</a></li>
 							</ul></li>
 					</ul>
 				</div>
@@ -69,7 +69,7 @@
 					</div>
 					<dl class="system_log">
 						<dt onClick="changeImage()" class="active">
-							网站首页<img src="img/select_xl01.png" alt="">
+							网站首页
 						</dt>
 						<dd class="first_dd">
 							<a href="text-list.html">图片新闻</a>
@@ -95,7 +95,7 @@
 
 					<dl class="app">
 						<dt onClick="changeImage()">
-							研究生培养<img src="img/select_xl01.png" alt="">
+							研究生培养
 						</dt>
 						<dd class="first_dd">
 							<a href="text-list.html">培养方案</a>
@@ -113,7 +113,7 @@
 
 					<dl class="cloud">
 						<dt>
-							学科建设<img src="img/select_xl01.png" alt="">
+							学科建设
 						</dt>
 						<dd class="first_dd">
 							<a href="text-list.html">重点学科</a>
@@ -128,7 +128,7 @@
 
 					<dl class="syetem_management">
 						<dt>
-							<a href="">科学研究</a><img src="img/select_xl01.png" alt="">
+							<a href="">科学研究</a>
 						</dt>
 						<dd class="first_dd">
 							<a href="text-list.html">他山之石</a>
@@ -149,16 +149,14 @@
 
 					<dl class="source">
 						<dt>
-							<a href="text-list.html">管理制度</a><img src="img/select_xl01.png"
-								alt="">
+							<a href="text-list.html">管理制度</a>
 						</dt>
 
 					</dl>
 
 					<dl class="statistics">
 						<dt>
-							<a href="text-list.html">下载专区</a><img src="img/select_xl01.png"
-								alt="">
+							<a href="text-list.html">下载专区</a>
 						</dt>
 
 					</dl>

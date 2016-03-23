@@ -15,7 +15,7 @@
 				<div class="nav-top">
 					<div class="logo">
 						<div class="logo-main">
-							<a href="index.html"><img src="img/logo.gif" alt="湖北第二师范学院"></a>
+							<a href="index.jsp"><img src="img/logo.gif" alt="湖北第二师范学院"></a>
 						</div>
 					</div>
 					<div class="word">
@@ -32,7 +32,7 @@
 
 				<div class="daohang">
 					<ul class="nav">
-						<li class="current"><a href="index.html"><b>网站首页</b></a></li>
+						<li class="current"><a href="index.jsp"><b>网站首页</b></a></li>
 						<li><a href="newslist.html">校园动态</a> <span>
 								<p>
 									<a href="newslist.html">最新公告</a>
@@ -156,7 +156,7 @@
 			<div class="main-page">
 				<div class="main-title">
 					<p>
-						<a href="index.html">首页</a>:当前页面>><a href="newslist.html">最新公告</a>
+						<a href="index.jsp">首页</a>:当前页面>><a href="newslist.html">最新公告</a>
 					</p>
 				</div>
 				<div class="main-item">

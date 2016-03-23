@@ -580,6 +580,11 @@ background:#955EBC;
 	margin-top:10px;
 
 }
+.warning{
+	color:red;
+	text-align:center;
+	
+}
 .message-button{
     width:60px;
 	height:30px;
@@ -616,7 +621,7 @@ background:#955EBC;
 .boot{
 	width:220px;
 	height:28px;
-	
+	text-indent:15px;
 	
 }
 .boots{
@@ -631,4 +636,7 @@ background:#955EBC;
 	width:180px;
 	float:left;
 	margin-left:10px;
+}
+.content{
+	text-indent:10px;
 }

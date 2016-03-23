@@ -13,7 +13,7 @@
 
 	<div class="daohang">
 		<ul class="nav">
-			<li class="current"><a href="index.html"><b>网站首页</b></a></li>
+			<li class="current"><a href="index.jsp"><b>网站首页</b></a></li>
 			<li><a href="newslist.html">校园动态</a> <span>
 					<p>
 						<a href="newslist.html">最新公告</a>
@@ -156,10 +156,11 @@
 				</div>
 				<div class="left-item">
 					<ul>
-						<li>总访问量：</li>
-						<li>总浏览量：</li>
-						<li>今日访问：</li>
-						<li>日均访问：</li>
+						<li>总访问量：<s:property value="#application.counter.allCount" /></li>
+						<li>总浏览量：<s:property value="#application.counter.clickCount" /></li>
+						<li>今日访问：<s:property value="#application.counter.todayCount" /></li>
+						<li>日均访问：<s:property
+								value="#application.counter.allCount/#application.counter.dayCount" /></li>
 					</ul>
 				</div>
 			</div>
@@ -168,7 +169,7 @@
 		<div class="right-page">
 			<div class="right-title">
 				<p>
-					<a href="index.html">首页</a>:当前页面>><a href="newslist.html">最新公告</a>
+					<a href="index.jsp">首页</a>:当前页面>><a href="newslist.html">最新公告</a>
 				</p>
 			</div>
 			<div class="right-item">

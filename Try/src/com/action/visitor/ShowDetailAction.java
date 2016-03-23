@@ -61,6 +61,7 @@ public class ShowDetailAction extends ActionSupport {
 				//网站点击量问量+1
 				ContextCounter cc = new ContextCounter();
 				cc.clickCount();
+				cc.saveCounterInDB();
 				return SUCCESS;
 			}
 		}

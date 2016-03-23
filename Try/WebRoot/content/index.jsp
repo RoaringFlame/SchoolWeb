@@ -24,7 +24,7 @@
 		<div class="nav-top">
 			<div class="logo">
 				<div class="logo-main">
-					<a href="index.html"><img src="img/logo.gif" alt="湖北第二师范学院"></a>
+					<a href="index.jsp"><img src="img/logo.gif" alt="湖北第二师范学院"></a>
 				</div>
 			</div>
 			<div class="word">
@@ -45,7 +45,7 @@
 
 		<div class="daohang">
 			<ul class="nav">
-				<li class="current"><a href="index.html"><b>网站首页</b></a></li>
+				<li class="current"><a href="index.jsp"><b>网站首页</b></a></li>
 				<li><s:url id="showlist" action="vpageAction">
 						<s:param name="column">
 							<s:property value="1" />
