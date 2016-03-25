@@ -40,7 +40,7 @@
 					</div>
 					<dl class="system_log">
 						<dt onClick="changeImage()" class="active">
-							网站首页<img src="img/select_xl.png" alt="">
+							网站首页
 						</dt>
 						<dd class="first_dd">
 							<a href="upageAction?column=1">图片新闻</a>
@@ -63,7 +63,7 @@
 
 					<dl class="app">
 						<dt onClick="changeImage()">
-							研究生培养<img src="img/select_xl.png" alt="">
+							研究生培养
 						</dt>
 						<dd class="first_dd">
 							<a href="upageAction?column=4">培养方案</a>
@@ -81,7 +81,7 @@
 
 					<dl class="cloud">
 						<dt>
-							学科建设<img src="img/select_xl.png" alt="">
+							学科建设
 						</dt>
 						<dd class="first_dd">
 							<a href="upageAction?column=8">重点学科</a>
@@ -117,16 +117,14 @@
 
 					<dl class="source">
 						<dt>
-							<a href="upageAction?column=14">管理制度</a><img
-								src="img/select_xl.png" alt="">
+							<a href="upageAction?column=14">管理制度</a>
 						</dt>
 
 					</dl>
 
 					<dl class="statistics">
 						<dt>
-							<a href="upageAction?column=15">下载专区</a><img
-								src="img/select_xl.png" alt="">
+							<a href="upageAction?column=15">下载专区</a>
 						</dt>
 
 					</dl>
@@ -135,7 +133,7 @@
 			<div class="right-main">
 				<div class="right-title">
 					<h2>
-						<a href="admin.html">后台管理系统</a>
+						<a href="recentNews">后台管理系统</a>
 					</h2>
 				</div>
 

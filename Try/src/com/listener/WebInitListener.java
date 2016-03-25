@@ -3,7 +3,6 @@ package com.listener;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
@@ -15,6 +14,7 @@ import com.entity.Counter;
 import com.entity.News;
 
 import core.tool.PropertyReader;
+import core.web.DBTimerTask;
 
 /**
  * Description: <br/>
@@ -50,8 +50,11 @@ public class WebInitListener implements ServletContextListener {
 				Integer column = Integer.parseInt(entry.getKey());
 				List<News> newslist = nDao.getColumnList(column, 1, 7);
 				application.setAttribute(listname, newslist);
-				
 			}
+			
+			// 启用Timer事务进程，进行每日数据更新任务
+			DBTimerTask.getInstance();
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -67,7 +70,7 @@ public class WebInitListener implements ServletContextListener {
 	}
 }
 
-// 使用Timer事务更新数据库每日数据失败，改用数据库事件：
+// 如果使用Timer事务更新数据库每日数据失败，还可改用数据库事件：
 /*
  * create event dayUpdate on schedule every 1 day starts timestamp '2016-3-18
  * 01:00:00' do update counter set day_count = (day_count + 1) and

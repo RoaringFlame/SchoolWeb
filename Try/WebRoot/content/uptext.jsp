@@ -67,9 +67,7 @@
 						<div class="nav-admin-png"></div>
 					</div>
 					<dl class="system_log">
-						<dt onClick="changeImage()" class="active">
-							网站首页
-						</dt>
+						<dt onClick="changeImage()" class="active">网站首页</dt>
 						<dd class="first_dd">
 							<a href="upageAction?column=1">图片新闻</a>
 						</dd>
@@ -93,9 +91,7 @@
 					</dl>
 
 					<dl class="app">
-						<dt onClick="changeImage()">
-							研究生培养
-						</dt>
+						<dt onClick="changeImage()">研究生培养</dt>
 						<dd class="first_dd">
 							<a href="upageAction?column=4">培养方案</a>
 						</dd>
@@ -111,9 +107,7 @@
 					</dl>
 
 					<dl class="cloud">
-						<dt>
-							学科建设
-						</dt>
+						<dt>学科建设</dt>
 						<dd class="first_dd">
 							<a href="upageAction?column=8">重点学科</a>
 						</dd>
@@ -156,7 +150,7 @@
 					<dl class="statistics">
 						<dt>
 							<a href="upageAction?column=15">下载专区</a>
-								
+
 						</dt>
 
 					</dl>
@@ -165,7 +159,7 @@
 			<div class="right-main">
 				<div class="right-title">
 					<h2>
-						<a href="admin.jsp">后台管理系统</a>
+						<a href="recentNews">后台管理系统</a>
 					</h2>
 				</div>
 
@@ -177,7 +171,7 @@
 					<div class="upload-main">
 						<div class="upload-title">
 							<form id="form1" action="upload" method="post">
-							<s:set name="column" value="column"></s:set>
+								<s:actionerror cssClass="warning" />
 								<s:hidden name="column" value="%{column}" />
 								<p>
 									文章标题：<input type="text" class="article" name="title">

@@ -70,11 +70,31 @@ public class UploadAction extends ActionSupport {
 	}
 
 	public String execute() {
+		if (title.equals("")) {
+			addActionError("请输入标题！");
+			return INPUT;
+		}
+		if (uploader.equals("")) {
+			addActionError("请输入作者姓名！");
+			return INPUT;
+		}
+		if (content.equals("")) {
+			addActionError("内容不能为空！");
+			return INPUT;
+		}
 		User user = (User) session.getAttribute("user");
 		if (user != null) {
+			NewsDao nDao = new NewsDao();
+			Integer newsColumn = Integer.parseInt(column);
+			
+			//文章是否重复
+			if (nDao.findNews(newsColumn, title) != null) {
+				addActionError("文章已存在！");
+				return INPUT;
+			}
 			// 实例化news再根据id得到news_detail并同时插入数据库（可加入newsDao中写成一个事务处理方法）
 			// news的操作都危险，第一步和第二步不关联
-			Integer newsColumn = Integer.parseInt(column);
+
 			News news = new News();
 			news.setNewsTitle(title);
 			news.setNewsColumn(newsColumn);
@@ -85,6 +105,7 @@ public class UploadAction extends ActionSupport {
 			Timestamp timestamp = new Timestamp(date.getTime());
 			news.setUploadDate(timestamp);
 			news.setReadCount(0);
+			
 			// 如有文件，得到文件名
 			if (session.getAttribute("filename") != null) {
 				String filename = (String) session.getAttribute("filename");
@@ -92,7 +113,6 @@ public class UploadAction extends ActionSupport {
 				session.removeAttribute("filename");
 			}
 
-			NewsDao nDao = new NewsDao();
 			NewsDetailDao ndDao = new NewsDetailDao();
 			if (nDao.AddNews(news)) {
 				if ((news = nDao.findNews(newsColumn, title)) != null) {
@@ -105,11 +125,13 @@ public class UploadAction extends ActionSupport {
 						Integer column = Integer.parseInt(this.column);
 						List<News> newslist = nDao.getColumnList(column, 1, 7);
 						application.setAttribute(listname, newslist);
+						addActionError("发布成功！");
 						return SUCCESS;
 					}
 				}
 			}
 		}
-		return ERROR;
+		addActionError("请重新登录！");
+		return INPUT;
 	}
 }

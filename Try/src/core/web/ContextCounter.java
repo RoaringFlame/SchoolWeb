@@ -10,13 +10,14 @@ import com.entity.Counter;
 
 public class ContextCounter {
 
+	private CounterDao cDao = new CounterDao();
 	private ServletContext application;
 	private Counter counter;
 
 	public ContextCounter() {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		application = request.getServletContext();
-		counter = (Counter) application.getAttribute("counter");
+		counter = cDao.getCounterbyId(1);
 	}
 
 	public void initCounterInContext(Integer id) {
@@ -25,7 +26,9 @@ public class ContextCounter {
 		application.setAttribute("counter", cou);
 	}
 
+	// 点击量使用虚计数，暂存在application中，只有真正访问数据才计入数据库
 	public void clickCount() {
+		Counter counter = (Counter)application.getAttribute("counter");
 		if (counter != null) {
 			int i = counter.getClickCount();
 			counter.setClickCount(++i);
@@ -35,8 +38,11 @@ public class ContextCounter {
 
 	public void visitCount() {
 		if (counter != null) {
+			Counter count = (Counter)application.getAttribute("counter");
+			int c = count.getClickCount();
 			int i = counter.getTodayCount();
 			int j = counter.getAllCount();
+			counter.setClickCount(c);
 			counter.setTodayCount(++i);
 			counter.setAllCount(++j);
 			application.setAttribute("counter", counter);
@@ -46,11 +52,11 @@ public class ContextCounter {
 
 	public void saveCounterInDB() {
 		if (counter != null) {
-			CounterDao cDao = new CounterDao();
 			cDao.updateCounter(counter);
 		}
 	}
 
+	// 作为参考，一直未用
 	public void dayFreshCounter() {
 		if (counter != null) {
 			int i = counter.getTodayCount();

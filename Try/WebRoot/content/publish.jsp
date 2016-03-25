@@ -39,9 +39,7 @@
 						<div class="nav-admin-png"></div>
 					</div>
 					<dl class="system_log">
-						<dt onClick="changeImage()" class="active">
-							网站首页
-						</dt>
+						<dt onClick="changeImage()" class="active">网站首页</dt>
 						<dd class="first_dd">
 							<a href="upageAction?column=1">图片新闻</a>
 						</dd>
@@ -65,9 +63,7 @@
 					</dl>
 
 					<dl class="app">
-						<dt onClick="changeImage()">
-							研究生培养
-						</dt>
+						<dt onClick="changeImage()">研究生培养</dt>
 						<dd class="first_dd">
 							<a href="upageAction?column=4">培养方案</a>
 						</dd>
@@ -83,9 +79,7 @@
 					</dl>
 
 					<dl class="cloud">
-						<dt>
-							学科建设
-						</dt>
+						<dt>学科建设</dt>
 						<dd class="first_dd">
 							<a href="upageAction?column=8">重点学科</a>
 						</dd>
@@ -136,7 +130,7 @@
 			<div class="right-main">
 				<div class="right-title">
 					<h2>
-						<a href="admin.jsp">后台管理系统</a>
+						<a href="recentNews">后台管理系统</a>
 					</h2>
 				</div>
 
@@ -154,25 +148,15 @@
 						<div class="publish-content">
 							<s:iterator value="lcolumn">
 								<ul>
-									<s:url id="showlist" action="upageAction">
-										<s:param name="column">
-											<s:property value="key" />
-										</s:param>
-									</s:url>
-									<s:url id="showEditor" action="showEditor">
-										<s:param name="column">
-											<s:property value="key" />
-										</s:param>
-									</s:url>
-									<li class="li-left"><s:a href="%{showlist}">
+									<li class="li-left"><s:a href="upageAction?column=%{key}">
 											<s:property value="value" />
 										</s:a></li>
 									<li class="li-right"><s:if
 											test="#session.user.permissionSign">
-											<s:a cssClass="left" href="%{showEditor}">发布</s:a>
-											<s:a cssClass="right" href="%{showlist}">查看</s:a>
+											<s:a cssClass="left" href="showEditor?column=%{key}">发布</s:a>
+											<s:a cssClass="right" href="upageAction?column=%{key}">查看</s:a>
 										</s:if> <s:else>
-											<s:a cssClass="centent" href="%{showlist}">查看</s:a>
+											<s:a cssClass="centent" href="upageAction?column=%{key}">查看</s:a>
 										</s:else></li>
 								</ul>
 							</s:iterator>
@@ -190,25 +174,15 @@
 						<div class="publish-content">
 							<s:iterator value="rcolumn">
 								<ul>
-									<s:url id="showlist" action="upageAction">
-										<s:param name="column">
-											<s:property value="key" />
-										</s:param>
-									</s:url>
-									<s:url id="showEditor" action="showEditor">
-										<s:param name="column">
-											<s:property value="key" />
-										</s:param>
-									</s:url>
-									<li class="li-left"><s:a href="%{showlist}">
+									<li class="li-left"><s:a href="upageAction?column=%{key}">
 											<s:property value="value" />
 										</s:a></li>
 									<li class="li-right"><s:if
 											test="#session.user.permissionSign">
-											<s:a cssClass="left" href="%{showEditor}">发布</s:a>
-											<s:a cssClass="right" href="%{showlist}">查看</s:a>
+											<s:a cssClass="left" href="uptext.jsp?column=%{key}">发布</s:a>
+											<s:a cssClass="right" href="upageAction?column=%{key}">查看</s:a>
 										</s:if> <s:else>
-											<s:a cssClass="centent" href="%{showlist}">查看</s:a>
+											<s:a cssClass="centent" href="upageAction?column=%{key}">查看</s:a>
 										</s:else></li>
 								</ul>
 							</s:iterator>

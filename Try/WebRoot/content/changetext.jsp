@@ -165,7 +165,7 @@
 			<div class="right-main">
 				<div class="right-title">
 					<h2>
-						<a href="admin.html">后台管理系统</a>
+						<a href="recentNews">后台管理系统</a>
 					</h2>
 				</div>
 

@@ -128,9 +128,8 @@ public class UserDao {
 		List<User> list = new ArrayList<User>();
 		try {
 			session = HibernateSessionFactory.getSession();
-			String hql = "from User as u where u.permissionSign = :permissionSign";
+			String hql = "from User";
 			query = session.createQuery(hql);
-			query.setParameter("permissionSign", false);
 			list = query.list();
 			return list;
 		} catch (HibernateException e) {

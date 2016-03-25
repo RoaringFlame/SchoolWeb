@@ -556,6 +556,7 @@ color:#fff;
 .table-title h3{
 	height:40px;
 	line-height: 40px;
+	color:#000;
 }
 .table-content{
 	margin-left:20px;
@@ -634,6 +635,9 @@ color:#fff;
    border-bottom:1px solid #d8d8d8;
    float:left;
    text-align:center;
+}
+.right-show ul li a img{
+	margin-top:15px;
 }
 .table-main{
 	width:600px;

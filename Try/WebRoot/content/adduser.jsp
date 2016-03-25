@@ -38,9 +38,7 @@
 						<div class="nav-admin-png"></div>
 					</div>
 					<dl class="system_log">
-						<dt onClick="changeImage()" class="active">
-							网站首页<img src="img/select_xl.png" alt="">
-						</dt>
+						<dt onClick="changeImage()" class="active">网站首页</dt>
 						<dd class="first_dd">
 							<a href="upageAction?column=1">图片新闻</a>
 						</dd>
@@ -61,9 +59,7 @@
 					</dl>
 
 					<dl class="app">
-						<dt onClick="changeImage()">
-							研究生培养<img src="img/select_xl.png" alt="">
-						</dt>
+						<dt onClick="changeImage()">研究生培养</dt>
 						<dd class="first_dd">
 							<a href="upageAction?column=4">培养方案</a>
 						</dd>
@@ -79,9 +75,7 @@
 					</dl>
 
 					<dl class="cloud">
-						<dt>
-							学科建设<img src="img/select_xl.png" alt="">
-						</dt>
+						<dt>学科建设</dt>
 						<dd class="first_dd">
 							<a href="upageAction?column=8">重点学科</a>
 						</dd>
@@ -116,16 +110,14 @@
 
 					<dl class="source">
 						<dt>
-							<a href="upageAction?column=14">管理制度</a><img src="img/select_xl.png"
-								alt="">
+							<a href="upageAction?column=14">管理制度</a>
 						</dt>
 
 					</dl>
 
 					<dl class="statistics">
 						<dt>
-							<a href="upageAction?column=15">下载专区</a><img src="img/select_xl.png"
-								alt="">
+							<a href="upageAction?column=15">下载专区</a>
 						</dt>
 
 					</dl>
@@ -134,7 +126,7 @@
 			<div class="right-main">
 				<div class="right-title">
 					<h2>
-						<a href="admin.html">后台管理系统</a>
+						<a href="recentNews">后台管理系统</a>
 					</h2>
 				</div>
 
@@ -184,13 +176,11 @@
 										<s:property value="#session.usercount" />
 										人
 									</h3>
-									<!-- 									<a href="adduser.html" title="添加用户"><img -->
-									<!-- 										src="img/add-user.png" alt="" width="40" height="40"></a> -->
 								</div>
 								<ul>
 									<li>用户名</li>
 									<li>真实姓名</li>
-									<li>删除</li>
+									<li>操作</li>
 								</ul>
 								<s:iterator value="#session.userlist">
 									<ul>
@@ -201,9 +191,15 @@
 												<s:property value="userId" />
 											</s:param>
 										</s:url>
-										<li><s:a href="%{delete}" title="删除用户">
-												<img src="img/delete.png" alt="删除" width="20" height="20">删除
-										</s:a></li>
+										<s:if test="permissionSign">
+											<li><s:a href="" title="">
+												</s:a></li>
+										</s:if>
+										<s:else>
+											<li><s:a href="%{delete}" title="删除用户">
+													<img alt="" src="img/delete.png" width="20" height="20">
+												</s:a></li>
+										</s:else>
 									</ul>
 								</s:iterator>
 							</div>
@@ -213,67 +209,57 @@
 
 				</div>
 			</div>
-
 		</div>
-		<script type="text/javascript">
-			$(document).ready(
-					function() {
+	</div>
+	<script type="text/javascript">
+		$(document).ready(function() {
 
-						$("ul.subnav").parent().append("<span></span>"); //Only shows drop down trigger when js is enabled - Adds empty span tag after ul.subnav
+			$("ul.subnav").parent().append("<span></span>"); //Only shows drop down trigger when js is enabled - Adds empty span tag after ul.subnav
 
-						$(".admin li span").click(
-								function() { //When trigger is clicked...
+			$(".admin li span").click(function() { //When trigger is clicked...
 
-									//Following events are applied to the subnav itself (moving subnav up and down)
-									$(this).parent().find("ul.subnav")
-											.slideDown('fast').show(); //Drop down the subnav on click
+				//Following events are applied to the subnav itself (moving subnav up and down)
+				$(this).parent().find("ul.subnav").slideDown('fast').show(); //Drop down the subnav on click
 
-									$(this).parent().hover(
-											function() {
-											},
-											function() {
-												$(this).parent().find(
-														"ul.subnav").slideUp(
-														'slow'); //When the mouse hovers out of the subnav, move it back up
-											});
+				$(this).parent().hover(function() {
+				}, function() {
+					$(this).parent().find("ul.subnav").slideUp('slow'); //When the mouse hovers out of the subnav, move it back up
+				});
 
-									//Following events are applied to the trigger (Hover events for the trigger)
-								}).hover(function() {
-							$(this).addClass("subhover"); //On hover over, add class "subhover"
-						}, function() { //On Hover Out
-							$(this).removeClass("subhover"); //On hover out, remove class "subhover"
-						});
-
-					});
-		</script>
-		<script type="text/javascript">
-			$(".leftsidebar_box dt").css({
-				"background-color" : "#4C2C4C"
+				//Following events are applied to the trigger (Hover events for the trigger)
+			}).hover(function() {
+				$(this).addClass("subhover"); //On hover over, add class "subhover"
+			}, function() { //On Hover Out
+				$(this).removeClass("subhover"); //On hover out, remove class "subhover"
 			});
-			$(".leftsidebar_box dt img").attr("src", "img/select_xl01.png");
-			$(function() {
-				$(".leftsidebar_box dd").hide();
-				$(".leftsidebar_box dt")
-						.hover(
-								function() {
-									$(".leftsidebar_box dt").css({
-										"background-color" : "#4C2C4C"
-									})
-									$(this).css({
-										"background-color" : "#000"
-									});
-									$(this).parent().find('dd').removeClass(
-											"menu_chioce");
-									$(".leftsidebar_box dt img").attr("src",
-											"img/select_xl01.png");
-									$(this).parent().find('img').attr("src",
-											"img/select_xl.png");
-									$(".menu_chioce").slideUp();
-									$(this).parent().find('dd').slideToggle();
-									$(this).parent().find('dd').addClass(
-											"menu_chioce");
-								});
-			})
-		</script>
+
+		});
+	</script>
+	<script type="text/javascript">
+		$(".leftsidebar_box dt").css({
+			"background-color" : "#4C2C4C"
+		});
+		$(".leftsidebar_box dt img").attr("src", "img/select_xl01.png");
+		$(function() {
+			$(".leftsidebar_box dd").hide();
+			$(".leftsidebar_box dt").hover(
+					function() {
+						$(".leftsidebar_box dt").css({
+							"background-color" : "#4C2C4C"
+						})
+						$(this).css({
+							"background-color" : "#000"
+						});
+						$(this).parent().find('dd').removeClass("menu_chioce");
+						$(".leftsidebar_box dt img").attr("src",
+								"img/select_xl01.png");
+						$(this).parent().find('img').attr("src",
+								"img/select_xl.png");
+						$(".menu_chioce").slideUp();
+						$(this).parent().find('dd').slideToggle();
+						$(this).parent().find('dd').addClass("menu_chioce");
+					});
+		})
+	</script>
 </body>
 </html>

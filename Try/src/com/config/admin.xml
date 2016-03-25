@@ -21,7 +21,8 @@
 
 		<global-results>
 			<!-- 下面定义的结果对所有的Action都有效 -->
-			<result name="login">/content\login.jsp</result>
+			<result name="error">/content\login.jsp</result>
+			<result name="login">/content\error.jsp</result>
 		</global-results>
 
 		<action name="addUser" class="com.action.admin.AddUserAction">
@@ -34,8 +35,13 @@
 		</action>
 
 		<action name="upload" class="com.action.admin.UploadAction">
-			<result name="success" type="redirectAction">
-				<param name="actionName">aColumnList</param>
+			<result name="success" type="dispatcher">
+				<param name="column">${column}</param>
+				<param name="location">/content\uptext.jsp</param>
+			</result>
+			<result name="input" type="dispatcher">
+				<param name="column">${column}</param>
+				<param name="location">/content\uptext.jsp</param>
 			</result>
 		</action>
 
@@ -44,14 +50,13 @@
 				<param name="actionName">showUserList</param>
 			</result>
 		</action>
-
-		<action name="showUserList" class="com.action.admin.ShowUserListAction">
-			<result name="success">/content\adduser.jsp</result>
-
-		</action>
 		<action name="showEditor" class="com.action.admin.ShowEditorAction">
 			<result name="success">/content\uptext.jsp</result>
 		</action>
+		<action name="showUserList" class="com.action.admin.ShowUserListAction">
+			<result name="success">/content\adduser.jsp</result>
+		</action>
+
 		<action name="aColumnList" class="com.action.user.GetColumnAction">
 			<result name="success">/content\publish.jsp</result>
 		</action>

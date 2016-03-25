@@ -135,7 +135,7 @@
 			<div class="right-main">
 				<div class="right-title">
 					<h2>
-						<a href="admin.jsp">后台管理系统</a>
+						<a href="recentNews">后台管理系统</a>
 					</h2>
 				</div>
 				<div class="buttons">
@@ -170,7 +170,7 @@
 								<li class="newstitle">新闻标题</li>
 								<li class="update-program">更新栏目</li>
 								<li class="funcation">操作</li>
-								<li class="upload-user">上传用户</li>
+								<li class="upload-user">用户</li>
 								<li class="update-time">更新时间</li>
 							</ul>
 							<s:subset source="newsList" start="0" count="6">

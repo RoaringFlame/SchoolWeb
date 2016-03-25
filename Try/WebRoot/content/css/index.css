@@ -648,9 +648,7 @@ table{empty-cells:show;border-collapse:collapse;border-spacing:0;}
 .item-i ul li:hover{
 	background:#DCC0DC;
 }
-.item-i ul .now{
-  background:#DCC0DC;
-}
+
 
 .i-title{
 	width:250px;

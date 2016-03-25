@@ -130,7 +130,7 @@
 			<div class="right-main">
 				<div class="right-title">
 					<h2>
-						<a href="admin.jsp">后台管理系统</a>
+						<a href="recentNews">后台管理系统</a>
 					</h2>
 				</div>
 
@@ -138,12 +138,7 @@
 					<div class="page-title">
 						<span>当前所在：<s:property value="#application.map[column]" /></span>
 						<s:if test="#session.user.permissionSign">
-							<s:url id="showEditor" action="showEditor">
-								<s:param name="column">
-									<s:property value="column" />
-								</s:param>
-							</s:url>
-							<s:a href="%{showEditor}" class="button-right">
+							<s:a href="showEditor?column=%{column}" class="button-right">
 								<span>发布</span>
 							</s:a>
 						</s:if>
@@ -167,21 +162,11 @@
 									<li class="click"><s:property value="readCount" /></li>
 									<li class="upload-time"><s:date name="uploadDate"
 											format="yyyy-MM-dd HH:mm:ss" /></li>
-									<li class="operate"><s:url id="update"
-											action="showInEditor">
-											<s:param name="newsId">
-												<s:property value="newsId" />
-											</s:param>
-											<s:param name="pageNumber">
-												<s:property value="pageNumber" />
-											</s:param>
-										</s:url> <s:a cssClass="change" href="%{update}">修改</s:a> <s:url
-											id="scan" action="uGetDetail">
-											<s:param name="newsId">
-												<s:property value="newsId" />
-											</s:param>
-										</s:url> <s:a cssClass="view" href="%{scan}">查看</s:a> <s:url
-											id="delete" action="deleteNews">
+									<li class="operate">
+											<s:a cssClass="change"
+												href="showInEditor?newsId=%{newsId}&pageNumber=%{pageNumber}">修改</s:a>
+											<s:a cssClass="view" href="uGetDetail?newsId=%{newsId}">查看</s:a>
+										 <s:url id="delete" action="deleteNews">
 											<s:param name="newsId">
 												<s:property value="newsId" />
 											</s:param>

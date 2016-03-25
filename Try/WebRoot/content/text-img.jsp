@@ -21,12 +21,12 @@
 					</div>
 					<div class="word">
 						<p>登录|注册|旧站入口</p>
-						<br> <span class="search">
-							<form action="" method="get">
-								<input name="" type="text" class="kuan" /> <input value="搜索"
-									type="button" class="an" />
-							</form>
-						</span>
+						<br>
+						<form action="spageAction" method="post">
+							<span class="search"> <s:textfield name="searchStr"
+									cssClass="kuan" /> <input value="搜索" type="submit" class="an" />
+							</span>
+						</form>
 					</div>
 				</div>
 
@@ -187,7 +187,10 @@
 			<div class="right-page">
 				<div class="right-title">
 					<p>
-						<a href="index.jsp">首页</a>:当前页面>><a href="newslist.html">最新公告</a>
+						<a href="index.jsp">首页</a>:当前页面>><a
+							href="upageAction?column=<s:property
+								value="news.newsColumn" />"><s:property
+								value="#application.map[news.newsColumn]" /></a>
 					</p>
 				</div>
 				<div class="right-item">

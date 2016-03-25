@@ -159,11 +159,11 @@
 					</div>
 					<div class="left-itemi">
 						<ul>
-							<li><a href="newslist.html">活动通知</a></li>
-							<li><a href="newslist.html">最新通告</a></li>
-							<li><a href="newslist.html">专题教育</a></li>
-							<li><a href="newslist.html">学生天地</a></li>
-							<li><a href="newslist.html">教师风采</a></li>
+							<li><a href="vpageAction?column=2">通知公告</a></li>
+							<li><a href="vpageAction?column=17">新闻动态</a></li>
+							<li><a href="vpageAction?column=18">学校公告</a></li>
+							<li><a href="vpageAction?column=19">学生园地</a></li>
+							<li><a href="vpageAction?column=20">教师风采</a></li>
 
 						</ul>
 					</div>
@@ -187,16 +187,22 @@
 			<div class="right-page">
 				<div class="right-title">
 					<p>
-						<a href="index.jsp">首页</a>:当前页面>><a href="newslist.html">最新公告</a>
+						<a href="index.jsp">首页</a>:当前页面>><a
+							href="vpageAction?column=<s:property
+								value="column" />"><s:property
+								value="#application.map[column]" /></a>
 					</p>
 				</div>
 				<div class="right-item">
 					<div class="newslist-ti">
-						<h2>最新公告</h2>
+						<h2>
+							<s:property value="#application.map[column]" />
+						</h2>
 					</div>
 					<div class="newslist">
-						<s:iterator value="newsList">
-							<ul>
+
+						<ul>
+							<s:iterator value="newsList">
 								<li><s:url id="scan" action="vGetDetial">
 										<s:param name="newsId">
 											<s:property value="newsId" />
@@ -204,8 +210,9 @@
 									</s:url> <s:a href="%{scan}">
 										<s:property value="newsTitle" />
 									</s:a><span><s:date name="uploadDate" format="yyyy-MM-dd" /></span></li>
-							</ul>
-						</s:iterator>
+							</s:iterator>
+						</ul>
+
 					</div>
 
 					<div class="pagedown">

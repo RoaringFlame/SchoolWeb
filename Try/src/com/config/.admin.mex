@@ -9,9 +9,12 @@
         <resourceEdge source="input" routing="0" target="adduser.jsp" />
       </result>
     </action>
-    <action name="upload" location="286,140" size="127,41">
+    <action name="upload" location="280,125" size="127,41">
       <result name="success">
-        <resourceEdge source="success" routing="0" target="aColumnList" namespace="" />
+        <resourceEdge source="success" routing="0" target="uptext.jsp" />
+      </result>
+      <result name="input">
+        <resourceEdge source="input" routing="0" target="uptext.jsp" />
       </result>
     </action>
     <action name="deleteUser" location="65,158" size="126,41">
@@ -19,14 +22,14 @@
         <resourceEdge source="success" routing="0" target="showUserList" namespace="" />
       </result>
     </action>
+    <action name="showEditor" location="265,271" size="122,41">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="uptext.jsp" />
+      </result>
+    </action>
     <action name="showUserList" location="65,263" size="127,41">
       <result name="success">
         <resourceEdge source="success" routing="0" target="adduser.jsp" />
-      </result>
-    </action>
-    <action name="showEditor" location="266,279" size="122,41">
-      <result name="success">
-        <resourceEdge source="success" routing="0" target="uptext.jsp" />
       </result>
     </action>
     <action name="aColumnList" location="254,47" size="132,41">

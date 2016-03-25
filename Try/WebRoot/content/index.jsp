@@ -253,13 +253,15 @@
 				<div class="section-focus-pic" id="section-focus-pic">
 					<div class="pages" data-scro="list">
 						<ul>
-							<s:iterator value="#application.list1">
-								<li class="item-i" style="left:0px;"><s:url id="scan"
-										action="vGetDetial">
+							<s:subset source="#application.list1" start="0" count="4">
+								<s:iterator status="st">
+									<s:url id="scan" action="vGetDetial">
 										<s:param name="newsId">
 											<s:property value="newsId" />
 										</s:param>
-									</s:url> <s:a href="%{scan}" target="_blank">
+									</s:url>																
+										<li class="item-i" <s:if test="#st.first">style="left:0px;"</s:if>>									
+									<s:a href="%{scan}" target="_blank">
 										<img
 											src="<%=request.getContextPath()%>/editor/attached/<s:property value="fileName"/>">
 									</s:a>
@@ -267,8 +269,10 @@
 										<s:a href="%{scan}" target="_blank">
 											<s:property value="newsTitle" />
 										</s:a>
-									</h3></li>
-							</s:iterator>
+									</h3>
+									</li>
+								</s:iterator>
+							</s:subset>
 						</ul>
 					</div>
 					<div class="controler" data-scro="controler">
@@ -399,7 +403,7 @@
 				</div>
 				<div class="item">
 					<ul>
-												<s:subset source="#application.list19" start="0" count="4">
+						<s:subset source="#application.list19" start="0" count="4">
 							<s:iterator>
 								<li><a
 									href="vGetDetial?newsId=<s:property value="newsId"/>"><s:property
@@ -494,7 +498,8 @@ window.onload=function(){
           this.className='select';
 
           divs[this.id].style.display='block';
-        }    
+        } 
+        }   
 }
 </script>
 <script type="text/javascript">
@@ -646,6 +651,6 @@ function MoveOutDiv(){
     MyMar=setInterval(Marquee,speed);
   }
 }
-}
+
 </script>
 </html>

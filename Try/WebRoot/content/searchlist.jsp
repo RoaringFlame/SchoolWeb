@@ -155,7 +155,7 @@
 			<div class="main-page">
 				<div class="main-title">
 					<p>
-						<a href="index.jsp">首页</a>:当前页面>>搜索列表
+						<a href="index.jsp">首页</a>:当前页面>>搜索结果
 					</p>
 				</div>
 				<div class="main-item-list">
