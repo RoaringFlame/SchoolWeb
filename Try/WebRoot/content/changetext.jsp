@@ -69,7 +69,7 @@
 					</div>
 					<dl class="system_log">
 						<dt onClick="changeImage()" class="active">
-							网站首页
+							<a href="recentNews">网站首页</a>
 						</dt>
 						<dd class="first_dd">
 							<a href="upageAction?column=1">图片新闻</a>

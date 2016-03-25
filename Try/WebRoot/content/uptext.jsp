@@ -67,7 +67,9 @@
 						<div class="nav-admin-png"></div>
 					</div>
 					<dl class="system_log">
-						<dt onClick="changeImage()" class="active">网站首页</dt>
+						<dt onClick="changeImage()" class="active">
+							<a href="recentNews">网站首页</a>
+						</dt>
 						<dd class="first_dd">
 							<a href="upageAction?column=1">图片新闻</a>
 						</dd>

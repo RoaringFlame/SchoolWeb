@@ -19,7 +19,10 @@
 						</div>
 					</div>
 					<div class="word">
-						<p>登录|注册|旧站入口</p>
+						<p>
+							<a href="login.jsp">登录</a>&nbsp;|&nbsp;<a href="">注册</a>&nbsp;|&nbsp;<a
+								href="">旧站入口</a>
+						</p>
 						<br>
 						<form action="spageAction" method="post">
 							<span class="search"> <s:textfield name="searchStr"

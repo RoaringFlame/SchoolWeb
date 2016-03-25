@@ -13,7 +13,7 @@
 
 	<div class="daohang">
 		<ul class="nav">
-			<li class="current"><a href="index.jsp"><b>网站首页</b></a></li>
+			<li class="current"><a href="recentNews"><b>网站首页</b></a></li>
 			<li><a href="vpageAction?column=17">校园动态</a> <span>
 					<p>
 						<a href="vpageAction?column=2">通知公告</a>
