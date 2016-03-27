@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>新闻页面</title>
+<title>搜索结果</title>
 <link rel="stylesheet" href="css/second.css">
 <link rel="stylesheet" type="text/css" href="css/public.css">
 </head>

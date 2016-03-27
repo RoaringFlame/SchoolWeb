@@ -5,7 +5,7 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>上传</title>
+<title>更新上传</title>
 <link rel="stylesheet" href="css/admin.css">
 <link rel="stylesheet" href="css/public.css">
 <script type="text/javascript" src="js/jquery.js"></script>
@@ -53,7 +53,7 @@
 					<ul class="topnav">
 						<li><a class="ad" href="#"></a>
 							<ul class="subnav">
-								<li><a href="adduser.jsp">添加用户</a></li>
+								<li><a href="showUserList">添加用户</a></li>
 								<li><a href="resetpwd.jsp">修改密码</a></li>
 								<li><a href="login!quit">退出</a></li>
 							</ul></li>

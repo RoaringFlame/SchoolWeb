@@ -29,7 +29,7 @@
 						<li><a class="ad" href="#"></a>
 							<ul class="subnav">
 								<s:if test="#session.user.permissionSign">
-									<li><a href="adduser.jsp">添加用户</a></li>
+									<li><a href="showUserList">添加用户</a></li>
 								</s:if>
 								<li><a href="resetpwd.jsp">修改密码</a></li>
 								<li><a href="login!quit">退出</a></li>

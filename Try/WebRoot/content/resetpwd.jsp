@@ -24,7 +24,7 @@
 					<ul class="topnav">
 						<li><a class="ad" href="#"></a>
 							<ul class="subnav">
-								<li><a href="adduser.jsp">添加用户</a></li>
+								<li><a href="showUserList">添加用户</a></li>
 								<li><a href="resetpwd.jsp">修改密码</a></li>
 								<li><a href="login!quit">退出</a></li>
 							</ul></li>
