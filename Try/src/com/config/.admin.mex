@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Struts2Diagram version="2.0">
-  <package name="Admin" location="266,46" size="415,322">
-    <action name="addUser" location="64,50" size="125,62">
+  <package name="Admin" location="195,39" size="426,330">
+    <action name="addUser" location="42,35" size="125,62">
       <result name="success">
         <resourceEdge source="success" routing="0" target="showUserList" namespace="" />
       </result>
@@ -9,7 +9,7 @@
         <resourceEdge source="input" routing="0" target="adduser.jsp" />
       </result>
     </action>
-    <action name="upload" location="280,125" size="127,41">
+    <action name="upload" location="290,135" size="127,62">
       <result name="success">
         <resourceEdge source="success" routing="0" target="uptext.jsp" />
       </result>
@@ -17,29 +17,38 @@
         <resourceEdge source="input" routing="0" target="uptext.jsp" />
       </result>
     </action>
-    <action name="deleteUser" location="65,158" size="126,41">
+    <action name="deleteUser" location="43,113" size="126,41">
       <result name="success">
         <resourceEdge source="success" routing="0" target="showUserList" namespace="" />
       </result>
     </action>
-    <action name="showEditor" location="265,271" size="122,41">
+    <action name="showEditor" location="285,280" size="122,41">
       <result name="success">
         <resourceEdge source="success" routing="0" target="uptext.jsp" />
       </result>
     </action>
-    <action name="showUserList" location="65,263" size="127,41">
+    <action name="showUserList" location="69,177" size="127,41">
       <result name="success">
         <resourceEdge source="success" routing="0" target="adduser.jsp" />
       </result>
     </action>
-    <action name="aColumnList" location="254,47" size="132,41">
+    <action name="aColumnList" location="264,57" size="132,41">
       <result name="success">
         <resourceEdge source="success" routing="0" target="publish.jsp" />
       </result>
     </action>
+    <action name="fileUpload" location="40,250" size="126,62">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="upfile.jsp" />
+      </result>
+      <result name="input">
+        <resourceEdge source="input" routing="0" target="upfile.jsp" />
+      </result>
+    </action>
   </package>
-  <webResource name="adduser.jsp" path="/content\adduser.jsp" location="13,173" size="150,55" />
-  <webResource name="uptext.jsp" path="/content\uptext.jsp" location="716,295" size="150,55" />
-  <webResource name="publish.jsp" path="/content\publish.jsp" location="718,80" size="150,55" />
+  <webResource name="adduser.jsp" path="/content\adduser.jsp" location="17,56" size="150,55" />
+  <webResource name="uptext.jsp" path="/content\uptext.jsp" location="653,277" size="150,55" />
+  <webResource name="publish.jsp" path="/content\publish.jsp" location="654,81" size="150,55" />
+  <webResource name="upfile.jsp" path="/content\upfile.jsp" location="23,303" size="150,55" />
 </Struts2Diagram>
 

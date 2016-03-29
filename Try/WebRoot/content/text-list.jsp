@@ -24,7 +24,9 @@
 					<ul class="topnav">
 						<li><a class="ad" href="#"></a>
 							<ul class="subnav">
-								<li><a href="showUserList">添加用户</a></li>
+								<s:if test="#session.user.permissionSign">
+									<li><a href="showUserList">添加用户</a></li>
+								</s:if>
 								<li><a href="resetpwd.jsp">修改密码</a></li>
 								<li><a href="login!quit">退出</a></li>
 							</ul></li>
@@ -140,9 +142,16 @@
 					<div class="page-title">
 						<span>当前所在：<s:property value="#application.map[column]" /></span>
 						<s:if test="#session.user.permissionSign">
-							<s:a href="showEditor?column=%{column}" class="button-right">
-								<span>发布</span>
-							</s:a>
+							<s:if test="column!=15">
+								<s:a href="showEditor?column=%{column}" class="button-right">
+									<span>发布</span>
+								</s:a>
+							</s:if>
+							<s:else>
+								<s:a href="upfile.jsp" class="button-right">
+									<span>上传</span>
+								</s:a>
+							</s:else>
 						</s:if>
 					</div>
 					<div class="text-list">
@@ -164,10 +173,15 @@
 									<li class="click"><s:property value="readCount" /></li>
 									<li class="upload-time"><s:date name="uploadDate"
 											format="yyyy-MM-dd HH:mm:ss" /></li>
-									<li class="operate"><s:a cssClass="change"
-											href="showInEditor?newsId=%{newsId}&pageNumber=%{pageNumber}">修改</s:a>
-										<s:a cssClass="view" href="uGetDetail?newsId=%{newsId}">查看</s:a>
-										<s:url id="delete" action="deleteNews">
+									<li class="operate"><s:if test="newsColumn!=15">
+											<s:a cssClass="change"
+												href="showInEditor?newsId=%{newsId}&pageNumber=%{pageNumber}">修改</s:a>
+											<s:a cssClass="view" href="uGetDetail?newsId=%{newsId}">查看</s:a>
+										</s:if> <s:else>
+											<s:a cssClass="change" href="download?newsId=%{newsId}">下载</s:a>
+											<s:a cssClass="view"
+												href="" ></s:a>
+										</s:else> <s:url id="delete" action="deleteNews">
 											<s:param name="newsId">
 												<s:property value="newsId" />
 											</s:param>

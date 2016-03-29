@@ -24,7 +24,9 @@
 					<ul class="topnav">
 						<li><a class="ad" href="#"></a>
 							<ul class="subnav">
-								<li><a href="showUserList">添加用户</a></li>
+								<s:if test="#session.user.permissionSign">
+									<li><a href="showUserList">添加用户</a></li>
+								</s:if>
 								<li><a href="resetpwd.jsp">修改密码</a></li>
 								<li><a href="login!quit">退出</a></li>
 							</ul></li>
@@ -155,7 +157,12 @@
 										</s:a></li>
 									<li class="li-right"><s:if
 											test="#session.user.permissionSign">
-											<s:a cssClass="left" href="showEditor?column=%{key}">发布</s:a>
+											<s:if test="key!=15">
+												<s:a cssClass="left" href="showEditor?column=%{key}">发布</s:a>
+											</s:if>
+											<s:else>
+												<s:a cssClass="left" href="upfile.jsp">上传</s:a>
+											</s:else>
 											<s:a cssClass="right" href="upageAction?column=%{key}">查看</s:a>
 										</s:if> <s:else>
 											<s:a cssClass="centent" href="upageAction?column=%{key}">查看</s:a>
@@ -181,7 +188,12 @@
 										</s:a></li>
 									<li class="li-right"><s:if
 											test="#session.user.permissionSign">
-											<s:a cssClass="left" href="showEditor?column=%{key}">发布</s:a>
+											<s:if test="key!=15">
+												<s:a cssClass="left" href="showEditor?column=%{key}">发布</s:a>
+											</s:if>
+											<s:else>
+												<s:a cssClass="left" href="upfile.jsp">上传</s:a>
+											</s:else>
 											<s:a cssClass="right" href="upageAction?column=%{key}">查看</s:a>
 										</s:if> <s:else>
 											<s:a cssClass="centent" href="upageAction?column=%{key}">查看</s:a>

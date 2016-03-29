@@ -37,9 +37,9 @@ public class DBTimerTask {
 					.getTime());
 			delayTime = 24 * 60 * 60 * 1000 - result;
 			int hour = (int) (delayTime / (60 * 60 * 1000));
-			System.out.println("服务器刷新将会在" + hour + "小时"
+			System.out.println("---------------服务器刷新将会在" + hour + "小时"
 					+ (delayTime - hour * 60 * 60 * 1000) / (60 * 1000)
-					+ "分钟后开始，每隔24小时一次！");
+					+ "分钟后开始，每隔24小时一次！---------------");
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
@@ -57,6 +57,7 @@ public class DBTimerTask {
 				counter.setYesterdayCount(i);
 				counter.setDayCount(++j);
 				cDao.updateCounter(counter);
+				System.out.println("------------------系统数据更新成功！-------------------");
 			}
 
 		}, delayTime, 24 * 60 * 60 * 1000);

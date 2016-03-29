@@ -83,5 +83,14 @@
 			<result name="success">/content\showimg.jsp</result>
 			<result name="error">/content\index.jsp</result>
 		</action>
+		<action name="download" class="com.action.visitor.DownloadAction">
+			<result type="stream">
+				<param name="contentType">${mimeType}</param>
+				<param name="inputName">inStream</param>
+				<param name="contentDisposition">attachment;filename="${filename}"</param>
+				<param name="bufferSize">4096</param>
+			</result>
+			<result name="error">/content\error.jsp</result>
+		</action>
 	</package>
 </struts>    

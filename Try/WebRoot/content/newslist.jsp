@@ -205,15 +205,20 @@
 					<div class="newslist">
 
 						<ul>
-							<s:iterator value="newsList">
-								<li><s:url id="scan" action="vGetDetial">
-										<s:param name="newsId">
-											<s:property value="newsId" />
-										</s:param>
-									</s:url> <s:a href="%{scan}">
-										<s:property value="newsTitle" />
-									</s:a><span><s:date name="uploadDate" format="yyyy-MM-dd" /></span></li>
-							</s:iterator>
+							<s:if test="column!=15">
+								<s:iterator value="newsList">
+									<li><s:a href="vGetDetial?newsId=%{newsId}">
+											<s:property value="newsTitle" />
+										</s:a><span><s:date name="uploadDate" format="yyyy-MM-dd" /></span></li>
+								</s:iterator>
+							</s:if>
+							<s:else>
+								<s:iterator value="newsList">
+									<li><s:a href="download?newsId=%{newsId}">
+											<s:property value="newsTitle" />
+										</s:a><span><s:date name="uploadDate" format="yyyy-MM-dd" /></span></li>
+								</s:iterator>
+							</s:else>
 						</ul>
 
 					</div>

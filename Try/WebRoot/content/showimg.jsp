@@ -168,7 +168,7 @@
 		<div class="right-page">
 			<div class="right-title">
 				<p>
-					<a href="index.jsp">首页</a>:当前页面>><a href="newslist.html">最新公告</a>
+					<a href="index.jsp">首页</a>:当前页面>>图片新闻</a>
 				</p>
 			</div>
 			<div class="right-item">

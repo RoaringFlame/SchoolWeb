@@ -162,54 +162,65 @@
 					</p>
 				</div>
 				<div class="main-item-list">
-					<div class="searchlist">
-						<s:iterator value="newsList">
+
+					<s:if test="newsList.size()!=0">
+						<div class="searchlist">
+							<s:iterator value="newsList">
+								<ul>
+									<li class="search-program"><s:property
+											value="#application.map[newsColumn]" /></li>
+									<li class="search-con"><s:if test="newsColumn!=15">
+											<s:a href="newsDetail?newsId=%{newsId}">
+												<s:property value="newsTitle" />
+											</s:a>
+										</s:if> <s:else>
+											<s:a href="download?newsId=%{newsId}">
+												<s:property value="newsTitle" />
+											</s:a>
+										</s:else><span><s:date name="uploadDate" format="yyyy-MM-dd" /></span></li>
+								</ul>
+							</s:iterator>
+						</div>
+
+						<div class="pagedown">
 							<ul>
-								<li class="search-program"><s:property
-										value="#application.map[newsColumn]" /></li>
-								<li class="search-con"><s:url id="scan" action="newsDetail">
-										<s:param name="newsId">
-											<s:property value="newsId" />
+								<li><s:url id="firstPage" action="spageAction">
+										<s:param name="pageNumber">1</s:param>
+									</s:url> <s:a href="%{firstPage}">首页</s:a></li>
+
+								<li><s:url id="prePage" action="spageAction">
+										<s:param name="pageNumber">
+											<s:property value='pageNumber-1' />
 										</s:param>
-									</s:url> <s:a href="%{scan}">
-										<s:property value="newsTitle" />
-									</s:a><span><s:date name="uploadDate" format="yyyy-MM-dd" /></span></li>
+									</s:url> <s:a href="%{prePage}">上一页</s:a></li>
+
+								<li><s:url id="nextPage" action="spageAction">
+										<s:param name="pageNumber">
+											<s:property value='pageNumber+1' />
+										</s:param>
+									</s:url> <s:a href="%{nextPage}">下一页</s:a></li>
+
+								<li><s:url id="lastPage" action="spageAction">
+										<s:param name="pageNumber">
+											<s:property value="totalPage" />
+										</s:param>
+									</s:url> <s:a href="%{lastPage}">末页</s:a></li>
 							</ul>
-						</s:iterator>
-					</div>
+						</div>
+					</s:if>
 
-					<div class="pagedown">
-						<ul>
-							<li><s:url id="firstPage" action="spageAction">
-									<s:param name="pageNumber">1</s:param>
-								</s:url> <s:a href="%{firstPage}">首页</s:a></li>
-
-							<li><s:url id="prePage" action="spageAction">
-									<s:param name="pageNumber">
-										<s:property value='pageNumber-1' />
-									</s:param>
-								</s:url> <s:a href="%{prePage}">上一页</s:a></li>
-
-							<li><s:url id="nextPage" action="spageAction">
-									<s:param name="pageNumber">
-										<s:property value='pageNumber+1' />
-									</s:param>
-								</s:url> <s:a href="%{nextPage}">下一页</s:a></li>
-
-							<li><s:url id="lastPage" action="spageAction">
-									<s:param name="pageNumber">
-										<s:property value="totalPage" />
-									</s:param>
-								</s:url> <s:a href="%{lastPage}">末页</s:a></li>
-						</ul>
-					</div>
+					<s:else>
+						<br>
+						<br>
+						<h3 align="center">未找到对应结果</h3>
+					</s:else>
 				</div>
 
 			</div>
 
 		</div>
 	</div>
-	</div>
+
 	<div class="clear"></div>
 	<div class="divider"></div>
 	<div class="footer">

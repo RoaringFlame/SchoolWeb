@@ -220,16 +220,16 @@
 			<div class="col">
 				<div class="title">
 					<h3>
-						<a href="vpageAction?column=6">工作动态</a>
+						<a href="vpageAction?column=15">下载专区</a>
 					</h3>
-					<a class="ai" href="vpageAction?column=6">more</a>
+					<a class="ai" href="vpageAction?column=15">more</a>
 				</div>
 				<ul>
-					<s:subset source="#application.list6" start="0" count="5">
+					<s:subset source="#application.list15" start="0" count="5">
 						<s:iterator>
 							<li><span><s:date name="uploadDate"
 										format="yyyy-MM-dd" /></span><a
-								href="vGetDetial?newsId=<s:property value="newsId"/>"><s:property
+								href="download?newsId=<s:property value="newsId"/>"><s:property
 										value="newsTitle" /></a></li>
 						</s:iterator>
 					</s:subset>
@@ -242,12 +242,7 @@
 			<div class="left">
 				<div class="dh-title">
 					<h3>图片新闻</h3>
-					<s:url id="ishowlist" action="ipageAction">
-						<s:param name="column">
-							<s:property value="1" />
-						</s:param>
-					</s:url>
-					<s:a href="%{ishowlist}">
+					<s:a href="ipageAction?column=1">
 					more</s:a>
 				</div>
 				<div class="section-focus-pic" id="section-focus-pic">
@@ -255,22 +250,19 @@
 						<ul>
 							<s:subset source="#application.list1" start="0" count="4">
 								<s:iterator status="st">
-									<s:url id="scan" action="vGetDetial">
-										<s:param name="newsId">
-											<s:property value="newsId" />
-										</s:param>
-									</s:url>																
-										<li class="item-i" <s:if test="#st.first">style="left:0px;"</s:if>>									
-									<s:a href="%{scan}" target="_blank">
-										<img
-											src="<%=request.getContextPath()%>/editor/attached/<s:property value="fileName"/>">
-									</s:a>
-									<h3>
-										<s:a href="%{scan}" target="_blank">
-											<s:property value="newsTitle" />
+									<s:url id="scan" action="vGetDetial?newsId=%{newsId}">
+									</s:url>
+									<li class="item-i"
+										<s:if test="#st.first">style="left:0px;"</s:if>><s:a
+											href="%{scan}" target="_blank">
+											<img
+												src="<%=request.getContextPath()%>/editor/attached/<s:property value="fileName"/>">
 										</s:a>
-									</h3>
-									</li>
+										<h3>
+											<s:a href="%{scan}" target="_blank">
+												<s:property value="newsTitle" />
+											</s:a>
+										</h3></li>
 								</s:iterator>
 							</s:subset>
 						</ul>

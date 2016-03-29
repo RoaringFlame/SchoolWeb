@@ -26,6 +26,8 @@ public class DeleteNewsAction extends ActionSupport {
 
 	private static final long serialVersionUID = 1L;
 
+	private static final Integer filecolumn = 15;
+
 	private String newsId;
 	private String column;
 	private int pageNumber;
@@ -59,33 +61,56 @@ public class DeleteNewsAction extends ActionSupport {
 	public String execute() {
 		Integer nId = Integer.parseInt(newsId);
 		NewsDao nDao = new NewsDao();
-		NewsDetailDao ndDao = new NewsDetailDao();
-
-		// 如有对应文件则删除文件
 		News news = nDao.getNewsById(nId);
-		if (news.getFileName() != null) {
-			String relativePath = "/editor/attached";
-			String absolutePath = ServletActionContext.getServletContext()
-					.getRealPath(relativePath) + "/" + news.getFileName();
-			File file = new File(absolutePath);
-			if (file.exists()) {
-				file.delete();
+
+		// 如果新闻存在才继续
+		if (news != null) {
+
+			// 如果是下载专区文件进入删除上传文件逻辑
+			if (news.getNewsColumn() == filecolumn) {
+				// 删除服务器文件
+				String relativePath = "/upload";
+				deleteUpfile(news, relativePath);
+				// 删除数据库数据
+				if (nDao.deleteNewsById(nId))
+					return SUCCESS;
+				return ERROR;
 			}
-		}
 
-		// 删除数据
-		if (nDao.deleteNewsById(nId) && ndDao.deleteNewsDetailById(nId)) {
+			//否则为其他栏目文件
+			// 如有对应文件则删除文件
+			if (news.getFileName() != null) {
+				String relativePath = "/editor/attached";
+				deleteUpfile(news, relativePath);
+			}
 
-			// 刷新application中对应的list
-			HttpServletRequest request = ServletActionContext.getRequest();
-			ServletContext application = request.getServletContext();
-			String listname = "list" + column;
-			Integer column = Integer.parseInt(this.column);
-			List<News> newslist = nDao.getColumnList(column, 1, 7);
-			application.setAttribute(listname, newslist);
+			// 删除数据
+			NewsDetailDao ndDao = new NewsDetailDao();
+			if (nDao.deleteNewsById(nId) && ndDao.deleteNewsDetailById(nId)) {
 
-			return SUCCESS;
+				// 刷新application中对应的list
+				HttpServletRequest request = ServletActionContext.getRequest();
+				ServletContext application = request.getServletContext();
+				String listname = "list" + column;
+				Integer column = Integer.parseInt(this.column);
+				List<News> newslist = nDao.getColumnList(column, 1, 7);
+				application.setAttribute(listname, newslist);
+
+				return SUCCESS;
+			}
+
 		}
 		return ERROR;
 	}
+
+	// 删除数据库已上传文件
+	private void deleteUpfile(News news, String relativePath) {
+		String absolutePath = ServletActionContext.getServletContext()
+				.getRealPath(relativePath) + "/" + news.getFileName();
+		File file = new File(absolutePath);
+		if (file.exists()) {
+			file.delete();
+		}
+	}
+
 }

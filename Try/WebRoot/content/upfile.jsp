@@ -4,39 +4,10 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>上传</title>
+<title>文件上传</title>
 <link rel="stylesheet" href="css/admin.css">
 <link rel="stylesheet" href="css/public.css">
 <script type="text/javascript" src="js/jquery.js"></script>
-<!-- 编辑器脚本 -->
-<link rel="stylesheet" href="../editor/themes/default/default.css" />
-<link rel="stylesheet" href="../editor/plugins/code/prettify.css" />
-<script charset="utf-8" src="../editor/kindeditor.js"></script>
-<script charset="utf-8" src="../editor/lang/zh_CN.js"></script>
-<script charset="utf-8" src="../editor/plugins/code/prettify.js"></script>
-<script>
-	KindEditor.ready(function(K) {
-		var editor1 = K.create('textarea[name="content"]', {
-			cssPath : '../editor/plugins/code/prettify.css',
-			uploadJson : '../editor/jsp/upload_json.jsp',
-			fileManagerJson : '../editor/jsp/file_manager_json.jsp',
-			allowFileManager : true,
-			resizeType : 0,
-			afterCreate : function() {
-				var self = this;
-				K.ctrl(document, 13, function() {
-					self.sync();
-					document.forms['example'].submit();
-				});
-				K.ctrl(self.edit.doc, 13, function() {
-					self.sync();
-					document.forms['example'].submit();
-				});
-			}
-		});
-		prettyPrint();
-	});
-</script>
 </head>
 <body>
 	<div class="container">
@@ -168,17 +139,14 @@
 				</div>
 
 				<div class="newsbox-2">
-					<div class="page-title">
-						当前所在：
-						<s:property value="#application.map[column]" />
-					</div>
+					<div class="page-title">当前所在：下载专区</div>
 					<div class="upload-main">
 						<div class="upload-title">
-							<form id="form1" action="upload" method="post">
-								<s:actionerror cssClass="warning" />
-								<s:hidden name="column" value="%{column}" />
+							<s:form id="form1" action="fileUpload"
+								enctype="multipart/form-data" method="post">
+								<s:actionmessage cssClass="warning" />
 								<p>
-									文章标题：<input type="text" class="article" name="title">
+									标题：<input type="text" class="article" name="title">
 								</p>
 								<p>
 									作者：<input type="text" class="name" name="uploader">
@@ -187,25 +155,21 @@
 								<div class="article-area">
 									<div class="text-area">
 										<!--放编辑框-->
-										<textarea name="content" cols="100" rows="8"
-											style="width:830px;height:480px;visibility:hidden;"></textarea>
+										<s:file name="upload" label="选择文件" />
+										<br />
 									</div>
 								</div>
 								<div class="page">
 									&nbsp;&nbsp;&nbsp; <input type="submit" value="提交" class="up">
 									<input type="reset" value="取消" class="give-up">
 								</div>
-							</form>
+							</s:form>
 						</div>
 					</div>
 				</div>
 
 			</div>
 		</div>
-
-
-
-
 	</div>
 	<script type="text/javascript">
 		$(document).ready(function() {
