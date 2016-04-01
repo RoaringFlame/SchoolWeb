@@ -125,6 +125,7 @@ public class UploadAction extends ActionSupport {
 						Integer column = Integer.parseInt(this.column);
 						List<News> newslist = nDao.getColumnList(column, 1, 7);
 						application.setAttribute(listname, newslist);
+						
 						addActionError("发布成功！");
 						return SUCCESS;
 					}

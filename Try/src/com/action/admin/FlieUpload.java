@@ -12,8 +12,10 @@ import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 import java.util.Random;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -170,6 +172,14 @@ public class FlieUpload extends ActionSupport {
 			news.setFileName(uploadFileName);
 
 			if (nDao.AddNews(news)) {
+				
+				// 刷新application中对应的list
+				ServletContext application = request
+						.getServletContext();
+				String listname = "list" + filecolumn;
+				List<News> newslist = nDao.getColumnList(filecolumn, 1, 7);
+				application.setAttribute(listname, newslist);
+				
 				addActionMessage("上传成功！");
 				return SUCCESS;
 			}
