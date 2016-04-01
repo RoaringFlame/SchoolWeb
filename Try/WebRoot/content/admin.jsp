@@ -154,9 +154,9 @@
 						<a href="resetpwd.jsp"><img src="img/resetpwd.png" alt=""></a>
 						<a class="title" href="resetpwd.jsp">修改密码</a>
 					</div>
-					<div class="button" href="login.jsp">
-						<a href="login.jsp"><img src="img/exit.png" alt=""></a> <a
-							class="title" href="login.jsp">退出</a>
+					<div class="button" href="login!quit">
+						<a href="login!quit"><img src="img/exit.png" alt=""></a> <a
+							class="title" href="login!quit">退出</a>
 					</div>
 				</div>
 				<div class="admin-main">
