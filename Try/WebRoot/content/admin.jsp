@@ -156,7 +156,7 @@
 					</div>
 					<div class="button" href="login.jsp">
 						<a href="login.jsp"><img src="img/exit.png" alt=""></a> <a
-							class="title" href="login!quit">退出</a>
+							class="title" href="login.jsp">退出</a>
 					</div>
 				</div>
 				<div class="admin-main">
